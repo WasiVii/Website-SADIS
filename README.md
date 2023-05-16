@@ -34,7 +34,6 @@
 -   Berita kegiatan
 -   Kurikulum
 -   Extrakulikuler
--   E-raport
 -   Sarana dan prasarana
 -   Data guru
 -   Data siswa
