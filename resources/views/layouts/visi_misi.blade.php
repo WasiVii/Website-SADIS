@@ -1,1 +1,8 @@
-<p>ini visi dan misi sekolah</p>
+@extends('layouts/app')
+ 
+@section('title', 'Visi & Misi')
+
+@section('content')
+    <p>ini Visi & Misi</p>
+@endsection
+

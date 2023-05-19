@@ -1,1 +1,8 @@
-<p>ini sarana dan prasarana</p>
+@extends('layouts/app')
+ 
+@section('title', 'Sarana & Prasarana')
+
+@section('content')
+    <p>ini Sarana & Prasarana</p>
+@endsection
+
