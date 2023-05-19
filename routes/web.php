@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.app');
+    return view('layouts.home');
 });
 
 Route::prefix('profile')->group(function () {
