@@ -1,0 +1,1 @@
+<p>ini berita kegiatan</p>
