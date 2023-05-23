@@ -32,6 +32,10 @@ Route::prefix('profile')->group(function () {
     });
 });
 
+Route::get('/teams', function () {
+    return view('layouts.teams');
+});
+
 Route::get('/news', function () {
     return view('layouts.news');
 });
