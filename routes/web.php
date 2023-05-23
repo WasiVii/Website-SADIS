@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\MapController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,7 +55,9 @@ Route::prefix('profile')->group(function () {
     Route::get('/data-guru', function () {
         return view('layouts.data_guru');
     });
-    Route::get('/peta', [MapController::class, 'index']);
+    Route::get('/peta', function () {
+        return view('layouts.peta_sekolah');
+    });
 });
 
 Route::get('/teams', function () {
