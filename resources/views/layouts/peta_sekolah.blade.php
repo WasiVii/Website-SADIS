@@ -20,7 +20,6 @@
                             <p class="normal-case text-4xl font-bold">Maps</p>
                             <p>Berikut adalah peta dari SADIS School kami, dimana sekolah kami terletak di Jl. Budi Utomo No.7, Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10710, Indonesia</p>
                             <div class="card-actions justify-end">
-                            <button class="btn btn-primary mt-2" disabled>Pendaftaran Siswa</button>
                             </div>
                         </div>
                         <div id="map"></div>
