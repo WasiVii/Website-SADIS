@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2023 at 10:05 AM
+-- Generation Time: May 23, 2023 at 12:03 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_sadis`
+-- Database: `mydbrevisi1`
 --
 
 -- --------------------------------------------------------
@@ -28,14 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `berita` (
-  `idBerita` int(11) NOT NULL,
-  `Judul` varchar(45) NOT NULL,
-  `Isi_Berita` varchar(45) NOT NULL,
-  `Tanggal_Publikasi` date NOT NULL,
-  `Staff_idStaff` int(11) NOT NULL,
-  `Staff_Users_idUsers` int(11) NOT NULL,
-  `Staff_Users_Role_idRole` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `id` int(11) NOT NULL,
+  `Judul` varchar(45) DEFAULT NULL,
+  `Isi_Berita` varchar(45) DEFAULT NULL,
+  `Tanggal_Publikasi` date DEFAULT NULL,
+  `Staff_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_esperanto_ci;
 
 -- --------------------------------------------------------
 
@@ -44,10 +42,11 @@ CREATE TABLE `berita` (
 --
 
 CREATE TABLE `ekstrakulikuler` (
-  `idEkstrakulikuler` int(11) NOT NULL,
-  `Nama_Ekstrakulikuler` varchar(45) NOT NULL,
-  `Deskripsi` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `id` int(11) NOT NULL,
+  `Nama_Ekstrakulikuler` varchar(45) DEFAULT NULL,
+  `Deskripsi` varchar(45) DEFAULT NULL,
+  `photo` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_esperanto_ci;
 
 -- --------------------------------------------------------
 
@@ -56,17 +55,17 @@ CREATE TABLE `ekstrakulikuler` (
 --
 
 CREATE TABLE `guru` (
-  `idGuru` int(11) NOT NULL,
-  `Nama_Guru` varchar(45) NOT NULL,
-  `Mata_Pelajaran_Yang_Diajar` varchar(45) NOT NULL,
-  `Jenis_Kelamin` varchar(45) NOT NULL,
-  `Alamat` varchar(100) NOT NULL,
-  `Nomor_Telepon` int(11) NOT NULL,
-  `Image` varchar(45) NOT NULL,
-  `Users_idUsers` int(11) NOT NULL,
-  `Kelas_idKelas` int(11) NOT NULL,
-  `Mata Pelajaran_idMata Pelajaran` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `id` int(11) NOT NULL,
+  `Nama_Guru` varchar(45) DEFAULT NULL,
+  `Mata_Pelajaran` varchar(45) DEFAULT NULL,
+  `Jenis_Kelamin` varchar(45) DEFAULT NULL,
+  `Alamat` varchar(45) DEFAULT NULL,
+  `Nomor_Telepon` varchar(45) DEFAULT NULL,
+  `Image` varchar(45) DEFAULT NULL,
+  `Users_id` int(11) NOT NULL,
+  `Kelas_id` int(11) NOT NULL,
+  `Mata_Pelajaran_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_esperanto_ci;
 
 -- --------------------------------------------------------
 
@@ -75,20 +74,23 @@ CREATE TABLE `guru` (
 --
 
 CREATE TABLE `kelas` (
-  `idKelas` int(11) NOT NULL,
-  `Nama_Kelas` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `id` int(11) NOT NULL,
+  `Nama_Kelas` varchar(45) DEFAULT NULL,
+  `Tahun_Pelajaran` date DEFAULT NULL,
+  `Wali_Kelas` varchar(45) DEFAULT NULL,
+  `Array_Siswa` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_esperanto_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mata pelajaran`
+-- Table structure for table `mata_pelajaran`
 --
 
-CREATE TABLE `mata pelajaran` (
-  `idMata Pelajaran` int(11) NOT NULL,
-  `Nama_Mata_Pelajaran` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+CREATE TABLE `mata_pelajaran` (
+  `id` int(11) NOT NULL,
+  `Nama_Mata_Pelajaran` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_esperanto_ci;
 
 -- --------------------------------------------------------
 
@@ -97,11 +99,11 @@ CREATE TABLE `mata pelajaran` (
 --
 
 CREATE TABLE `nilai` (
-  `idNilai` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `Nilai` varchar(45) DEFAULT NULL,
-  `Mata Pelajaran_idMata Pelajaran` int(11) NOT NULL,
-  `Siswa_idSiswa` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `Siswa_id` int(11) NOT NULL,
+  `Mata_Pelajaran_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_esperanto_ci;
 
 -- --------------------------------------------------------
 
@@ -110,9 +112,9 @@ CREATE TABLE `nilai` (
 --
 
 CREATE TABLE `role` (
-  `idRole` int(11) NOT NULL,
-  `Nama_Peran` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `id` int(11) NOT NULL,
+  `Nama_Peran` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_esperanto_ci;
 
 -- --------------------------------------------------------
 
@@ -121,12 +123,11 @@ CREATE TABLE `role` (
 --
 
 CREATE TABLE `sarana` (
-  `idSarana` int(11) NOT NULL,
-  `Nama_Sarana` varchar(45) NOT NULL,
-  `Saranacol` varchar(45) NOT NULL,
-  `Ketersediaan` varchar(45) NOT NULL,
-  `Lokasi` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `id` int(11) NOT NULL,
+  `nama_Sarana` varchar(45) DEFAULT NULL,
+  `Ketersediaan` varchar(45) DEFAULT NULL,
+  `Lokasi` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_esperanto_ci;
 
 -- --------------------------------------------------------
 
@@ -135,18 +136,18 @@ CREATE TABLE `sarana` (
 --
 
 CREATE TABLE `siswa` (
-  `idSiswa` int(11) NOT NULL,
-  `Nama_Siswa` varchar(45) NOT NULL,
-  `Tanggal_Lahir` varchar(45) NOT NULL,
-  `Alamat` varchar(100) NOT NULL,
-  `Jenis_Kelamin` varchar(45) NOT NULL,
-  `Nomor_Telepon` varchar(45) NOT NULL,
-  `Email` varchar(45) NOT NULL,
-  `Tahun_Lulus` varchar(45) NOT NULL,
-  `Users_idUsers` int(11) NOT NULL,
-  `Kelas_idKelas` int(11) NOT NULL,
-  `Ekstrakulikuler_idEkstrakulikuler` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `id` int(11) NOT NULL,
+  `Nama_Siswa` varchar(45) DEFAULT NULL,
+  `Tanggal_Lahir` date DEFAULT NULL,
+  `Alamat` varchar(45) DEFAULT NULL,
+  `Jenis_Kelamin` varchar(45) DEFAULT NULL,
+  `Nomor_Telepon` varchar(45) DEFAULT NULL,
+  `Email` varchar(45) DEFAULT NULL,
+  `Tahun_Lulus` varchar(45) DEFAULT NULL,
+  `Users_id` int(11) NOT NULL,
+  `Kelas_id` int(11) NOT NULL,
+  `Ekstrakulikuler_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_esperanto_ci;
 
 -- --------------------------------------------------------
 
@@ -155,12 +156,11 @@ CREATE TABLE `siswa` (
 --
 
 CREATE TABLE `staff` (
-  `idStaff` int(11) NOT NULL,
-  `NIP` varchar(45) NOT NULL,
-  `Divisi` varchar(45) NOT NULL,
-  `Users_idUsers` int(11) NOT NULL,
-  `Users_Role_idRole` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `id` int(11) NOT NULL,
+  `Staffcol` varchar(45) DEFAULT NULL,
+  `Divisi` varchar(45) DEFAULT NULL,
+  `Users_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_esperanto_ci;
 
 -- --------------------------------------------------------
 
@@ -169,12 +169,12 @@ CREATE TABLE `staff` (
 --
 
 CREATE TABLE `users` (
-  `idUsers` int(11) NOT NULL,
-  `Nama_Pengguna` varchar(45) NOT NULL,
-  `Kata_Sandi` varchar(45) NOT NULL,
-  `Terakhir_Login` varchar(45) NOT NULL,
-  `Role_idRole` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `id` int(11) NOT NULL,
+  `Nama_Pengguna` varchar(45) DEFAULT NULL,
+  `Kata_Sandi` varchar(45) DEFAULT NULL,
+  `Terakhir_Login` varchar(45) DEFAULT NULL,
+  `Role_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_esperanto_ci;
 
 --
 -- Indexes for dumped tables
@@ -184,78 +184,148 @@ CREATE TABLE `users` (
 -- Indexes for table `berita`
 --
 ALTER TABLE `berita`
-  ADD PRIMARY KEY (`idBerita`,`Staff_idStaff`,`Staff_Users_idUsers`,`Staff_Users_Role_idRole`),
-  ADD KEY `fk_Berita_Staff1_idx` (`Staff_idStaff`,`Staff_Users_idUsers`,`Staff_Users_Role_idRole`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_Berita_Staff1_idx` (`Staff_id`);
 
 --
 -- Indexes for table `ekstrakulikuler`
 --
 ALTER TABLE `ekstrakulikuler`
-  ADD PRIMARY KEY (`idEkstrakulikuler`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `guru`
 --
 ALTER TABLE `guru`
-  ADD PRIMARY KEY (`idGuru`),
-  ADD KEY `fk_Guru_Users1_idx` (`Users_idUsers`),
-  ADD KEY `fk_Guru_Kelas1_idx` (`Kelas_idKelas`),
-  ADD KEY `fk_Guru_Mata Pelajaran1_idx` (`Mata Pelajaran_idMata Pelajaran`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_Guru_Users1_idx` (`Users_id`),
+  ADD KEY `fk_Guru_Kelas1_idx` (`Kelas_id`),
+  ADD KEY `fk_Guru_Mata_Pelajaran1_idx` (`Mata_Pelajaran_id`);
 
 --
 -- Indexes for table `kelas`
 --
 ALTER TABLE `kelas`
-  ADD PRIMARY KEY (`idKelas`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `mata pelajaran`
+-- Indexes for table `mata_pelajaran`
 --
-ALTER TABLE `mata pelajaran`
-  ADD PRIMARY KEY (`idMata Pelajaran`);
+ALTER TABLE `mata_pelajaran`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `nilai`
 --
 ALTER TABLE `nilai`
-  ADD PRIMARY KEY (`idNilai`),
-  ADD KEY `fk_Nilai_Mata Pelajaran1_idx` (`Mata Pelajaran_idMata Pelajaran`),
-  ADD KEY `fk_Nilai_Siswa1_idx` (`Siswa_idSiswa`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_Nilai_Siswa1_idx` (`Siswa_id`),
+  ADD KEY `fk_Nilai_Mata_Pelajaran1_idx` (`Mata_Pelajaran_id`);
 
 --
 -- Indexes for table `role`
 --
 ALTER TABLE `role`
-  ADD PRIMARY KEY (`idRole`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `sarana`
 --
 ALTER TABLE `sarana`
-  ADD PRIMARY KEY (`idSarana`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `siswa`
 --
 ALTER TABLE `siswa`
-  ADD PRIMARY KEY (`idSiswa`),
-  ADD KEY `fk_Siswa_Users1_idx` (`Users_idUsers`),
-  ADD KEY `fk_Siswa_Kelas1_idx` (`Kelas_idKelas`),
-  ADD KEY `fk_Siswa_Ekstrakulikuler1_idx` (`Ekstrakulikuler_idEkstrakulikuler`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_Siswa_Users1_idx` (`Users_id`),
+  ADD KEY `fk_Siswa_Kelas1_idx` (`Kelas_id`),
+  ADD KEY `fk_Siswa_Ekstrakulikuler1_idx` (`Ekstrakulikuler_id`);
 
 --
 -- Indexes for table `staff`
 --
 ALTER TABLE `staff`
-  ADD PRIMARY KEY (`idStaff`,`Users_idUsers`,`Users_Role_idRole`),
-  ADD KEY `fk_Staff_Users1_idx` (`Users_idUsers`,`Users_Role_idRole`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_Staff_Users1_idx` (`Users_id`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`idUsers`,`Role_idRole`),
-  ADD KEY `fk_Users_Role_idx` (`Role_idRole`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_Users_Role_idx` (`Role_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `berita`
+--
+ALTER TABLE `berita`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ekstrakulikuler`
+--
+ALTER TABLE `ekstrakulikuler`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `guru`
+--
+ALTER TABLE `guru`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `kelas`
+--
+ALTER TABLE `kelas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `mata_pelajaran`
+--
+ALTER TABLE `mata_pelajaran`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `nilai`
+--
+ALTER TABLE `nilai`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `role`
+--
+ALTER TABLE `role`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `sarana`
+--
+ALTER TABLE `sarana`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `siswa`
+--
+ALTER TABLE `siswa`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `staff`
+--
+ALTER TABLE `staff`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -265,42 +335,42 @@ ALTER TABLE `users`
 -- Constraints for table `berita`
 --
 ALTER TABLE `berita`
-  ADD CONSTRAINT `fk_Berita_Staff1` FOREIGN KEY (`Staff_idStaff`,`Staff_Users_idUsers`,`Staff_Users_Role_idRole`) REFERENCES `staff` (`idStaff`, `Users_idUsers`, `Users_Role_idRole`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Berita_Staff1` FOREIGN KEY (`Staff_id`) REFERENCES `staff` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `guru`
 --
 ALTER TABLE `guru`
-  ADD CONSTRAINT `fk_Guru_Kelas1` FOREIGN KEY (`Kelas_idKelas`) REFERENCES `kelas` (`idKelas`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Guru_Mata Pelajaran1` FOREIGN KEY (`Mata Pelajaran_idMata Pelajaran`) REFERENCES `mata pelajaran` (`idMata Pelajaran`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Guru_Users1` FOREIGN KEY (`Users_idUsers`) REFERENCES `users` (`idUsers`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Guru_Kelas1` FOREIGN KEY (`Kelas_id`) REFERENCES `kelas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Guru_Mata_Pelajaran1` FOREIGN KEY (`Mata_Pelajaran_id`) REFERENCES `mata_pelajaran` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Guru_Users1` FOREIGN KEY (`Users_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `nilai`
 --
 ALTER TABLE `nilai`
-  ADD CONSTRAINT `fk_Nilai_Mata Pelajaran1` FOREIGN KEY (`Mata Pelajaran_idMata Pelajaran`) REFERENCES `mata pelajaran` (`idMata Pelajaran`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Nilai_Siswa1` FOREIGN KEY (`Siswa_idSiswa`) REFERENCES `siswa` (`idSiswa`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Nilai_Mata_Pelajaran1` FOREIGN KEY (`Mata_Pelajaran_id`) REFERENCES `mata_pelajaran` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Nilai_Siswa1` FOREIGN KEY (`Siswa_id`) REFERENCES `siswa` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `siswa`
 --
 ALTER TABLE `siswa`
-  ADD CONSTRAINT `fk_Siswa_Ekstrakulikuler1` FOREIGN KEY (`Ekstrakulikuler_idEkstrakulikuler`) REFERENCES `ekstrakulikuler` (`idEkstrakulikuler`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Siswa_Kelas1` FOREIGN KEY (`Kelas_idKelas`) REFERENCES `kelas` (`idKelas`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Siswa_Users1` FOREIGN KEY (`Users_idUsers`) REFERENCES `users` (`idUsers`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Siswa_Ekstrakulikuler1` FOREIGN KEY (`Ekstrakulikuler_id`) REFERENCES `ekstrakulikuler` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Siswa_Kelas1` FOREIGN KEY (`Kelas_id`) REFERENCES `kelas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Siswa_Users1` FOREIGN KEY (`Users_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `staff`
 --
 ALTER TABLE `staff`
-  ADD CONSTRAINT `fk_Staff_Users1` FOREIGN KEY (`Users_idUsers`,`Users_Role_idRole`) REFERENCES `users` (`idUsers`, `Role_idRole`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Staff_Users1` FOREIGN KEY (`Users_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `fk_Users_Role` FOREIGN KEY (`Role_idRole`) REFERENCES `role` (`idRole`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Users_Role` FOREIGN KEY (`Role_id`) REFERENCES `role` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
