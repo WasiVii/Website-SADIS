@@ -13,13 +13,22 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
+                sans: ["Inter", ...defaultTheme.fontFamily.sans],
                 "albert-sans": ['"Albert Sans"', "swap"],
             },
+
             colors: {
                 "main-color": "#f2f5ff",
                 "blue-color": "#6e91fe",
+                dark: {
+                    "eval-0": "#151823",
+                    "eval-1": "#222738",
+                    "eval-2": "#2A2F42",
+                    "eval-3": "#2C3142",
+                },
             },
         },
     },
+
     plugins: [require("daisyui")],
 };
