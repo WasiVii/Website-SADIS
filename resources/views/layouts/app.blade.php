@@ -12,10 +12,11 @@
 <body>
     <x-header.home/>
 
-    <div class="max-w-4xl mx-auto">
+    @yield('content')
+    {{-- <div class="max-w-6xl mx-auto">
         @yield('content')
-    </div>
-
+    </div> --}}
     <x-footer.home/>
+
 </body>
 </html>

@@ -6,7 +6,15 @@ export default {
         "./resources/**/*.vue",
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                "albert-sans": ['"Albert Sans"', "swap"],
+            },
+            colors: {
+                "main-color": "#f2f5ff",
+                "blue-color": "#6e91fe",
+            },
+        },
     },
     plugins: [require("daisyui")],
 };
