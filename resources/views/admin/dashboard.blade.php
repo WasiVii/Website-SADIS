@@ -1,9 +1,5 @@
-@extends('layouts/app')
- 
-@section('title', 'Dashboard')
-
+@extends('admin.layout.appadmin')
 @section('content')
-    <p>Dashboard</p>
-    <p>Dashboard</p>
-@endsection
 
+ini adalah dashboard
+@endsection
