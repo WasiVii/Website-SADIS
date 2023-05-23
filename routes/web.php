@@ -68,10 +68,6 @@ Route::get('/news', function () {
     return view('layouts.news');
 });
 
-Route::get('/kurikulum', function () {
-    return view('layouts.kurikulum');
-});
-
 Route::get('/extrakulikuler', function () {
     return view('layouts.extrakulikuler');
 });

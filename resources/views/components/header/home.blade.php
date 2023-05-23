@@ -26,7 +26,6 @@
                     </a>
                     <ul class="p-2 shadow bg-base-100 rounded-box w-52">
                         <li><a href="/news">Berita Kegiatan</a></li>
-                        <li><a href="/kurikulum">Kurikulum</a></li>
                         <li><a href="/extrakulikuler">Extrakulikuler</a></li>
                         <li><a href="/sarana-prasarana">Sarana & Prasarana</a></li>
                     </ul>
@@ -70,7 +69,6 @@
                 </a>
                 <ul class="p-2 shadow bg-base-100 rounded-box w-52">
                     <li><a href="/news">Berita Kegiatan</a></li>
-                    <li><a href="/kurikulum">Kurikulum</a></li>
                     <li><a href="/extrakulikuler">Extrakulikuler</a></li>
                     <li><a href="/sarana-prasarana">Sarana & Prasarana</a></li>
                 </ul>
