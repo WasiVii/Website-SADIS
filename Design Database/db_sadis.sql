@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2023 at 11:41 AM
+-- Generation Time: May 23, 2023 at 12:03 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mydb`
+-- Database: `mydbrevisi1`
 --
 
 -- --------------------------------------------------------
@@ -33,7 +33,7 @@ CREATE TABLE `berita` (
   `Isi_Berita` varchar(45) DEFAULT NULL,
   `Tanggal_Publikasi` date DEFAULT NULL,
   `Staff_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_esperanto_ci;
 
 -- --------------------------------------------------------
 
@@ -44,8 +44,9 @@ CREATE TABLE `berita` (
 CREATE TABLE `ekstrakulikuler` (
   `id` int(11) NOT NULL,
   `Nama_Ekstrakulikuler` varchar(45) DEFAULT NULL,
-  `Deskripsi` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `Deskripsi` varchar(45) DEFAULT NULL,
+  `photo` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_esperanto_ci;
 
 -- --------------------------------------------------------
 
@@ -64,7 +65,7 @@ CREATE TABLE `guru` (
   `Users_id` int(11) NOT NULL,
   `Kelas_id` int(11) NOT NULL,
   `Mata_Pelajaran_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_esperanto_ci;
 
 -- --------------------------------------------------------
 
@@ -78,7 +79,7 @@ CREATE TABLE `kelas` (
   `Tahun_Pelajaran` date DEFAULT NULL,
   `Wali_Kelas` varchar(45) DEFAULT NULL,
   `Array_Siswa` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_esperanto_ci;
 
 -- --------------------------------------------------------
 
@@ -89,7 +90,7 @@ CREATE TABLE `kelas` (
 CREATE TABLE `mata_pelajaran` (
   `id` int(11) NOT NULL,
   `Nama_Mata_Pelajaran` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_esperanto_ci;
 
 -- --------------------------------------------------------
 
@@ -102,7 +103,7 @@ CREATE TABLE `nilai` (
   `Nilai` varchar(45) DEFAULT NULL,
   `Siswa_id` int(11) NOT NULL,
   `Mata_Pelajaran_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_esperanto_ci;
 
 -- --------------------------------------------------------
 
@@ -113,7 +114,7 @@ CREATE TABLE `nilai` (
 CREATE TABLE `role` (
   `id` int(11) NOT NULL,
   `Nama_Peran` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_esperanto_ci;
 
 -- --------------------------------------------------------
 
@@ -126,7 +127,7 @@ CREATE TABLE `sarana` (
   `nama_Sarana` varchar(45) DEFAULT NULL,
   `Ketersediaan` varchar(45) DEFAULT NULL,
   `Lokasi` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_esperanto_ci;
 
 -- --------------------------------------------------------
 
@@ -146,7 +147,7 @@ CREATE TABLE `siswa` (
   `Users_id` int(11) NOT NULL,
   `Kelas_id` int(11) NOT NULL,
   `Ekstrakulikuler_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_esperanto_ci;
 
 -- --------------------------------------------------------
 
@@ -159,7 +160,7 @@ CREATE TABLE `staff` (
   `Staffcol` varchar(45) DEFAULT NULL,
   `Divisi` varchar(45) DEFAULT NULL,
   `Users_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_esperanto_ci;
 
 -- --------------------------------------------------------
 
@@ -173,7 +174,7 @@ CREATE TABLE `users` (
   `Kata_Sandi` varchar(45) DEFAULT NULL,
   `Terakhir_Login` varchar(45) DEFAULT NULL,
   `Role_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_esperanto_ci;
 
 --
 -- Indexes for dumped tables
