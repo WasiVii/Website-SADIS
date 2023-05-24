@@ -13,7 +13,7 @@ class BeritaController extends Controller
     public function index()
     {
         $berita = Berita::all();
-        return view('admin.berita.index', compact('berita'));
+        return view('berita.index', compact('berita'));
     }
 
     /**
@@ -21,7 +21,7 @@ class BeritaController extends Controller
      */
     public function create()
     {
-        //
+        return view('Berita.create');
     }
 
     /**
@@ -29,38 +29,86 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+        'Judul' => 'required',
+        'Isi_Berita' => 'required',
+        'Tanggal_Publikasi' => 'required',
+        'Staff_id' => 'required',
+        'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+
+    $berita = new Berita();
+    $berita->Judul = $request->Judul;
+    $berita->Isi_Berita = $request->Isi_Berita;
+    $berita->Tanggal_Publikasi = $request->Tanggal_Publikasi;
+    $berita->Staff_id = $request->Staff_id;
+
+    if ($request->hasFile('photo')) {
+        $image = $request->file('photo');
+        $name = time().'.'.$image->getClientOriginalExtension();
+        $destinationPath = public_path('/images');
+        $image->move($destinationPath, $name);
+        $berita->photo = $name;
+    }
+
+    $berita->save();
+
+    return redirect()->route('berita.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Berita $berita)
     {
-        //
+         return view('berita.show', compact('berita'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Berita $berita)
     {
-        //
+        return view('berita.edit', compact('berita'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Berita $berita)
     {
-        //
+        $request->validate([
+        'Judul' => 'required',
+        'Isi_Berita' => 'required',
+        'Tanggal_Publikasi' => 'required',
+        'Staff_id' => 'required',
+        'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+
+    $berita->Judul = $request->Judul;
+    $berita->Isi_Berita = $request->Isi_Berita;
+    $berita->Tanggal_Publikasi = $request->Tanggal_Publikasi;
+    $berita->Staff_id = $request->Staff_id;
+
+    if ($request->hasFile('photo')) {
+        $image = $request->file('photo');
+        $name = time().'.'.$image->getClientOriginalExtension();
+        $destinationPath = public_path('/images');
+        $image->move($destinationPath, $name);
+        $berita->photo = $name;
+    }
+
+    $berita->save();
+
+    return redirect()->route('berita.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Berita $berita)
     {
-        //
+        $berita->delete();
+        return redirect()->route('berita.index')->with('success', 'Mentor deleted successfully.');
     }
 }
