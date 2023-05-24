@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\EkstrakulikulerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MapController;
@@ -43,6 +45,8 @@ Route::get('/buttons/text-icon', function () {
     return view('buttons-showcase.text-icon');
 })->middleware(['auth'])->name('buttons.text-icon');
 
+Route::resource('berita', BeritaController::class);
+Route::resource('ekstrakulikuler', EkstrakulikulerController::class);
 require __DIR__ . '/auth.php';
 
 

@@ -65,12 +65,12 @@
         />
         <x-sidebar.sublink
             title="Data Ekstrakulikuler"
-            href="{{ route('buttons.text-icon') }}"
-            :active="request()->routeIs('buttons.text-icon')"
+            href="{{ route('ekstrakulikuler.index') }}"
+            :active="request()->routeIs('ekstrakulikuler.index')"
         />
         <x-sidebar.sublink
             title="Data Berita"
-            href="{{ route('buttons.text-icon') }}"
-            :active="request()->routeIs('buttons.text-icon')"
+            href="{{ route('berita.index') }}"
+            :active="request()->routeIs('berita.index')"
         />
 </x-perfect-scrollbar>
