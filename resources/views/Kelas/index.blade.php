@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Berita') }}
+            {{ __('Kelas') }}
         </h2>
     </x-slot>
 
@@ -9,11 +9,11 @@
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <h1 class="text-2xl text-center">Daftar Berita
+                    <h1 class="text-2xl text-center">Daftar Kelas
                     </h1>
                     <div class="mt-1 mb-4">
                         <a class="px-2 py-2 text-sm text-white bg-blue-600 rounded"
-                            href="{{ route('berita.create') }}">{{ __('Add Berita') }}</a>
+                            href="{{ route('kelas.create') }}">{{ __('Add Kelas') }}</a>
                     </div>
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -27,19 +27,16 @@
                                         #
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        Judul
+                                        Nama kelas
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        Isi Berita
+                                        Tahun Pelajaran
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        Tanggal Penerbitan
+                                        Wali Kelas
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        Staff
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        Image
+                                        Array Siswa
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         Edit
@@ -53,37 +50,30 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($berita as $beritas)
+                                @foreach ($kelas as $kls)
                                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                     <th scope="row"
                                         class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                         {{$no}}
                                     </th>
                                     <td class="px-6 py-4">
-                                        {{$beritas->Judul}}
+                                        {{$kls->Nama_Kelas}}
 
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{$beritas->Isi_Berita}}
+                                        {{$kls->Tahun_Pelajaran}}
+
+                                    </td>
+                                     <td class="px-6 py-4">
+                                        {{$kls->Wali_Kelas}}
+
+                                    </td>
+                                     <td class="px-6 py-4">
+                                        {{$kls->Array_Siswa}}
 
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{$beritas->Tanggal_Publikasi}}
-
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{$beritas->Staff_id}}
-
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        @empty($beritas->photo)
-                                        <img src="{{ url('images/nophoto.jpg') }}" alt="">
-                                        @else
-                                        <img src="{{ url('images') }}/{{ $beritas->photo }}" alt="" class="w-12 h-12">
-                                        @endempty
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <a href="{{ route('berita.edit',$beritas->id) }}">
+                                        <a href="{{ route('kelas.edit',$kls->id) }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-600">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -92,7 +82,7 @@
                                         </a>
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a href="{{ route('berita.show',$beritas->id) }}">
+                                        <a href="{{ route('kelas.show',$kls->id) }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-600">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -103,7 +93,7 @@
                                         </a>
                                     </td>
                                     <td class="px-6 py-4">
-                                        <form action="{{ route('berita.destroy',$beritas->id) }}" method="POST"
+                                        <form action="{{ route('kelas.destroy',$kls->id) }}" method="POST"
                                             onsubmit="return confirm('{{ trans('are You Sure ? ') }}');"
                                             style="display: inline-block;">
                                             <input type="hidden" name="_method" value="DELETE">

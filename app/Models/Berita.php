@@ -15,6 +15,7 @@ class Berita extends Model
         'Judul',
         'Isi_Berita',
         'Tanggal_Publikasi',
-        'Staff_id'
+        'Staff_id',
+        'Photo'
     ];
 }

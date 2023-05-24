@@ -52,12 +52,12 @@
                         </div>
                         <div class="mb-6">
                             <label class="block">
-                                <span class="text-gray-700 @error('staff_id') text-red-500 @enderror">Staff ID</span>
+                                <span class="text-gray-700 @error('Staff_id') text-red-500 @enderror">Staff ID</span>
                                 <textarea
-                                    class="block @error('staff_id') border-red-500  bg-red-100 text-red-900 @enderror w-full mt-1 rounded-md"
-                                    name="staff_id" rows="3">{{old('staff_id')}}</textarea>
+                                    class="block @error('Staff_id') border-red-500  bg-red-100 text-red-900 @enderror w-full mt-1 rounded-md"
+                                    name="Staff_id" rows="3">{{old('Staff_id')}}</textarea>
                             </label>
-                            @error('staff_id')
+                            @error('Staff_id')
                             <div class="flex items-center text-sm text-red-600">
                                 {{ $message }}
                             </div>

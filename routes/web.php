@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\EkstrakulikulerController;
+use App\Http\Controllers\GuruController;
+use App\Http\Controllers\KelasController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MapController;
@@ -47,6 +49,8 @@ Route::get('/buttons/text-icon', function () {
 
 Route::resource('berita', BeritaController::class);
 Route::resource('ekstrakulikuler', EkstrakulikulerController::class);
+Route::resource('guru', GuruController::class);
+Route::resource('kelas', KelasController::class);
 require __DIR__ . '/auth.php';
 
 

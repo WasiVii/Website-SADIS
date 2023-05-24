@@ -11,8 +11,9 @@
                 <div class="p-6 bg-white border-b border-gray-200">
 
                     <div class="flex flex-col items-center justify-center">
-                        <h1 class="text-2xl font-bold">{{ $ekstrakulikuler->Nama_Ekstrakulikuler }}</h1>
-                        <div>{!! $ekstrakulikuler->Deskripsi !!}</div>
+                        <h1 class="text-2xl font-bold">{{ $ekstrakulikulers->Nama_Ekstrakulikuler }}</h1>
+                        <div>{!! $ekstrakulikulers->Deskripsi !!}</div>
+                        <div>{!! $ekstrakulikulers->Photo !!}</div>
                     </div>
 
                 </div>

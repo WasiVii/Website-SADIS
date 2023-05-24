@@ -31,16 +31,25 @@ class EkstrakulikulerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-        'Nama_Esktrakulikuler' => 'required',
-        'Deskripsi' => 'required'
+        'Nama_Ekstrakulikuler' => 'required',
+        'Deskripsi' => 'required',
+        'Photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+
         ]);
 
     $ekstrakulikuler = new Ekstrakulikuler();
     $ekstrakulikuler->Nama_Ekstrakulikuler = $request->Nama_Ekstrakulikuler;
     $ekstrakulikuler->Deskripsi = $request->Deskripsi;
+    if ($request->hasFile('Photo')) {
+        $image = $request->file('Photo');
+        $name = time().'.'.$image->getClientOriginalExtension();
+        $destinationPath = public_path('/images');
+        $image->move($destinationPath, $name);
+        $ekstrakulikuler->photo = $name;
+    }
     $ekstrakulikuler->save();
 
-    return redirect()->route('esktrakulikuler.index');
+    return redirect()->route('ekstrakulikuler.index');
     }
 
     /**
@@ -64,15 +73,25 @@ class EkstrakulikulerController extends Controller
      */
     public function update(Request $request, Ekstrakulikuler $ekstrakulikuler)
     {
-         $request->validate([
-        'Nama_Esktrakulikuler' => 'required',
-        'Deskripsi' => 'required'
+        $request->validate([
+        'Nama_Ekstrakulikuler' => 'required',
+        'Deskripsi' => 'required',
+        'Photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+
         ]);
+
     $ekstrakulikuler->Nama_Ekstrakulikuler = $request->Nama_Ekstrakulikuler;
     $ekstrakulikuler->Deskripsi = $request->Deskripsi;
+    if ($request->hasFile('Photo')) {
+        $image = $request->file('Photo');
+        $name = time().'.'.$image->getClientOriginalExtension();
+        $destinationPath = public_path('/images');
+        $image->move($destinationPath, $name);
+        $ekstrakulikuler->photo = $name;
+    }
     $ekstrakulikuler->save();
 
-    return redirect()->route('esktrakulikuler.index');
+    return redirect()->route('ekstrakulikuler.index');
     }
 
     /**
@@ -81,6 +100,6 @@ class EkstrakulikulerController extends Controller
     public function destroy(Ekstrakulikuler $ekstrakulikuler)
     {
          $ekstrakulikuler->delete();
-        return redirect()->route('esktrakulikuler.index')->with('success', 'Mentor deleted successfully.');
+        return redirect()->route('ekstrakulikuler.index')->with('success', 'Mentor deleted successfully.');
     }
 }

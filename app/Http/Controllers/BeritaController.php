@@ -106,9 +106,11 @@ class BeritaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Berita $berita)
+    public function destroy(Berita $berita, $slug)
     {
+        $berita = Berita::where('id',$slug)->first();
         $berita->delete();
-        return redirect()->route('berita.index')->with('success', 'Mentor deleted successfully.');
+
+        return redirect()->back();
     }
 }

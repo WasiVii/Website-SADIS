@@ -33,6 +33,9 @@
                                         Deskripsi
                                     </th>
                                     <th scope="col" class="px-6 py-3">
+                                        photo
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
                                         Edit
                                     </th>
                                     <th scope="col" class="px-6 py-3">
@@ -57,6 +60,15 @@
                                     <td class="px-6 py-4">
                                         {{$ekstrakulikulers->Deskripsi}}
 
+                                    </td>
+                                    <td class="px-6 py-4">
+                                       {{-- <img src="{{ url(Storage::url($ekstrakulikulers->Photo)) }}" style="width: 100px"
+                                                    alt="{{ url(Storage::url($ekstrakulikulers->Photo)) }}"> --}}
+                                        @empty($ekstrakulikulers->photo)
+                                        <img src="{{ url('images/nophoto.jpg') }}" alt="">
+                                        @else
+                                        <img src="{{ url('images') }}/{{ $ekstrakulikulers->photo }}" alt=""  class="w-12 h-12">
+                                        @endempty
                                     </td>
                                     <td class="px-6 py-4">
                                         <a href="{{ route('ekstrakulikuler.edit',$ekstrakulikulers->id) }}">

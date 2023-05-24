@@ -24,8 +24,8 @@
 
         <x-sidebar.sublink
             title="Data Guru"
-            href="{{ route('buttons.text') }}"
-            :active="request()->routeIs('buttons.text')"
+            href="{{ route('guru.index') }}"
+            :active="request()->routeIs('guru.index')"
         />
         <x-sidebar.sublink
             title="Data Siswa"
@@ -34,8 +34,8 @@
         />
         <x-sidebar.sublink
             title="Data Kelas"
-            href="{{ route('buttons.text-icon') }}"
-            :active="request()->routeIs('buttons.text-icon')"
+            href="{{ route('kelas.index') }}"
+            :active="request()->routeIs('kelas.index')"
         />
         <x-sidebar.sublink
             title="Data Mata Pelajaran"
