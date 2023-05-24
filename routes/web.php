@@ -7,6 +7,11 @@ use App\Http\Controllers\KelasController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MapController;
+use App\Http\Controllers\MapelController;
+use App\Http\Controllers\NilaiController;
+use App\Http\Controllers\SaranaController;
+use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\StaffController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +56,11 @@ Route::resource('berita', BeritaController::class);
 Route::resource('ekstrakulikuler', EkstrakulikulerController::class);
 Route::resource('guru', GuruController::class);
 Route::resource('kelas', KelasController::class);
+Route::resource('mapel', MapelController::class);
+Route::resource('nilai', NilaiController::class);
+Route::resource('sarana', SaranaController::class);
+Route::resource('siswa', SiswaController::class);
+Route::resource('staff', StaffController::class);
 require __DIR__ . '/auth.php';
 
 

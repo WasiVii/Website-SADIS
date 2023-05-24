@@ -29,8 +29,8 @@
         />
         <x-sidebar.sublink
             title="Data Siswa"
-            href="{{ route('buttons.icon') }}"
-            :active="request()->routeIs('buttons.icon')"
+            href="{{ route('siswa.index') }}"
+            :active="request()->routeIs('siswa.index')"
         />
         <x-sidebar.sublink
             title="Data Kelas"
@@ -39,29 +39,24 @@
         />
         <x-sidebar.sublink
             title="Data Mata Pelajaran"
-            href="{{ route('buttons.text-icon') }}"
-            :active="request()->routeIs('buttons.text-icon')"
+            href="{{ route('mapel.index') }}"
+            :active="request()->routeIs('mapel.index')"
         />
         <x-sidebar.sublink
             title="Data Staff"
-            href="{{ route('buttons.text-icon') }}"
-            :active="request()->routeIs('buttons.text-icon')"
+            href="{{ route('staff.index') }}"
+            :active="request()->routeIs('staff.index')"
         />
     </x-sidebar.dropdown>
     <x-sidebar.sublink
             title="Data Sarana"
-            href="{{ route('buttons.text-icon') }}"
-            :active="request()->routeIs('buttons.text-icon')"
+            href="{{ route('sarana.index') }}"
+            :active="request()->routeIs('sarana.index')"
         />
         <x-sidebar.sublink
             title="Data Nilai"
-            href="{{ route('buttons.text-icon') }}"
-            :active="request()->routeIs('buttons.text-icon')"
-        />
-        <x-sidebar.sublink
-            title="Data Users"
-            href="{{ route('buttons.text-icon') }}"
-            :active="request()->routeIs('buttons.text-icon')"
+            href="{{ route('nilai.index') }}"
+            :active="request()->routeIs('nilai.index')"
         />
         <x-sidebar.sublink
             title="Data Ekstrakulikuler"
