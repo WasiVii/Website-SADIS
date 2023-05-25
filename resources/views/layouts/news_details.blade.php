@@ -58,7 +58,7 @@
                 <div class="card-body">
                     <div class="px-2 flex flex-col gap-5">
                         <figure class="mb-2 px-2 rounded justify-center items-center">
-                            <img src="{{ asset($berita->photo) }}" class="object-cover" alt="{{ $berita->Judul }}"/>
+                            <img src="{{ url('images') }}/{{ $berita->photo }}" class="object-cover" alt="{{ $berita->Judul }}"/>
                         </figure>
                         <p class="pb-2 text-gray-700 dark:text-gray-400">{{ $berita->Isi_Berita }}</p>
                     </div>
