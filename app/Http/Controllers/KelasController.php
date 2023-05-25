@@ -21,7 +21,7 @@ class KelasController extends Controller
      */
     public function create()
     {
-        //
+        return view('Kelas.create');
     }
 
     /**
@@ -29,7 +29,22 @@ class KelasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+        'Nama_Kelas' => 'required',
+        'Tahun_Pelajaran' => 'required',
+        'Wali_Kelas' => 'required',
+        'Array_Siswa' => 'required'
+
+        ]);
+
+    $kelas = new Kelas();
+    $kelas->Nama_Kelas = $request->Nama_Kelas;
+    $kelas->Tahun_Pelajaran = $request->Tahun_Pelajaran;
+    $kelas->Wali_Kelas = $request->Wali_Kelas;
+    $kelas->Array_Siswa = $request->Array_Siswa;
+    $kelas->save();
+
+    return redirect()->route('Kelas.index');
     }
 
     /**
@@ -59,8 +74,12 @@ class KelasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Kelas $kelas)
+    public function destroy($id,$slug)
     {
-        //
+          $kelas = Kelas::findOrFail($id);
+        $kelas = Kelas::where('id',$slug)->first();
+        $kelas->delete();
+
+        return redirect()->back();
     }
 }

@@ -21,7 +21,7 @@ class MapelController extends Controller
      */
     public function create()
     {
-        //
+        return view('Mapel.create');
     }
 
     /**
@@ -29,7 +29,16 @@ class MapelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+        'Nama_Mata_Pelajaran' => 'required'
+
+        ]);
+
+    $mapel = new Mapel();
+    $mapel->Nama_Mata_Pelajaran = $request->Nama_Mata_Pelajaran;
+    $mapel->save();
+    return redirect()->route('Mapel.index');
     }
 
     /**
@@ -59,8 +68,11 @@ class MapelController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy( Mapel $mapel, $slug)
     {
-        //
+       $mapel = Mapel::where('id',$slug)->first();
+        $mapel->delete();
+
+        return redirect()->back();
     }
 }
