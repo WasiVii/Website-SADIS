@@ -15,7 +15,7 @@
                             <label class="block">
                                 <span class="text-gray-700 @error('Judul') text-red-500 @enderror">Judul</span>
                                 <input type="text" name="Judul"
-                                    class="block @error('Judul') border-red-500 bg-red-100 text-red-900 @enderror w-full mt-1 rounded-md"
+                                    class="block @error('Judul') border-red-500 bg-red-100 text-red-900 @enderror my-5 input-bordered input w-full rounded-md"
                                     placeholder="" value="{{old('Judul')}}" />
                             </label>
                             @error('Judul')
@@ -29,7 +29,7 @@
                             <label class="block">
                                 <span class="text-gray-700 @error('Isi_Berita') text-red-500 @enderror">Isi Berita</span>
                                 <textarea
-                                    class="block @error('Isi_Berita') border-red-500  bg-red-100 text-red-900 @enderror w-full mt-1 rounded-md"
+                                    class="block @error('Isi_Berita') border-red-500  bg-red-100 text-red-900 @enderror my-5 input-bordered input w-full rounded-md"
                                     name="Isi_Berita" rows="3">{{old('Isi_Berita')}}</textarea>
                             </label>
                             @error('Isi_Berita')
@@ -42,7 +42,7 @@
                             <label class="block">
                                 <span class="text-gray-700 @error('Tanggal_Publikasi') text-red-500 @enderror">Tanggal Publikasi</span>
                                 <input type="date" name="Tanggal_Publikasi"
-                                    class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+                                    class="block my-5 input-bordered input w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
                             </label>
                             @error('Tanggal_Publikasi')
                             <div class="flex items-center text-sm text-red-600">
@@ -53,7 +53,7 @@
                         <div class="mb-6">
                             <label class="block">
                                 <span class="text-gray-700 @error('Staff_id') text-red-500 @enderror">Staff ID</span>
-                               <select id="select" name="Staff_id" class="custom-select">
+                               <select id="select" name="Staff_id" class="custom-select my-5 input-bordered input w-full">
                                     @foreach($staff as $stf)
                                     <option value="{{$stf->id}}">{{$stf->Staffcol}}</option>
                                     @endforeach
@@ -68,7 +68,7 @@
                             <label class="block">
                                 <span class="sr-only">Choose File</span>
                                 <input type="file" name="photo"
-                                    class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+                                    class="block my-5 input-bordered input w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
                             </label>
                             @error('photo')
                             <div class="flex items-center text-sm text-red-600">

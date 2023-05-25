@@ -15,17 +15,17 @@
                     @method('PUT')
                         <div class="form-group">
                             <label for="nama_Sarana">nama_Sarana</label>
-                            <input type="text" class="form-control" id="nama_Sarana" name="nama_Sarana" value="{{ $sarana->nama_Sarana }}">
+                            <input type="text" class="form-control my-5 input-bordered input w-full" id="nama_Sarana" name="nama_Sarana" value="{{ $sarana->nama_Sarana }}">
                         </div>
 
                         <div class="form-group">
                             <label for="Ketersediaan">Ketersediaan</label>
-                            <input type="text" class="form-control" id="Ketersediaan" name="Ketersediaan" value="{{ $sarana->Ketersediaan }}">
+                            <input type="text" class="form-control my-5 input-bordered input w-full" id="Ketersediaan" name="Ketersediaan" value="{{ $sarana->Ketersediaan }}">
                         </div>
 
                         <div class="form-group">
                             <label for="Lokasi">Lokasi</label>
-                            <input class="form-control" type="text" id="Lokasi" name="Lokasi" rows="3" value="{{ $sarana->Lokasi }}">
+                            <input class="form-control my-5 input-bordered input w-full" type="text" id="Lokasi" name="Lokasi" rows="3" value="{{ $sarana->Lokasi }}">
                         </div>
                         <button type="Update"
                             class="text-white bg-blue-600  rounded text-sm px-5 py-2.5">Update</button>

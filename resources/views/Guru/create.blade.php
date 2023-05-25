@@ -15,7 +15,7 @@
                             <label class="block">
                                 <span class="text-gray-700 @error('Nama_Guru') text-red-500 @enderror">Nama_Guru</span>
                                 <input type="text" name="Nama_Guru"
-                                    class="block @error('Nama_Guru') border-red-500 bg-red-100 text-red-900 @enderror w-full mt-1 rounded-md"
+                                    class="block @error('Nama_Guru') border-red-500 bg-red-100 text-red-900 @enderror my-5 input-bordered input w-full rounded-md"
                                     placeholder="" value="{{old('Nama_Guru')}}" />
                             </label>
                             @error('Nama_Guru')
@@ -28,7 +28,7 @@
                             <label class="block">
                                 <span class="text-gray-700 @error('Mata_Pelajaran') text-red-500 @enderror">Mata Pelajaran</span>
                                 <input
-                                    class="block @error('Mata_Pelajaran') border-red-500  bg-red-100 text-red-900 @enderror w-full mt-1 rounded-md"
+                                    class="block @error('Mata_Pelajaran') border-red-500  bg-red-100 text-red-900 @enderror my-5 input-bordered input w-full rounded-md"
                                     name="Mata_Pelajaran" rows="3" value="{{old('Mata_Pelajaran')}}" type="text">
                             </label>
                             @error('Mata_Pelajaran')
@@ -40,7 +40,7 @@
                        <div class="mb-6">
                             <label class="block">
                                 <span class="text-gray-700 @error('Jenis_Kelamin') text-red-500 @enderror">Jenis Kelamin</span>
-                                <select id="select" name="Jenis_Kelamin" class="block w-full mt-1 border-gray-300 rounded-md">
+                                <select id="select" name="Jenis_Kelamin" class="block my-5 input-bordered input w-full border-gray-300 rounded-md">
                                     <option value="#">Pilih Jenis Kelamin</option>
                                     <option value="L">Laki - Laki</option>
                                     <option value="P">Perempuan</option>
@@ -56,7 +56,7 @@
                             <label class="block">
                                 <span class="text-gray-700 @error('Alamat') text-red-500 @enderror">Alamat</span>
                                 <input type="text" name="Alamat"
-                                    class="block w-full mt-1 text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+                                    class="block my-5 input-bordered input w-full text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
                             </label>
                         @error('Alamat')
                         <div class="flex items-center text-sm text-red-600">
@@ -68,7 +68,7 @@
                             <label class="block">
                             <span class="text-gray-700 @error('Nomor_Telepon') text-red-500 @enderror">Nomor Telepon</span>
                             <input type="number" name="Nomor_Telepon"
-                                                            class="block w-full mt-1 text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+                                                            class="block my-5 input-bordered input w-full text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
                             </label>
                         @error('Nomor_Telepon')
                         <div class="flex items-center text-sm text-red-600">
@@ -79,7 +79,7 @@
                         <div class="mb-6">
                             <label class="block">
                             <span class="text-gray-700 @error('Kelas_id') text-red-500 @enderror">Kelas ID</span>
-                            <select id="select" name="Kelas_id" class="block w-full mt-1 border-gray-300 rounded-md">
+                            <select id="select" name="Kelas_id" class="block my-5 input-bordered input w-full border-gray-300 rounded-md">
                             @foreach($kelas as $kls)
                             <option value="#">Silahkan Pilih Kelas </option>
                             <option value="{{$kls->id}}">{{$kls->Nama_Kelas}}</option>
@@ -97,7 +97,7 @@
                             <div class="mb-6">
                             <label class="block">
                             <span class="text-gray-700 @error('Users_id') text-red-500 @enderror">Users ID</span>
-                            <select id="select" name="Users_id" class="block w-full mt-1 border-gray-300 rounded-md">
+                            <select id="select" name="Users_id" class="block my-5 input-bordered input w-full border-gray-300 rounded-md">
                             @foreach($user as $u)
                             <option value="{{$u->id}}">{{$u->name}}</option>
                             @endforeach
@@ -112,7 +112,7 @@
                             <div class="mb-6">
                             <label class="block">
                             <span class="text-gray-700 @error('Mata_Pelajaran_id') text-red-500 @enderror">Mata Pelajaran ID</span>
-                            <select id="select" name="Mata_Pelajaran_id" class="block w-full mt-1 border-gray-300 rounded-md">
+                            <select id="select" name="Mata_Pelajaran_id" class="block my-5 input-bordered input w-full border-gray-300 rounded-md">
                             @foreach($mapel as $mp)
                             <option value="{{$mp->id}}">{{$mp->Nama_Mata_Pelajaran}}</option>
                             @endforeach
@@ -128,7 +128,7 @@
                             <label class="block">
                             <span class="sr-only">Choose File</span>
                             <input type="file" name="photo"
-                            class="block w-full mt-1 text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded -full file:border-0 file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+                            class="block my-5 input-bordered input w-full text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded -full file:border-0 file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
                             </label>
                             @error('photo')
                             <div class="flex items-center text-sm text-red-600">

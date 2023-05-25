@@ -13,9 +13,9 @@
                         @csrf
                         <div class="mb-6">
                             <label class="block">
-                                <span class="text-gray-700 @error('Staffcol') text-red-500 @enderror">Staffcol</span>
+                                <span class="text-gray-700 @error('Staffcol') text-red-500 @enderror">Staff Nama</span>
                                 <input type="text" name="Staffcol"
-                                    class="block @error('Staffcol') border-red-500 bg-red-100 text-red-900 @enderror w-full mt-1 rounded-md"
+                                    class="block @error('Staffcol') border-red-500 bg-red-100 text-red-900 @enderror my-5 input-bordered input w-full rounded-md"
                                     placeholder="" value="{{old('Staffcol')}}" />
                             </label>
                             @error('Staffcol')
@@ -28,7 +28,7 @@
                             <label class="block">
                                 <span class="text-gray-700 @error('Divisi') text-red-500 @enderror">Divisi</span>
                                 <input type="text" name="Divisi"
-                                    class="block @error('Divisi') border-red-500 bg-red-100 text-red-900 @enderror w-full mt-1 rounded-md"
+                                    class="block @error('Divisi') border-red-500 bg-red-100 text-red-900 @enderror my-5 input-bordered input w-full rounded-md"
                                     placeholder="" value="{{old('Divisi')}}" />
                             </label>
                             @error('Divisi')
@@ -41,7 +41,7 @@
                             <label class="block">
                                 <span class="text-gray-700 @error('Users_id') text-red-500 @enderror">Users ID</span>
                                 <select id="select" name="Users_id"
-                                    class="block appearance-none w-full bg-white border border-gray-300 py-2 px-3 rounded-md leading-tight focus:outline-none focus:shadow-outline">
+                                    class="block appearance-none my-5 input-bordered input w-full bg-white border border-gray-300 py-2 px-3 rounded-md leading-tight focus:outline-none focus:shadow-outline">
                                     @foreach($user as $u)
                                     <option value="{{$u->id}}">{{$u->name}}</option>
                                     @endforeach

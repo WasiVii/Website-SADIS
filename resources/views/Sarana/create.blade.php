@@ -15,7 +15,7 @@
                             <label class="block">
                                 <span class="text-gray-700 @error('nama_Sarana') text-red-500 @enderror">nama_Sarana</span>
                                 <input type="text" name="nama_Sarana"
-                                    class="block @error('nama_Sarana') border-red-500 bg-red-100 text-red-900 @enderror w-full mt-1 rounded-md"
+                                    class="block @error('nama_Sarana') border-red-500 bg-red-100 text-red-900 @enderror my-5 input-bordered input w-full rounded-md"
                                     placeholder="" value="{{old('nama_Sarana')}}" />
                             </label>
                             @error('nama_Sarana')
@@ -28,7 +28,7 @@
                             <label class="block">
                                 <span class="text-gray-700 @error('Ketersediaan') text-red-500 @enderror">Ketersediaan</span>
                                 <input type="text" name="Ketersediaan"
-                                    class="block @error('Ketersediaan') border-red-500 bg-red-100 text-red-900 @enderror w-full mt-1 rounded-md"
+                                    class="block @error('Ketersediaan') border-red-500 bg-red-100 text-red-900 @enderror my-5 input-bordered input w-full rounded-md"
                                     placeholder="" value="{{old('Ketersediaan')}}" />
                             </label>
                             @error('Ketersediaan')
@@ -41,7 +41,7 @@
                             <label class="block">
                                 <span class="text-gray-700 @error('Lokasi') text-red-500 @enderror">Lokasi</span>
                                 <input type="text" name="Lokasi"
-                                    class="block @error('Lokasi') border-red-500 bg-red-100 text-red-900 @enderror w-full mt-1 rounded-md"
+                                    class="block @error('Lokasi') border-red-500 bg-red-100 text-red-900 @enderror my-5 input-bordered input w-full rounded-md"
                                     placeholder="" value="{{old('Lokasi')}}" />
                             </label>
                             @error('Lokasi')

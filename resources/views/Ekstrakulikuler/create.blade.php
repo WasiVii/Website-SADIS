@@ -15,7 +15,7 @@
                             <label class="block">
                                 <span class="text-gray-700 @error('Nama_Ekstrakulikuler') text-red-500 @enderror">Nama Ekstrakulikuler</span>
                                 <input type="text" name="Nama_Ekstrakulikuler"
-                                    class="block @error('Nama_Ekstrakulikuler') border-red-500 bg-red-100 text-red-900 @enderror w-full mt-1 rounded-md"
+                                    class="block @error('Nama_Ekstrakulikuler') border-red-500 bg-red-100 text-red-900 @enderror my-5 input-bordered input w-full rounded-md"
                                     placeholder="" value="{{old('Nama_Ekstrakulikuler')}}" />
                             </label>
                             @error('Nama_Ekstrakulikuler')
@@ -29,7 +29,7 @@
                             <label class="block">
                                 <span class="text-gray-700 @error('Deskripsi') text-red-500 @enderror">Deskripsi</span>
                                 <textarea
-                                    class="block @error('Deskripsi') border-red-500  bg-red-100 text-red-900 @enderror w-full mt-1 rounded-md"
+                                    class="block @error('Deskripsi') border-red-500  bg-red-100 text-red-900 @enderror my-5 input-bordered input w-full1 rounded-md"
                                     name="Deskripsi" rows="3">{{old('Deskripsi')}}</textarea>
                             </label>
                             @error('Deskripsi')
@@ -42,7 +42,7 @@
                             <label class="block">
                                 <span class="sr-only">Choose File</span>
                                 <input type="file" name="Photo"
-                                    class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+                                    class="block my-5 input-bordered input w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
                             </label>
                             @error('Photo')
                             <div class="flex items-center text-sm text-red-600">

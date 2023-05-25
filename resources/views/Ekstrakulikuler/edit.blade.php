@@ -15,16 +15,16 @@
                     @method('PUT')
                         <div class="form-group">
                             <label for="Nama_Ekstrakulikuler">Nama_Ekstrakulikuler</label>
-                            <input type="text" class="form-control" id="Nama_Ekstrakulikuler" name="Nama_Ekstrakulikuler" value="{{ $ekstrakulikuler->Nama_Ekstrakulikuler }}">
+                            <input type="text" class="form-control my-5 input-bordered input w-full" id="Nama_Ekstrakulikuler" name="Nama_Ekstrakulikuler" value="{{ $ekstrakulikuler->Nama_Ekstrakulikuler }}">
                         </div>
 
                         <div class="form-group">
                             <label for="Deskripsi">Deskripsi</label>
-                            <input type="text" class="form-control" id="Deskripsi" name="Deskripsi" value="{{ $ekstrakulikuler->Deskripsi }}">
+                            <input type="text" class="form-control my-5 input-bordered input w-full" id="Deskripsi" name="Deskripsi" value="{{ $ekstrakulikuler->Deskripsi }}">
                         </div>
                         <div class="form-group">
                             <label for="photo">Photo</label>
-                            <input type="file" class="form-control" id="photo" name="photo">
+                            <input type="file" class="form-control my-5 input-bordered input w-full" id="photo" name="photo">
                             <img src="{{ asset('images/'.$ekstrakulikuler->photo) }}" width="50">
                         </div>
 

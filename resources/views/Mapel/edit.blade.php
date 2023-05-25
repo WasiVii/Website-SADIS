@@ -15,7 +15,7 @@
                     @method('PUT')
                         <div class="form-group">
                             <label for="Nama_Mata_Pelajaran">Nama_Mata_Pelajaran</label>
-                            <input type="text" class="form-control" id="Nama_Mata_Pelajaran" name="Nama_Mata_Pelajaran" value="{{ $mapel->Nama_Mata_Pelajaran }}">
+                            <input type="text" class="form-control my-5 input-bordered input w-full" id="Nama_Mata_Pelajaran" name="Nama_Mata_Pelajaran" value="{{ $mapel->Nama_Mata_Pelajaran }}">
                         </div>
                         <button type="Update"
                             class="text-white bg-blue-600  rounded text-sm px-5 py-2.5">Update</button>

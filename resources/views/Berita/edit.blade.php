@@ -15,27 +15,27 @@
                     @method('PUT')
                         <div class="form-group">
                             <label for="Judul">Judul</label>
-                            <input type="text" class="form-control" id="Judul" name="Judul" value="{{ $berita->Judul }}">
+                            <input type="text" class="form-control my-5 input-bordered input w-full" id="Judul" name="Judul" value="{{ $berita->Judul }}">
                         </div>
 
                         <div class="form-group">
                             <label for="Isi_Berita">Isi_Berita</label>
-                            <input type="text" class="form-control" id="Isi_Berita" name="Isi_Berita" value="{{ $berita->Isi_Berita }}">
+                            <input type="text" class="form-control my-5 input-bordered input w-full" id="Isi_Berita" name="Isi_Berita" value="{{ $berita->Isi_Berita }}">
                         </div>
 
                         <div class="form-group">
                             <label for="Tanggal_Publikasi">Tanggal_Publikasi</label>
-                            <input class="form-control" type="date" id="Tanggal_Publikasi" name="Tanggal_Publikasi" rows="3" value="{{ $berita->Tanggal_Publikasi }}">
+                            <input type="date" class="my-5 input-bordered input w-full" id="Tanggal_Publikasi" name="Tanggal_Publikasi" value="{{ $berita->Tanggal_Publikasi }}">
                         </div>
                         <div class="form-group">
                             <label for="Staff_id">Staff_id</label>
-                            <textarea class="form-control" id="Staff_id" name="Staff_id" rows="3">{{ $berita->Staff_id }}</textarea>
+                            <textarea class="form-control my-5 input-bordered input w-full" id="Staff_id" name="Staff_id">{{ $berita->Staff_id }}</textarea>
                         </div>
 
                         <div class="form-group">
                             <label for="photo">Photo</label>
-                            <input type="file" class="form-control" id="photo" name="photo">
-                            <img src="{{ asset('images/'.$berita->photo) }}" width="50">
+                            <input type="file" class="form-control my-5 input-bordered input w-full" id="photo" name="photo">
+                            <img src="{{ asset('images/'.$berita->photo) }}" width="50" class="mb-5">
                         </div>
 
                         <button type="Update"

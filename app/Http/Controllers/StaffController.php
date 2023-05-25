@@ -63,16 +63,16 @@ class StaffController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Staff $staff)
+    public function edit($id)
     {
-        $staff = Staff::finOrFail($staff);
+        $staff = Staff::findOrFail($id);
         return view('staaf.edit', compact('staff'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Staff $staff)
+    public function update(Request $request, $id)
     {
         $request->validate([
         'Staffcol' => 'required',
@@ -80,7 +80,7 @@ class StaffController extends Controller
         'Users_id' => 'required'
         ]);
 
-    $staff = Staff::finOrFail($staff);
+    $staff = Staff::findOrFail($id);
     $staff->Staffcol = $request->Staffcol;
     $staff->Divisi = $request->Divisi;
     $staff->Users_id = $request->Users_id;

@@ -14,19 +14,19 @@
                     @method('PUT')
                     <div class="mb-4">
                         <label for="Nama_Siswa" class="block text-sm font-medium text-gray-700">Nama Siswa</label>
-                        <input type="text" name="Nama_Siswa" id="Nama_Siswa" value="{{ $siswa->Nama_Siswa }}" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        <input type="text" name="Nama_Siswa" id="Nama_Siswa" value="{{ $siswa->Nama_Siswa }}" class=" my-5 input-bordered input w-full focus:ring-blue-500 focus:border-blue-500 block shadow-sm sm:text-sm border-gray-300 rounded-md">
                     </div>
                     <div class="mb-4">
                         <label for="Tanggal_Lahir" class="block text-sm font-medium text-gray-700">Tanggal_Lahir</label>
-                        <input type="text" name="Tanggal_Lahir" id="Tanggal_Lahir" value="{{ $siswa->Tanggal_Lahir }}" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        <input type="text" name="Tanggal_Lahir" id="Tanggal_Lahir" value="{{ $siswa->Tanggal_Lahir }}" class="focus:ring-blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                     </div>
                      <div class="mb-4">
                         <label for="Alamat" class="block text-sm font-medium text-gray-700">Alamat</label>
-                        <textarea name="Alamat" id="Alamat" rows="3" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">{{ $siswa->Alamat }}</textarea>
+                        <textarea name="Alamat" id="Alamat" rows="3" class="focus:ring-blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">{{ $siswa->Alamat }}</textarea>
                     </div>
                     <div class="mb-4">
                         <label for="Jenis_Kelamin" class="block text-sm font-medium text-gray-700">Jenis Kelamin</label>
-                        <select id="select" name="Jenis_Kelamin" class="block w-full mt-1 border-gray-300 rounded-md">
+                        <select id="select" name="Jenis_Kelamin" class="block my-5 input-bordered input w-full border-gray-300 rounded-md">
                             <option value="#">Pilih Jenis Kelamin</option>
                             <option value="L">Laki - Laki</option>
                             <option value="P">Perempuan</option>
@@ -34,19 +34,19 @@
                     </div>
                     <div class="mb-4">
                         <label for="Nomor_Telepon" class="block text-sm font-medium text-gray-700">Nomor Telepon</label>
-                        <input type="text" name="Nomor_Telepon" id="Nomor_Telepon" value="{{ $siswa->Nomor_Telepon }}" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        <input type="text" name="Nomor_Telepon" id="Nomor_Telepon" value="{{ $siswa->Nomor_Telepon }}" class="focus:ring-blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                     </div>
                      <div class="mb-4">
                         <label for="Email" class="block text-sm font-medium text-gray-700">Email</label>
-                        <textarea name="Email" id="Email" rows="3" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">{{ $siswa->Alamat }}</textarea>
+                        <textarea name="Email" id="Email" rows="3" class="focus:ring-blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">{{ $siswa->Email }}</textarea>
                     </div>
                      <div class="mb-4">
-                        <label for="Tahun_Lulus" class="block text-sm font-medium text-gray-700">Tahun_Lulus</label>
-                        <textarea name="Tahun_Lulus" id="Tahun_Lulus" rows="3" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">{{ $siswa->Alamat }}</textarea>
+                        <label for="Tahun_Lulus" class="block text-sm font-medium text-gray-700">Tahun Lulus</label>
+                        <textarea name="Tahun_Lulus" id="Tahun_Lulus" rows="3"  class="focus:ring-blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">{{ $siswa->Tahun_Lulus }}</textarea>
                     </div>
                     <div class="mb-4">
                         <label for="Kelas_id" class="block text-sm font-medium text-gray-700">Kelas ID</label>
-                        <select name="Kelas_id" id="Kelas_id" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        <select name="Kelas_id" id="Kelas_id" class="focus:ring-blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                             @foreach($kelas as $kls)
                             <option  value="{{$kls->id}}">{{$kls->Nama_Kelas}}</option>
                             @endforeach
@@ -54,7 +54,7 @@
                     </div>
                     <div class="mb-4">
                         <label for="Users_id" class="block text-sm font-medium text-gray-700">Users ID</label>
-                        <select name="Users_id" id="Users_id" class="mt-1 focus:ring -blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        <select name="Users_id" id="Users_id" class="focus:ring -blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                             @foreach($user as $u)
                             <option value="{{$u->id}}" >{{$u->name}}</option>
                             @endforeach
@@ -62,7 +62,7 @@
                     </div>
                     <div class="mb-4">
                         <label for="Ekstrakulikuler_id" class="block text-sm font-medium text-gray-700">Ekstrakulikuler ID</label>
-                        <select name="Ekstrakulikuler_id" id="Ekstrakulikuler_id" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        <select name="Ekstrakulikuler_id" id="Ekstrakulikuler_id" class="focus:ring-blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                             @foreach($ekstrakulikuler as $e)
                             <option value="{{$e->id}}">{{$e->Nama_Ekstrakulikuler}}</option>
                             @endforeach

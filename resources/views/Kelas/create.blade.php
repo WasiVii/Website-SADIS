@@ -15,7 +15,7 @@
                             <label class="block">
                                 <span class="text-gray-700 @error('Nama_Kelas') text-red-500 @enderror">Nama_Kelas</span>
                                 <input type="text" name="Nama_Kelas"
-                                    class="block @error('Nama_Kelas') border-red-500 bg-red-100 text-red-900 @enderror w-full mt-1 rounded-md"
+                                    class="block @error('Nama_Kelas') border-red-500 bg-red-100 text-red-900 @enderror my-5 input-bordered input w-full rounded-md"
                                     placeholder="" value="{{old('Nama_Kelas')}}" />
                             </label>
                             @error('Nama_Kelas')
@@ -28,8 +28,8 @@
                             <label class="block">
                                 <span class="text-gray-700 @error('Tahun_Pelajaran') text-red-500 @enderror">Tahun Pelajaran</span>
                                 <input
-                                    class="block @error('Tahun_Pelajaran') border-red-500  bg-red-100 text-red-900 @enderror w-full mt-1 rounded-md"
-                                    name="Tahun_Pelajaran" rows="3" value="{{old('Tahun_Pelajaran')}}" type="text">
+                                    class="block @error('Tahun_Pelajaran') border-red-500  bg-red-100 text-red-900 @enderror my-5 input-bordered input w-full rounded-md"
+                                    name="Tahun_Pelajaran" rows="3" value="{{old('Tahun_Pelajaran')}}" type="date">
                             </label>
                             @error('Tahun_Pelajaran')
                             <div class="flex items-center text-sm text-red-600">
@@ -41,7 +41,7 @@
                             <label class="block">
                                 <span class="text-gray-700 @error('Wali_Kelas') text-red-500 @enderror">Wali_Kelas</span>
                                 <input type="text" name="Wali_Kelas"
-                                    class="block w-full mt-1 text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+                                    class="block my-5 input-bordered input w-full text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
                             </label>
                         @error('Wali_Kelas')
                         <div class="flex items-center text-sm text-red-600">
@@ -53,7 +53,7 @@
                             <label class="block">
                             <span class="text-gray-700 @error('Array_Siswa') text-red-500 @enderror">Array Siswa</span>
                             <input type="number" name="Array_Siswa"
-                                                            class="block w-full mt-1 text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+                                                            class="block my-5 input-bordered input w-full text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
                             </label>
                         @error('Array_Siswa')
                         <div class="flex items-center text-sm text-red-600">
