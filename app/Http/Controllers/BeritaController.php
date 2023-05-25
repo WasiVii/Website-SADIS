@@ -13,8 +13,11 @@ class BeritaController extends Controller
      */
     public function index()
     {
-        $berita = Berita::all();
-        return view('berita.index', compact('berita'));
+        $staff = DB::table('staff')->get();
+        $berita = Berita::join('staff', 'berita.staff_id', '=', 'staff.id')
+        ->select('berita.*','staff.staffcol as staff')
+        ->get();
+        return view('berita.index', compact('berita','staff'));
     }
 
     /**
@@ -22,7 +25,11 @@ class BeritaController extends Controller
      */
     public function create()
     {
-        return view('Berita.create');
+        $staff = DB::table('staff')->get();
+        $berita = Berita::join('staff', 'berita.staff_id', '=', 'staff.id')
+        ->select('berita.*','staff.staffcol as staff')
+        ->get();
+        return view('Berita.create',compact('staff','berita'));
     }
 
     /**
@@ -75,23 +82,28 @@ class BeritaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Berita $berita)
+    public function edit($id)
     {
+
+        //  @dd($id);
+        $berita = Berita::findOrFail($id);
         return view('berita.edit', compact('berita'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Berita $berita)
+    public function update(Request $request,  $id)
     {
         $request->validate([
-        'Judul' => 'required',
-        'Isi_Berita' => 'required',
-        'Tanggal_Publikasi' => 'required',
-        'Staff_id' => 'required',
-        'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
-        ]);
+    'Judul' => 'required',
+    'Isi_Berita' => 'required',
+    'Tanggal_Publikasi' => 'required',
+    'Staff_id' => 'required',
+    'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+]);
+
+    $berita = Berita::findOrFail($id); // Fetch the existing record using the ID
 
     $berita->Judul = $request->Judul;
     $berita->Isi_Berita = $request->Isi_Berita;
@@ -110,7 +122,6 @@ class BeritaController extends Controller
 
     return redirect()->route('berita.index');
     }
-
     /**
      * Remove the specified resource from storage.
      */
