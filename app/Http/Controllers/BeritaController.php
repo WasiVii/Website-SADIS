@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Berita;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BeritaController extends Controller
 {
@@ -59,9 +60,16 @@ class BeritaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Berita $berita)
+    public function show()
     {
-         return view('berita.show', compact('berita'));
+        $berita = DB::table('berita')->orderby('id', 'desc')->get();
+        return view('layouts.news', ['berita'=>$berita]);
+    }
+
+    public function detail($id)
+    {
+        $berita = DB::table('berita')->where('id', $id)->first();
+        return view('layouts.news_details', ['berita'=>$berita]);
     }
 
     /**

@@ -81,18 +81,21 @@ Route::get('/teams', function () {
     return view('layouts.teams');
 });
 
-Route::get('/news', function () {
-    return view('layouts.news');
-});
+// BERITA HOMEPAGE
+Route::get('/news', [BeritaController::class, 'show']);
+Route::get('/news/{id}', [BeritaController::class, 'detail']);
 
+// EXTRAKULIKULER HOMEPAGE
 Route::get('/extrakulikuler', function () {
     return view('layouts.extrakulikuler');
 });
 
+// SARANA PRASARANA HOMEPAGE
 Route::get('/sarana-prasarana', function () {
     return view('layouts.sarana_prasarana');
 });
 
+// DATA SISWA HOMEPAGE
 Route::get('/data-siswa', function () {
     return view('layouts.data_siswa');
 });
