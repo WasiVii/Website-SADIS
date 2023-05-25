@@ -25,7 +25,7 @@
                         <div class="px-6 py-4">
                             <h2 class="text-lg font-medium text-gray-800 mb-2">{{ $g->Nama_guru }}</h2>
                             <p class="text-sm text-gray-600 mb-4">{{ $g->Mata_Pelajaran }}</p>
-                            <p class="text-gray-700 text-base">{{ $g->Jenis_Kelamin }}</p>
+                            <p class="text-gray-700 text-base">{{ $g->jenis_Kelamin }}</p>
                             <p class="text-gray-700 text-base">{{ $g->Alamat }}</p>
                             <p class="text-gray-700 text-base">{{ $g->Nomor_Telepon }}</p>
                             <p class="text-gray-700 text-base">{{ $g->User_id }}</p>

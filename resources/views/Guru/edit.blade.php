@@ -21,11 +21,12 @@
                         <input type="text" name="Mata_Pelajaran" id="Mata_Pelajaran" value="{{ $guru->Mata_Pelajaran }}" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                     </div>
                     <div class="mb-4">
-                        <label for="Jenis_Kelamin" class="block text-sm font-medium text-gray-700">Kelas ID</label>
-                        <select name="Jenis_Kelamin" id="Jenis_Kelamin" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                            <option value="Jenis_Kelamin" {{ $guru->Jenis_Kelamin ? 'selected' : '' }}>Laki - Laki</option>
-                            <option value="Jenis_Kelamin" {{ $guru->Jenis_Kelamin ? 'selected' : '' }}>Perempuan</option>
-                        </select>
+                        <label for="Jenis_Kelamin" class="block text-sm font-medium text-gray-700">Jenis Kelamin</label>
+                         <select id="select" name="Jenis_Kelamin" class="block w-full mt-1 border-gray-300 rounded-md">
+                                    <option value="#">Pilih Jenis Kelamin</option>
+                                    <option value="Jenis_Kelamin">Laki - Laki</option>
+                                    <option value="Jenis_Kelamin">Perempuan</option>
+                               </select>
                     </div>
                     <div class="mb-4">
                         <label for="Alamat" class="block text-sm font-medium text-gray-700">Alamat</label>
@@ -39,7 +40,7 @@
                         <label for="Kelas_id" class="block text-sm font-medium text-gray-700">Kelas ID</label>
                         <select name="Kelas_id" id="Kelas_id" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                             @foreach($kelas as $kls)
-                            <option value="Kelas_id" {{ $kls->id == $guru->Kelas_id ? 'selected' : '' }}>{{$kls->Nama_Kelas}}</option>
+                            <option  value="{{$kls->id}}">{{$kls->Nama_Kelas}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -47,7 +48,7 @@
                         <label for="Users_id" class="block text-sm font-medium text-gray-700">Users ID</label>
                         <select name="Users_id" id="Users_id" class="mt-1 focus:ring -blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                             @foreach($user as $u)
-                            <option value="Users_id" {{ $u->id == $guru->Users_id ? 'selected' : '' }}>{{$u->name}}</option>
+                            <option value="{{$u->id}}" >{{$u->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -55,7 +56,7 @@
                         <label for="Mata_Pelajaran_id" class="block text-sm font-medium text-gray-700">Mata Pelajaran ID</label>
                         <select name="Mata_Pelajaran_id" id="Mata_Pelajaran_id" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                             @foreach($mapel as $mp)
-                            <option value="Mata_Pelajaran_id" {{ $mp->id == $guru->Mata_Pelajaran_id ? 'selected' : '' }}>{{$mp->Nama_Mata_Pelajaran}}</option>
+                            <option value="{{$mp->id}}">{{$mp->Nama_Mata_Pelajaran}}</option>
                             @endforeach
                     </select>
                     </div>
