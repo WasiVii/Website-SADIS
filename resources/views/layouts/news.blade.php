@@ -1,5 +1,5 @@
 @extends('layouts/app')
- 
+
 @section('title', 'News')
 
 @section('content')
@@ -9,7 +9,7 @@
                 <div class="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
                     <div class="max-w-2xl mx-auto text-center">
                     <p class="mt-5 text-4xl font-bold leading-tight text-gray-900 sm:leading-tight sm:text-5xl lg:text-6xl lg:leading-tight font-pj">
-                        Berita Sekolah 
+                        Berita Sekolah
                     </p>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                                                 </svg>
                                             </div>
                                             <p class="text-blue-color">{{ $article->Staff_id }}</p>
-                                        </div> 
+                                        </div>
                                         <div class="grid flex-grow rounded-box place-items-center">
                                             <div>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-event" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#00abfb" fill="none" stroke-linecap="round" stroke-linejoin="round">

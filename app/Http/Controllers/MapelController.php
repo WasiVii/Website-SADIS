@@ -38,7 +38,7 @@ class MapelController extends Controller
     $mapel = new Mapel();
     $mapel->Nama_Mata_Pelajaran = $request->Nama_Mata_Pelajaran;
     $mapel->save();
-    return redirect()->route('Mapel.index');
+    return redirect()->route('mapel.index');
     }
 
     /**
@@ -68,11 +68,9 @@ class MapelController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy( Mapel $mapel, $slug)
+    public function destroy(Mapel $mapel)
     {
-       $mapel = Mapel::where('id',$slug)->first();
-        $mapel->delete();
-
-        return redirect()->back();
+         $mapel->delete();
+        return redirect()->route('mapel.index');
     }
 }

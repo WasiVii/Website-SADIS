@@ -1,5 +1,5 @@
 @extends('layouts/app')
- 
+
 @section('title', 'News')
 
 
@@ -20,8 +20,8 @@
                     <div class="px-2 flex flex-col gap-5">
                         <div class="text-sm breadcrumbs">
                             <ul>
-                                <li><a href="/">HOME</a></li> 
-                                <li><a href="/news">NEWS</a></li> 
+                                <li><a href="/">HOME</a></li>
+                                <li><a href="/news">NEWS</a></li>
                                 <li>{{ $berita->Judul }}</li>
                             </ul>
                         </div>
@@ -35,8 +35,8 @@
                                             <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
                                         </svg>
                                         <p class="text-blue-color">{{ $berita->Staff_id }}</p>
-                                    </div> 
-                                </div> 
+                                    </div>
+                                </div>
                                 <div class="grid flex-grow">
                                     <div class="flex flex-row rounded-box place-items-center">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-event" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.5" stroke="#00abfb" fill="none" stroke-linecap="round" stroke-linejoin="round">

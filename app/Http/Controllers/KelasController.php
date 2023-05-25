@@ -44,7 +44,7 @@ class KelasController extends Controller
     $kelas->Array_Siswa = $request->Array_Siswa;
     $kelas->save();
 
-    return redirect()->route('Kelas.index');
+    return redirect()->route('kelas.index');
     }
 
     /**
@@ -74,9 +74,8 @@ class KelasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id,$slug)
+    public function destroy(Kelas $kelas, $slug)
     {
-          $kelas = Kelas::findOrFail($id);
         $kelas = Kelas::where('id',$slug)->first();
         $kelas->delete();
 
