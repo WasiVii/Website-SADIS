@@ -40,8 +40,8 @@ $data_siswa = [$siswa1, $siswa2, $siswa3, $siswa4];
 @endphp
 
 @section('content')
-    <section class="flex flex-col min-h-screen py-10">
-        <div class="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+    <section class="container flex flex-col min-h-screen py-10">
+        <div class="px-4 mx-auto sm:px-6 lg:px-8 sm:w-screen lg:w-screen max-w-7xl">
             <section class="py-10 bg-main-color rounded-lg">
                 <div class="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
                     <div class="max-w-2xl mx-auto text-center">
