@@ -22,8 +22,8 @@ $data_images = [$galeri1, $galeri2, $galeri3, $galeri4, $galeri5];
 @endphp
 
 @section('content')
-    <section class="flex flex-col min-h-screen py-10">
-        <div class="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+    <section class="container flex flex-col min-h-screen py-10">
+        <div class="px-4 mx-auto sm:px-6 lg:px-8 sm:w-screen lg:w-screen max-w-7xl">
             <section class="py-10 bg-main-color rounded-lg max-w-7xl">
                 <div class="px-4 mx-auto sm:px-6 lg:px-8">
                     <div class="max-w-2xl mx-auto text-center">

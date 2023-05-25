@@ -2,47 +2,14 @@
  
 @section('title', 'News')
 
-@php
-$berita1 = array(
-    'judul_berita' => 'PPDB Tahun Ajaran 2023/2024',
-    'description' => 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
-    'tanggal' => '01-04-2020',
-    'penulis' => '@balee'
-);
-
-$berita2 = array(
-    'judul_berita' => 'Wisuda Kelulusan Siswa Angkatan 2020',
-    'description' => 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
-    'tanggal' => '01-04-2020',
-    'penulis' => '@sci'
-);
-
-$berita3 = array(
-    'judul_berita' => 'Lomba Siswa Berprestasi Antar Kelas',
-    'description' => 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
-    'tanggal' => '01-04-2020',
-    'penulis' => '@zombie'
-);
-
-$berita4 = array(
-    'judul_berita' => 'Ujian Nasional Tahun 2023',
-    'description' => 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
-    'tanggal' => '01-04-2020',
-    'penulis' => '@mirror'
-);
-
-$data_berita = [$berita1, $berita2, $berita3, $berita4];
-
-@endphp
-
 @section('content')
-    <section class="flex flex-col min-h-screen py-10">
-        <div class="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+    <section class="container flex flex-col min-h-screen py-10">
+        <div class="px-4 mx-auto sm:px-6 lg:px-8 sm:w-screen lg:w-screen max-w-7xl">
             <section class="py-10 bg-main-color rounded-lg">
                 <div class="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
                     <div class="max-w-2xl mx-auto text-center">
                     <p class="mt-5 text-4xl font-bold leading-tight text-gray-900 sm:leading-tight sm:text-5xl lg:text-6xl lg:leading-tight font-pj">
-                        Berita Sekolah
+                        Berita Sekolah 
                     </p>
                     </div>
                 </div>
@@ -50,15 +17,13 @@ $data_berita = [$berita1, $berita2, $berita3, $berita4];
             <section class="flex flex-col mt-5 card card-side bg-base-100 shadow-xl container mx-auto rounded-lg">
                 <section class="container mx-auto">
                     <div class="m-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2 md:gap-4 lg:gap-6">
-                        @foreach ($data_berita as $berita)
+                        @foreach ($berita as $article)
                         <div class="card mt-5 bg-main-color hover:shadow-xl">
                             <div class="card-body">
-                            <a href="#" class="text-center">
-                                <h1 class="btn btn-ghost text-xl font-semibold text-gray-800 dark:text-white">{{ $berita['judul_berita'] }}</h1>
+                            <a href="/news/{{$article->id}}" class="text-center">
+                                <h1 class="btn btn-ghost text-xl font-semibold text-gray-800 dark:text-white">{{ $article->Judul }}</h1>
                             </a>
-                            <a href="#">
-                                <p class="pb-2 text-gray-700 dark:text-gray-400">{{ $berita['description'] }}</p>
-                            </a>
+                            <p class="pb-2 text-gray-700 dark:text-gray-400">{{ $article->Isi_Berita }}</p>
                                 <p class="pb-2 text-gray-700 dark:text-gray-400">
                                     <div class="flex flex-col w-full lg:flex-row">
                                         <div class="grid flex-grow rounded-box place-items-center">
@@ -69,7 +34,7 @@ $data_berita = [$berita1, $berita2, $berita3, $berita4];
                                                     <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
                                                 </svg>
                                             </div>
-                                            <p class="text-blue-color">{{ $berita['penulis'] }}</p>
+                                            <p class="text-blue-color">{{ $article->Staff_id }}</p>
                                         </div> 
                                         <div class="grid flex-grow rounded-box place-items-center">
                                             <div>
@@ -82,7 +47,7 @@ $data_berita = [$berita1, $berita2, $berita3, $berita4];
                                                 <path d="M8 15h2v2h-2z" />
                                             </svg>
                                             </div>
-                                            <p class="text-blue-color">{{ $berita['tanggal'] }}</p>
+                                            <p class="text-blue-color">{{ $article->Tanggal_Publikasi }}</p>
                                         </div>
                                     </div>
                                 </p>

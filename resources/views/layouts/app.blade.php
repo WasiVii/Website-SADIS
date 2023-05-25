@@ -16,7 +16,9 @@
 <body>
     <x-header.home/>
 
-    @yield('content')
+    {{-- <div class="container"> --}}
+        @yield('content')
+    {{-- </div> --}}
     {{-- <div class="max-w-6xl mx-auto">
         @yield('content')
     </div> --}}
