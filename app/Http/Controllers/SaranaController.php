@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Sarana;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SaranaController extends Controller
 {
@@ -48,9 +49,10 @@ class SaranaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Sarana $sarana)
+    public function show()
     {
-        //
+        $saranaprasarana = DB::table('sarana')->orderby('id', 'desc')->get();
+        return view('layouts.sarana_prasarana', ['saranaprasarana'=>$saranaprasarana]);
     }
 
     /**

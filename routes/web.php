@@ -91,9 +91,7 @@ Route::get('/news/{id}', [BeritaController::class, 'detail']);
 Route::get('/extrakulikuler', [EkstrakulikulerController::class, 'show']);
 
 // SARANA PRASARANA HOMEPAGE
-Route::get('/sarana-prasarana', function () {
-    return view('layouts.sarana_prasarana');
-});
+Route::get('/sarana-prasarana', [SaranaController::class, 'show']);
 
 // DATA SISWA HOMEPAGE
 Route::get('/data-siswa', function () {
