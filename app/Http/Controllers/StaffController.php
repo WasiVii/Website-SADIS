@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Staff;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StaffController extends Controller
 {
@@ -12,8 +13,11 @@ class StaffController extends Controller
      */
     public function index()
     {
-        $staff = Staff::all();
-        return view('Staaf.index',compact('staff'));
+        $user = DB::table('users')->get();
+        $staff = Staff::join('users','staff.users_id', '=','users.id')
+        ->select('staff.*','users.name as user')
+        ->get();
+        return view('Staaf.index',compact('staff','user'));
     }
 
     /**
@@ -21,7 +25,11 @@ class StaffController extends Controller
      */
     public function create()
     {
-        //
+       $user = DB::table('users')->get();
+        $staff = Staff::join('users','staff.users_id', '=','users.id')
+        ->select('staff.*','users.name as user')
+        ->get();
+        return view('Staaf.create',compact('staff','user'));
     }
 
     /**
@@ -29,7 +37,19 @@ class StaffController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+        'Staffcol' => 'required',
+        'Divisi' => 'required',
+        'Users_id' => 'required'
+        ]);
+
+    $staff = new Staff();
+    $staff->Staffcol = $request->Staffcol;
+    $staff->Divisi = $request->Divisi;
+    $staff->Users_id = $request->Users_id;
+    $staff->save();
+
+    return redirect()->route('staff.index');
     }
 
     /**
@@ -45,7 +65,8 @@ class StaffController extends Controller
      */
     public function edit(Staff $staff)
     {
-        //
+        $staff = Staff::finOrFail($staff);
+        return view('staaf.edit', compact('staff'));
     }
 
     /**
@@ -53,7 +74,19 @@ class StaffController extends Controller
      */
     public function update(Request $request, Staff $staff)
     {
-        //
+        $request->validate([
+        'Staffcol' => 'required',
+        'Divisi' => 'required',
+        'Users_id' => 'required'
+        ]);
+
+    $staff = Staff::finOrFail($staff);
+    $staff->Staffcol = $request->Staffcol;
+    $staff->Divisi = $request->Divisi;
+    $staff->Users_id = $request->Users_id;
+    $staff->save();
+
+    return redirect()->route('staff.index');
     }
 
     /**
@@ -61,6 +94,7 @@ class StaffController extends Controller
      */
     public function destroy(Staff $staff)
     {
-        //
+        $staff->delete();
+        return redirect()->route('staff.index');
     }
 }

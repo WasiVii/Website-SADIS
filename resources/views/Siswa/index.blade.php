@@ -82,8 +82,12 @@
                                         {{$sws->Tanggal_Lahir}}
 
                                     </td>
+                                     <td class="px-6 py-4">
+                                        {{$sws->Alamat}}
+
+                                    </td>
                                     <td class="px-6 py-4">
-                                        {{$sws->Jenis_kelamin}}
+                                        {{$sws->Jenis_Kelamin}}
 
                                     </td>
                                     <td class="px-6 py-4">
@@ -99,7 +103,7 @@
 
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{$sws->User_id}}
+                                        {{$sws->Users_id}}
 
                                     </td>
                                     <td class="px-6 py-4">
