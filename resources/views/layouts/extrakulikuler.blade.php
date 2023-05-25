@@ -2,35 +2,6 @@
  
 @section('title', 'Extrakulikuler')
 
-@php
-$extrakulikuler1 = array(
-    'name' => 'Sepak Bola',
-    'photo' => '/assets/img/extrakulikuler/sepakbola.png',
-    'description' => 'Lorem ipsum'
-);
-
-$extrakulikuler2 = array(
-    'name' => 'Basket',
-    'photo' => '/assets/img/extrakulikuler/basket.png',
-    'description' => 'Lorem ipsum'
-);
-
-$extrakulikuler3 = array(
-    'name' => 'Badminton',
-    'photo' => '/assets/img/extrakulikuler/badminton.png',
-    'description' => 'Lorem ipsum'
-);
-
-$extrakulikuler4 = array(
-    'name' => 'Renang',
-    'photo' => '/assets/img/extrakulikuler/renang.png',
-    'description' => 'Lorem ipsum'
-);
-
-$data_extrakulikuler = [$extrakulikuler1, $extrakulikuler2, $extrakulikuler3, $extrakulikuler4];
-
-@endphp
-
 @section('content')
     <section class="container flex flex-col min-h-screen py-10">
         <div class="px-4 mx-auto sm:px-6 lg:px-8 sm:w-screen lg:w-screen max-w-7xl">
@@ -64,19 +35,19 @@ $data_extrakulikuler = [$extrakulikuler1, $extrakulikuler2, $extrakulikuler3, $e
                 </div>
                 <section class="container mx-auto">
                     <div class="m-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6">
-                        @foreach ($data_extrakulikuler as $extra)
+                        @foreach ($extrakulikuler as $extra)
                         <div class="card mt-5 bg-main-color shadow-xl">
                             <figure class="px-10 pt-10">
                                 <img
                                     class="h-60 rounded-full"
-                                    src="{{ $extra['photo'] }}"
+                                    src="{{ url('images') }}/{{ $extra->photo }}"
                                     alt=""
                                 />
                             </figure>
                             <div class="card-body items-center text-center">
-                                <h1 class="text-xl font-semibold text-gray-800 dark:text-white">{{ $extra['name'] }}</h1>
+                                <h1 class="text-xl font-semibold text-gray-800 dark:text-white">{{ $extra->Nama_Ekstrakulikuler }}</h1>
 
-                                <p class="pb-2 text-gray-700 dark:text-gray-400">{{ $extra['description'] }}</p>
+                                <p class="pb-2 text-gray-700 dark:text-gray-400">{{ $extra->Deskripsi }}</p>
                             </div>
                         </div>
                         @endforeach

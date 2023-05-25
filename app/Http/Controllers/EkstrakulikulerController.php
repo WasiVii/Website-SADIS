@@ -55,9 +55,10 @@ class EkstrakulikulerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Ekstrakulikuler $ekstrakulikuler)
+    public function show()
     {
-        return view('Ekstrakulikuler.show', compact('ekstrakulikuler'));
+        $extrakulikuler = DB::table('ekstrakulikuler')->orderby('id', 'asc')->get();
+        return view('layouts.extrakulikuler', ['extrakulikuler'=>$extrakulikuler]);
     }
 
     /**

@@ -86,9 +86,7 @@ Route::get('/news', [BeritaController::class, 'show']);
 Route::get('/news/{id}', [BeritaController::class, 'detail']);
 
 // EXTRAKULIKULER HOMEPAGE
-Route::get('/extrakulikuler', function () {
-    return view('layouts.extrakulikuler');
-});
+Route::get('/extrakulikuler', [EkstrakulikulerController::class, 'show']);
 
 // SARANA PRASARANA HOMEPAGE
 Route::get('/sarana-prasarana', function () {
