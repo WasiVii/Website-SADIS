@@ -52,15 +52,17 @@ Route::get('/buttons/text-icon', function () {
     return view('buttons-showcase.text-icon');
 })->middleware(['auth'])->name('buttons.text-icon');
 
-Route::resource('berita', BeritaController::class);
-Route::resource('ekstrakulikuler', EkstrakulikulerController::class);
-Route::resource('guru', GuruController::class);
-Route::resource('kelas', KelasController::class);
-Route::resource('mapel', MapelController::class);
-Route::resource('nilai', NilaiController::class);
-Route::resource('sarana', SaranaController::class);
-Route::resource('siswa', SiswaController::class);
-Route::resource('staff', StaffController::class);
+Route::middleware('auth')->group(function(){
+    Route::resource('berita', BeritaController::class);
+    Route::resource('ekstrakulikuler', EkstrakulikulerController::class);
+    Route::resource('guru', GuruController::class);
+    Route::resource('kelas', KelasController::class);
+    Route::resource('mapel', MapelController::class);
+    Route::resource('nilai', NilaiController::class);
+    Route::resource('sarana', SaranaController::class);
+    Route::resource('siswa', SiswaController::class);
+    Route::resource('staff', StaffController::class);
+});
 require __DIR__ . '/auth.php';
 
 

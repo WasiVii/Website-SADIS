@@ -71,10 +71,13 @@
                                         {{$beritas->Tanggal_Publikasi}}
 
                                     </td>
+                                    @foreach ($staff as $stf )
+
                                     <td class="px-6 py-4">
-                                        {{$beritas->Staff_id}}
+                                        {{$stf->Staffcol}}
 
                                     </td>
+                                    @endforeach
                                     <td class="px-6 py-4">
                                         @empty($beritas->photo)
                                         <img src="{{ url('images/nophoto.jpg') }}" alt="">
