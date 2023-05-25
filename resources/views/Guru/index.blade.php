@@ -4,7 +4,7 @@
             {{ __('Guru') }}
         </h2>
     </x-slot>
-    <div class="">
+    <div class="mb-10">
         <a href="{{ route('guru.create') }}" class="bg-green-500 text-white px-4 py-2 rounded-lg">Create</a>
     </div>
     <div class="container mx-auto">
@@ -17,7 +17,11 @@
             @foreach ($guru as $g)
                 <div class="w-full md:w-1/3 px-4 mb-8">
                     <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-                        <img class="w-full h-48 object-cover object-center" src="{{ asset('images/'.$g->Image) }}" alt="{{ $g->Nama_guru }}">
+                         @empty($g->photo)
+                                        <img src="{{ url('images/nophoto.jpg') }}" alt="">
+                                        @else
+                                        <img src="{{ url('images') }}/{{ $g->photo }}" alt="" class="w-full h-48 object-cover object-center">
+                                        @endempty
                         <div class="px-6 py-4">
                             <h2 class="text-lg font-medium text-gray-800 mb-2">{{ $g->Nama_guru }}</h2>
                             <p class="text-sm text-gray-600 mb-4">{{ $g->Mata_Pelajaran }}</p>
