@@ -21,7 +21,7 @@ class SaranaController extends Controller
      */
     public function create()
     {
-        //
+        return view('Sarana.create');
     }
 
     /**
@@ -29,7 +29,20 @@ class SaranaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+        'nama_Sarana' => 'required',
+        'Ketersediaan' => 'required',
+        'Lokasi' => 'required'
+
+        ]);
+
+    $sarana = new Sarana();
+    $sarana->nama_Sarana = $request->nama_Sarana;
+    $sarana->Ketersediaan = $request->Ketersediaan;
+    $sarana->Lokasi = $request->Lokasi;
+    $sarana->save();
+
+    return redirect()->route('sarana.index');
     }
 
     /**
@@ -45,7 +58,7 @@ class SaranaController extends Controller
      */
     public function edit(Sarana $sarana)
     {
-        //
+        return view('sarana.edit', compact('sarana'));
     }
 
     /**
@@ -53,7 +66,19 @@ class SaranaController extends Controller
      */
     public function update(Request $request, Sarana $sarana)
     {
-        //
+         $request->validate([
+        'nama_Sarana' => 'required',
+        'Ketersediaan' => 'required',
+        'Lokasi' => 'required'
+
+        ]);
+
+    $sarana->nama_Sarana = $request->nama_Sarana;
+    $sarana->Ketersediaan = $request->Ketersediaan;
+    $sarana->Lokasi = $request->Lokasi;
+    $sarana->save();
+
+    return redirect()->route('sarana.index');
     }
 
     /**
@@ -61,6 +86,7 @@ class SaranaController extends Controller
      */
     public function destroy(Sarana $sarana)
     {
-        //
+         $sarana->delete();
+        return redirect()->route('nilai.index');
     }
 }

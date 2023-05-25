@@ -96,7 +96,7 @@ class GuruController extends Controller
         $user = DB::table('users')->get();
         $kelas = DB::table('kelas')->get();
         $mapel = DB::table('mata_pelajaran')->get();
-         $guru = Guru::findOrFail($id);
+        $guru = Guru::findOrFail($id);
         return view('guru.edit', compact('guru','kelas','mapel','user'));
     }
 
