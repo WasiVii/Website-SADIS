@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Nilai;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class NilaiController extends Controller
 {
@@ -12,8 +13,13 @@ class NilaiController extends Controller
      */
     public function index()
     {
-        $nilai = Nilai::all();
-        return view('Nilai.index',compact('nilai'));
+        $siswa = DB::table('Siswa')->get();
+        $mapel = DB::table('Mata_Pelajaran')->get();
+        $nilai = Nilai::join('siswa','nilai.siswa_id','=','siswa.id')
+        ->join('mata_pelajaran','nilai.mata_pelajaran_id','=','mata_pelajaran.id')
+        ->select('Nilai.*','siswa.Nama_Siswa as siswa','mata_pelajaran.Nama_Mata_Pelajaran as mapel')
+        ->get();
+        return view('Nilai.index',compact('nilai','mapel','siswa'));
     }
 
     /**
@@ -21,7 +27,13 @@ class NilaiController extends Controller
      */
     public function create()
     {
-        //
+        $siswa = DB::table('Siswa')->get();
+        $mapel = DB::table('Mata_Pelajaran')->get();
+        $nilai = Nilai::join('siswa','nilai.siswa_id','=','siswa.id')
+        ->join('mata_pelajaran','nilai.mata_pelajaran_id','=','mata_pelajaran.id')
+        ->select('siswa.*','siswa.Nama_Siswa as siswa','mata_pelajaran.Nama_Mata_Pelajaran as mapel')
+        ->get();
+        return view('Nilai.create',compact('nilai','mapel','siswa'));
     }
 
     /**
@@ -29,7 +41,19 @@ class NilaiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $request->validate([
+        'Nilai' => 'required',
+        'Siswa_id' => 'required',
+        'Mata_Pelajaran_id' => 'required'
+        ]);
+
+    $nilai = new Nilai();
+    $nilai->Nilai = $request->Nilai;
+    $nilai->Siswa_id = $request->Siswa_id;
+    $nilai->Mata_Pelajaran_id = $request->Mata_Pelajaran_id;
+    $nilai->save();
+
+    return redirect()->route('nilai.index');
     }
 
     /**
@@ -43,17 +67,30 @@ class NilaiController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Nilai $nilai)
+    public function edit($id)
     {
-        //
+         $nilai = Nilai::findOrFail($id);
+        return view('Nilai.edit', compact('nilai'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Nilai $nilai)
+    public function update(Request $request,  $id)
     {
-        //
+
+         $request->validate([
+        'Nilai' => 'required',
+        'Siswa_id' => 'required',
+        'Mata_Pelajaran_id' => 'required'
+        ]);
+    $nilai = Nilai::findOrFail($id);
+    $nilai->Nilai = $request->Nilai;
+    $nilai->Siswa_id = $request->Siswa_id;
+    $nilai->Mata_Pelajaran_id = $request->Mata_Pelajaran_id;
+    $nilai->save();
+
+    return redirect()->route('nilai.index');
     }
 
     /**
@@ -61,6 +98,7 @@ class NilaiController extends Controller
      */
     public function destroy(Nilai $nilai)
     {
-        //
+       $nilai->delete();
+        return redirect()->route('nilai.index');
     }
 }

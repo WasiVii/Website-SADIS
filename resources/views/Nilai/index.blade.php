@@ -47,26 +47,26 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($nilai as $ns)
+                                @foreach ($nilai as $nilais)
                                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                     <th scope="row"
                                         class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                         {{$no}}
                                     </th>
                                     <td class="px-6 py-4">
-                                        {{$ns->Nilai}}
+                                        {{$nilais->Nilai}}
 
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{$ns->Siswa_id}}
+                                        {{$nilais->siswa}}
 
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{$ns->Mata_Pelajaran_id}}
+                                        {{$nilais->mapel}}
 
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a href="{{ route('nilai.edit',$ns->id) }}">
+                                        <a href="{{ route('nilai.edit',$nilais->id) }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-600">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -75,7 +75,7 @@
                                         </a>
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a href="{{ route('nilai.show',$ns->id) }}">
+                                        <a href="{{ route('nilai.show',$nilais->id) }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-600">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -86,7 +86,7 @@
                                         </a>
                                     </td>
                                     <td class="px-6 py-4">
-                                        <form action="{{ route('nilai.destroy',$ns->id) }}" method="POST"
+                                        <form action="{{ route('nilai.destroy',$nilais->id) }}" method="POST"
                                             onsubmit="return confirm('{{ trans('are You Sure ? ') }}');"
                                             style="display: inline-block;">
                                             <input type="hidden" name="_method" value="DELETE">
