@@ -22,12 +22,13 @@
                     </div>
                     <div class="mb-4">
                         <label for="Jenis_Kelamin" class="block text-sm font-medium text-gray-700">Jenis Kelamin</label>
-                         <select id="select" name="Jenis_Kelamin" class="block w-full mt-1 border-gray-300 rounded-md">
-                                    <option value="#">Pilih Jenis Kelamin</option>
-                                    <option value="Jenis_Kelamin">Laki - Laki</option>
-                                    <option value="Jenis_Kelamin">Perempuan</option>
-                               </select>
+                        <select id="select" name="Jenis_Kelamin" class="block w-full mt-1 border-gray-300 rounded-md">
+                            <option value="#">Pilih Jenis Kelamin</option>
+                            <option value="L">Laki - Laki</option>
+                            <option value="P">Perempuan</option>
+                        </select>
                     </div>
+
                     <div class="mb-4">
                         <label for="Alamat" class="block text-sm font-medium text-gray-700">Alamat</label>
                         <textarea name="Alamat" id="Alamat" rows="3" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">{{ $guru->Alamat }}</textarea>

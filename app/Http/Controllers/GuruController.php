@@ -19,7 +19,7 @@ class GuruController extends Controller
         $guru = Guru::join('users', 'guru.users_id','=','users.id')
         ->join('kelas','guru.kelas_id','=','kelas.id')
         ->join('mata_pelajaran','guru.mata_pelajaran_id','=','mata_pelajaran.id')
-        ->select('guru.*','users.name as user','kelas.Nama_Kelas','mata_pelajaran.Nama_Mata_Pelajaran')
+        ->select('guru.*','users.name as user','kelas.Nama_Kelas as kelas','mata_pelajaran.Nama_Mata_Pelajaran as mapel')
         ->get();
         return view('guru.index', compact('guru','kelas','user','mapel'));
     }
@@ -60,7 +60,7 @@ class GuruController extends Controller
     $guru = new Guru();
     $guru->Nama_Guru = $request->Nama_Guru;
     $guru->Mata_Pelajaran = $request->Mata_Pelajaran;
-    $guru->Jenis_Kelamin = $request->Tanggal_Publikasi;
+    $guru->Jenis_Kelamin = $request->Jenis_Kelamin;
     $guru->Alamat = $request->Alamat;
     $guru->Nomor_Telepon = $request->Nomor_Telepon;
     $guru->Users_id = $request->Users_id;
@@ -121,7 +121,7 @@ class GuruController extends Controller
     $guru = Guru::findOrFail($id);
     $guru->Nama_Guru = $request->Nama_Guru;
     $guru->Mata_Pelajaran = $request->Mata_Pelajaran;
-    $guru->Jenis_Kelamin = $request->Tanggal_Publikasi;
+    $guru->Jenis_Kelamin = $request->Jenis_Kelamin;
     $guru->Alamat = $request->Alamat;
     $guru->Nomor_Telepon = $request->Nomor_Telepon;
     $guru->Users_id = $request->Users_id;

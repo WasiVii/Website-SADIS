@@ -52,17 +52,26 @@ class MapelController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit( $id)
     {
-        //
+         $mapel = Mapel::findOrFail($id);
+        return view('Mapel.edit', compact('mapel'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request,  $id)
     {
-        //
+
+        $request->validate([
+        'Nama_Mata_Pelajaran' => 'required'
+
+        ]);
+     $mapel = Mapel::findOrFail($id);
+    $mapel->Nama_Mata_Pelajaran = $request->Nama_Mata_Pelajaran;
+    $mapel->save();
+    return redirect()->route('mapel.index');
     }
 
     /**

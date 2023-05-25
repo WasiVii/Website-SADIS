@@ -58,19 +58,33 @@ class KelasController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Kelas $kelas)
+    public function edit($id)
     {
-        //
+        $kelas = Kelas::findOrFail($id);
+        return view('Kelas.edit' , compact('kelas'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Kelas $kelas)
+    public function update(Request $request, $id)
     {
-        //
-    }
+         $request->validate([
+        'Nama_Kelas' => 'required',
+        'Tahun_Pelajaran' => 'required',
+        'Wali_Kelas' => 'required',
+        'Array_Siswa' => 'required'
 
+        ]);
+        $kelas = Kelas::findOrFail($id);
+    $kelas->Nama_Kelas = $request->Nama_Kelas;
+    $kelas->Tahun_Pelajaran = $request->Tahun_Pelajaran;
+    $kelas->Wali_Kelas = $request->Wali_Kelas;
+    $kelas->Array_Siswa = $request->Array_Siswa;
+    $kelas->save();
+
+    return redirect()->route('kelas.index');
+    }
     /**
      * Remove the specified resource from storage.
      */

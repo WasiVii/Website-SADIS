@@ -17,20 +17,30 @@
             @foreach ($guru as $g)
                 <div class="w-full md:w-1/3 px-4 mb-8">
                     <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-                         @empty($g->photo)
-                                        <img src="{{ url('images/nophoto.jpg') }}" alt="">
-                                        @else
-                                        <img src="{{ url('images') }}/{{ $g->photo }}" alt="" class="w-full h-48 object-cover object-center">
-                                        @endempty
+                        @empty($g->photo)
+                            <img src="{{ url('images/nophoto.jpg') }}" alt="">
+                        @else
+                            <img src="{{ url('images') }}/{{ $g->photo }}" alt="" class="w-full h-48 object-cover object-center">
+                        @endempty
                         <div class="px-6 py-4">
-                            <h2 class="text-lg font-medium text-gray-800 mb-2">{{ $g->Nama_guru }}</h2>
-                            <p class="text-sm text-gray-600 mb-4">{{ $g->Mata_Pelajaran }}</p>
-                            <p class="text-gray-700 text-base">{{ $g->jenis_Kelamin }}</p>
-                            <p class="text-gray-700 text-base">{{ $g->Alamat }}</p>
-                            <p class="text-gray-700 text-base">{{ $g->Nomor_Telepon }}</p>
-                            <p class="text-gray-700 text-base">{{ $g->User_id }}</p>
-                            <p class="text-gray-700 text-base">{{ $g->Kelas_id }}</p>
-                            <p class="text-gray-700 text-base">{{ $g->Mata_Pelajaran_id }}</p>
+                            <h2 class="text-lg font-medium text-gray-800 mb-2">{{ $g->Nama_Guru }}</h2>
+                            Mata Pelajaran : <p class="text-sm text-gray-600 mb-4">{{ $g->Mata_Pelajaran }}</p>
+                            Jenis Kelamin : <p class="text-gray-700 text-base">{{ $g->Jenis_Kelamin }}</p>
+                            Alamat : <p class="text-gray-700 text-base">{{ $g->Alamat }}</p>
+                            Nomor Telepon : <p class="text-gray-700 text-base">{{ $g->Nomor_Telepon }}</p>
+                            Admin Pembuat :
+                            <p class="text-gray-700 text-base">
+                                {{ $g->user }}
+                            </p>
+                            Kelas Yang di Ajar:
+                            <p class="text-gray-700 text-base">
+                                {{ $g->kelas }}
+                            </p>
+                            Mapel Yang di Ajar :
+                            <p class="text-gray-700 text-base">
+                                {{ $g->mapel }}
+                            </p>
+
                             <div class="flex justify-between items-center">
                                 <a href="{{ route('guru.show', $g->id) }}" class="bg-purple-500 text-white px-4 py-2 rounded-lg">Show</a>
                                 <a href="{{ route('guru.edit', $g->id) }}" class="bg-cyan-500 text-white px-4 py-2 rounded-lg">Edit</a>

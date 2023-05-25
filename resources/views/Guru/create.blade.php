@@ -37,14 +37,14 @@
                             </div>
                             @enderror
                         </div>
-                        <div class="mb-6">
+                       <div class="mb-6">
                             <label class="block">
                                 <span class="text-gray-700 @error('Jenis_Kelamin') text-red-500 @enderror">Jenis Kelamin</span>
-                               <select id="select" name="Jenis_Kelamin" class="block w-full mt-1 border-gray-300 rounded-md">
+                                <select id="select" name="Jenis_Kelamin" class="block w-full mt-1 border-gray-300 rounded-md">
                                     <option value="#">Pilih Jenis Kelamin</option>
-                                    <option value="Jenis_Kelamin">Laki - Laki</option>
-                                    <option value="Jenis_Kelamin">Perempuan</option>
-                               </select>
+                                    <option value="L">Laki - Laki</option>
+                                    <option value="P">Perempuan</option>
+                                </select>
                             </label>
                             @error('Jenis_Kelamin')
                             <div class="flex items-center text-sm text-red-600">
