@@ -34,7 +34,9 @@
                                                     <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
                                                 </svg>
                                             </div>
-                                            <p class="text-blue-color">{{ $article->Staff_id }}</p>
+                                            @foreach ($staff as $stf )
+                                                <p class="text-blue-color">{{$stf->Staffcol}}</p>
+                                            @endforeach
                                         </div> 
                                         <div class="grid flex-grow rounded-box place-items-center">
                                             <div>

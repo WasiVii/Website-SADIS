@@ -44,7 +44,7 @@ class KelasController extends Controller
     $kelas->Array_Siswa = $request->Array_Siswa;
     $kelas->save();
 
-    return redirect()->route('Kelas.index');
+    return redirect()->route('kelas.index');
     }
 
     /**
