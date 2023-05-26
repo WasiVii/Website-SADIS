@@ -83,9 +83,13 @@ class GuruController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show()
     {
-        //
+        $mapel = DB::table('mata_pelajaran')->get();
+        $guru = DB::table('guru')->join('mata_pelajaran','guru.mata_pelajaran_id','=','mata_pelajaran.id')
+        ->select('guru.*','mata_pelajaran.Nama_Mata_Pelajaran as mapel')
+        ->get();
+        return view('layouts.data_guru', compact('guru','mapel'));
     }
 
     /**

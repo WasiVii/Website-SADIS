@@ -77,9 +77,10 @@ class SiswaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $siswa = DB::table('siswa')->orderby('id', 'asc')->get();
+        return view('layouts.data_siswa', compact('siswa'));
     }
 
     /**

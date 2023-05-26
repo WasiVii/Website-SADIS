@@ -73,9 +73,7 @@ Route::prefix('profile')->group(function () {
     Route::get('/visi-misi', function () {
         return view('layouts.visi_misi');
     });
-    Route::get('/data-guru', function () {
-        return view('layouts.data_guru');
-    });
+    Route::get('/data-guru', [GuruController::class, 'show']);
     Route::get('/peta', [MapController::class, 'index']);
 });
 
@@ -94,9 +92,7 @@ Route::get('/extrakulikuler', [EkstrakulikulerController::class, 'show']);
 Route::get('/sarana-prasarana', [SaranaController::class, 'show']);
 
 // DATA SISWA HOMEPAGE
-Route::get('/data-siswa', function () {
-    return view('layouts.data_siswa');
-});
+Route::get('/data-siswa', [SiswaController::class, 'show']);
 
 Route::get('/ppdb', function () {
     return view('layouts.ppdb');

@@ -42,7 +42,7 @@
                             </p>
 
                             <div class="flex justify-between items-center">
-                                <a href="{{ route('guru.show', $g->id) }}" class="bg-purple-500 text-white px-4 py-2 rounded-lg">Show</a>
+                                <a href="/profile/data-guru" class="bg-purple-500 text-white px-4 py-2 rounded-lg">Show</a>
                                 <a href="{{ route('guru.edit', $g->id) }}" class="bg-cyan-500 text-white px-4 py-2 rounded-lg">Edit</a>
                                 <form action="{{ route('guru.destroy', $g->id) }}" method="POST" class="d-inline">
                                     @csrf
