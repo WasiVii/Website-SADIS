@@ -62,7 +62,7 @@
 
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{$stf->Users_id}}
+                                        {{$stf->user}}
 
                                     </td>
                                     <td class="px-6 py-4">

@@ -32,7 +32,7 @@
                             <p class="text-gray-700 text-base">
                                 {{ $g->user }}
                             </p>
-                            Kelas Yang di Ajar:
+                            Kelas Yang di Ajar :
                             <p class="text-gray-700 text-base">
                                 {{ $g->kelas }}
                             </p>
