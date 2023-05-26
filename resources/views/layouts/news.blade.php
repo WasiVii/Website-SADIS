@@ -35,9 +35,7 @@
                                                 </svg>
                                             </div>
 
-                                            @foreach ($staff as $stf )
-                                                <p class="text-blue-color">{{$stf->Staffcol}}</p>
-                                            @endforeach
+                                            <p class="text-blue-color">{{$article->staff}}</p>
                                         </div>
                                         <div class="grid flex-grow rounded-box place-items-center">
                                             <div>

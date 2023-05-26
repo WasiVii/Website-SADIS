@@ -78,7 +78,8 @@ class BeritaController extends Controller
     public function detail($id)
     {
         $staff = DB::table('staff')->get();
-        $berita = DB::table('berita')->where('id', $id)->first();
+        $berita = DB::table('berita')->join('staff', 'berita.staff_id', '=', 'staff.id')
+        ->select('berita.*','staff.staffcol as staff')->where('berita.id', $id)->first();
         return view('layouts.news_details', compact('berita','staff'));
     }
 
