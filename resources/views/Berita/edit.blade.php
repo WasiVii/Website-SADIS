@@ -19,16 +19,16 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="Isi_Berita">Isi_Berita</label>
+                            <label for="Isi_Berita">Isi Berita</label>
                             <input type="text" class="form-control my-5 input-bordered input w-full" id="Isi_Berita" name="Isi_Berita" value="{{ $berita->Isi_Berita }}">
                         </div>
 
                         <div class="form-group">
-                            <label for="Tanggal_Publikasi">Tanggal_Publikasi</label>
+                            <label for="Tanggal_Publikasi">Tanggal Publikasi</label>
                             <input type="date" class="my-5 input-bordered input w-full" id="Tanggal_Publikasi" name="Tanggal_Publikasi" value="{{ $berita->Tanggal_Publikasi }}">
                         </div>
-                        <div class="form-group">
-                            <label for="Staff_id">Staff_id</label>
+                        <div class="form-group" hidden>
+                            <label for="Staff_id">Staff id</label>
                             <textarea class="form-control my-5 input-bordered input w-full" id="Staff_id" name="Staff_id">{{ $berita->Staff_id }}</textarea>
                         </div>
 

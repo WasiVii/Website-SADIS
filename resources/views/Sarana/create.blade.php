@@ -13,7 +13,7 @@
                         @csrf
                         <div class="mb-6">
                             <label class="block">
-                                <span class="text-gray-700 @error('nama_Sarana') text-red-500 @enderror">nama_Sarana</span>
+                                <span class="text-gray-700 @error('nama_Sarana') text-red-500 @enderror">Nama Sarana</span>
                                 <input type="text" name="nama_Sarana"
                                     class="block @error('nama_Sarana') border-red-500 bg-red-100 text-red-900 @enderror my-5 input-bordered input w-full rounded-md"
                                     placeholder="" value="{{old('nama_Sarana')}}" />

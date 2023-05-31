@@ -17,14 +17,13 @@
                             <label for="Nilai">Nilai</label>
                             <input type="text" class="form-control my-5 input-bordered input w-full" id="Nilai" name="Nilai" value="{{ $nilai->Nilai }}">
                         </div>
-
-                        <div class="form-group">
-                            <label for="Siswa_id">Siswa_id</label>
+                        <div class="form-group" hidden>
+                            <label for="Siswa_id">Siswa id</label>
                             <input type="text" class="form-control my-5 input-bordered input w-full" id="Siswa_id" name="Siswa_id" value="{{ $nilai->Siswa_id }}">
                         </div>
 
-                        <div class="form-group">
-                            <label for="Mata_Pelajaran_id">Mata_Pelajaran_id</label>
+                        <div class="form-group" hidden>
+                            <label for="Mata_Pelajaran_id">Mata Pelajaran id</label>
                             <input class="form-control my-5 input-bordered input w-full" type="text" id="Mata_Pelajaran_id" name="Mata_Pelajaran_id" rows="3" value="{{ $nilai->Mata_Pelajaran_id }}">
                         </div>
                         <button type="Update"

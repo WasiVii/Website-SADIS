@@ -92,6 +92,6 @@ class SaranaController extends Controller
     public function destroy(Sarana $sarana)
     {
          $sarana->delete();
-        return redirect()->route('nilai.index')->with('success','Sarana Deleted Successfully');
+        return redirect()->route('sarana.index')->with('success','Sarana Deleted Successfully');
     }
 }

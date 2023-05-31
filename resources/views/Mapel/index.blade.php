@@ -13,7 +13,7 @@
                     </h1>
                     <div class="mt-1 mb-4">
                         <a class="px-2 py-2 text-sm text-white bg-blue-600 rounded"
-                            href="{{ route('mapel.create') }}">{{ __('Add Mapel') }}</a>
+                            href="{{ route('mapel.create') }}">{{ __('Add Mata Pelajaran') }}</a>
                     </div>
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">

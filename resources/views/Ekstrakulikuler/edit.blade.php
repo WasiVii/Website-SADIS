@@ -14,7 +14,7 @@
                     @csrf
                     @method('PUT')
                         <div class="form-group">
-                            <label for="Nama_Ekstrakulikuler">Nama_Ekstrakulikuler</label>
+                            <label for="Nama_Ekstrakulikuler">Nama Ekstrakulikuler</label>
                             <input type="text" class="form-control my-5 input-bordered input w-full" id="Nama_Ekstrakulikuler" name="Nama_Ekstrakulikuler" value="{{ $ekstrakulikuler->Nama_Ekstrakulikuler }}">
                         </div>
 
@@ -22,10 +22,11 @@
                             <label for="Deskripsi">Deskripsi</label>
                             <input type="text" class="form-control my-5 input-bordered input w-full" id="Deskripsi" name="Deskripsi" value="{{ $ekstrakulikuler->Deskripsi }}">
                         </div>
+                         <div class="mb-4">
                         <div class="form-group">
                             <label for="photo">Photo</label>
                             <input type="file" class="form-control my-5 input-bordered input w-full" id="photo" name="photo">
-                            <img src="{{ asset('images/'.$ekstrakulikuler->photo) }}" width="50">
+                            <img src="{{ asset('images/'.$ekstrakulikuler->photo) }}" width="50" class="mb-5">
                         </div>
 
                         <button type="Update"

@@ -36,7 +36,7 @@
                                         Wali Kelas
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        Array Siswa
+                                        Jumlah Siswa
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         Edit
@@ -92,7 +92,7 @@
                                             </svg>
                                         </a>
                                     </td>
-                                    < <td class="px-6 py-4">
+                                    <td class="px-6 py-4">
                                         <a href="{{ route('kelas.destroy', $kls->id) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a>
                                     </td>
                                 </tr>

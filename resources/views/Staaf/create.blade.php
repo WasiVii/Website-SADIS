@@ -42,6 +42,7 @@
                                 <span class="text-gray-700 @error('Users_id') text-red-500 @enderror">Users ID</span>
                                 <select id="select" name="Users_id"
                                     class="block appearance-none my-5 input-bordered input w-full bg-white border border-gray-300 py-2 px-3 rounded-md leading-tight focus:outline-none focus:shadow-outline">
+                                    <option value="#">Masukan User</option>
                                     @foreach($user as $u)
                                     <option value="{{$u->id}}">{{$u->name}}</option>
                                     @endforeach

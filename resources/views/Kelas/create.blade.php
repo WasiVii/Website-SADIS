@@ -13,7 +13,7 @@
                         @csrf
                         <div class="mb-6">
                             <label class="block">
-                                <span class="text-gray-700 @error('Nama_Kelas') text-red-500 @enderror">Nama_Kelas</span>
+                                <span class="text-gray-700 @error('Nama_Kelas') text-red-500 @enderror">Nama Kelas</span>
                                 <input type="text" name="Nama_Kelas"
                                     class="block @error('Nama_Kelas') border-red-500 bg-red-100 text-red-900 @enderror my-5 input-bordered input w-full rounded-md"
                                     placeholder="" value="{{old('Nama_Kelas')}}" />
@@ -39,7 +39,7 @@
                         </div>
                         <div class="mb-6">
                             <label class="block">
-                                <span class="text-gray-700 @error('Wali_Kelas') text-red-500 @enderror">Wali_Kelas</span>
+                                <span class="text-gray-700 @error('Wali_Kelas') text-red-500 @enderror">Wali Kelas</span>
                                 <input type="text" name="Wali_Kelas"
                                     class="block my-5 input-bordered input w-full text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
                             </label>
@@ -51,7 +51,7 @@
                         </div>
                         <div class="mb-6">
                             <label class="block">
-                            <span class="text-gray-700 @error('Array_Siswa') text-red-500 @enderror">Array Siswa</span>
+                            <span class="text-gray-700 @error('Array_Siswa') text-red-500 @enderror">Jumlah Siswa</span>
                             <input type="number" name="Array_Siswa"
                                                             class="block my-5 input-bordered input w-full text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
                             </label>

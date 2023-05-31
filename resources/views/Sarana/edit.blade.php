@@ -14,7 +14,7 @@
                     @csrf
                     @method('PUT')
                         <div class="form-group">
-                            <label for="nama_Sarana">nama_Sarana</label>
+                            <label for="nama_Sarana">Nama Sarana</label>
                             <input type="text" class="form-control my-5 input-bordered input w-full" id="nama_Sarana" name="nama_Sarana" value="{{ $sarana->nama_Sarana }}">
                         </div>
 

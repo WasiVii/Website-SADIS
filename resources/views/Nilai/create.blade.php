@@ -29,6 +29,7 @@
                                 <span class="text-gray-700 @error('Siswa_id') text-red-500 @enderror">Siswa ID</span>
                                 <select id="select" name="Siswa_id"
                                     class="block appearance-none my-5 input-bordered input w-full bg-white border border-gray-300 py-2 px-3 rounded-md leading-tight focus:outline-none focus:shadow-outline">
+                                    <option value="#">Nama Siswa</option>
                                     @foreach($siswa as $sws)
                                     <option value="{{$sws->id}}">{{$sws->Nama_Siswa}}</option>
                                     @endforeach
@@ -45,6 +46,7 @@
                                 <span class="text-gray-700 @error('Mata_Pelajaran_id') text-red-500 @enderror">Mata Pelajaran</span>
                                 <select id="select" name="Mata_Pelajaran_id"
                                     class="block appearance-none my-5 input-bordered input w-full bg-white border border-gray-300 py-2 px-3 rounded-md leading-tight focus:outline-none focus:shadow-outline">
+                                    <option value="#">Masukan Mata Pelajaran</option>
                                     @foreach($mapel as $mpl)
                                     <option value="{{$mpl->id}}">{{$mpl->Nama_Mata_Pelajaran}}</option>
                                     @endforeach

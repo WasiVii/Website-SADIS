@@ -13,7 +13,7 @@
                         @csrf
                         <div class="mb-6">
                             <label class="block">
-                                <span class="text-gray-700 @error('Nama_Mata_Pelajaran') text-red-500 @enderror">Nama_Mata_Pelajaran</span>
+                                <span class="text-gray-700 @error('Nama_Mata_Pelajaran') text-red-500 @enderror">Nama Mata Pelajaran</span>
                                 <input type="text" name="Nama_Mata_Pelajaran"
                                     class="block @error('Nama_Mata_Pelajaran') border-red-500 bg-red-100 text-red-900 @enderror my-5 input-bordered input w-full rounded-md"
                                     placeholder="" value="{{old('Nama_Mata_Pelajaran')}}" />

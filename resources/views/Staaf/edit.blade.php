@@ -24,7 +24,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="Users_id">Users_id</label>
+                            <label for="Users_id">Users ID</label>
                             <input class="form-control my-5 input-bordered input w-full" type="text" id="Users_id" name="Users_id" rows="3" value="{{ $staff->Users_id }}">
                         </div>
                         <button type="Update"

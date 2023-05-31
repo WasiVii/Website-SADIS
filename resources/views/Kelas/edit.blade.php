@@ -21,11 +21,11 @@
                         <input type="date" name="Tahun_Pelajaran" id="Tahun_Pelajaran" value="{{ $kelas->Tahun_Pelajaran }}" class="focus:ring-blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                     </div>
                     <div class="mb-4">
-                        <label for="Wali_Kelas" class="block text-sm font-medium text-gray-700">Wali_Kelas</label>
+                        <label for="Wali_Kelas" class="block text-sm font-medium text-gray-700">Wali Kelas</label>
                         <textarea name="Wali_Kelas" id="Wali_Kelas" rows="3" class="focus:ring-blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">{{ $kelas->Wali_Kelas }}</textarea>
                     </div>
                     <div class="mb-4">
-                        <label for="Array_Siswa" class="block text-sm font-medium text-gray-700">Array Siswa</label>
+                        <label for="Array_Siswa" class="block text-sm font-medium text-gray-700">Jumlah Siswa</label>
                         <input type="text" name="Array_Siswa" id="Array_Siswa" value="{{ $kelas->Array_Siswa }}" class="focus:ring-blue-500 focus:border-blue-500 block my-5 input-bordered input w-fulll shadow-sm sm:text-sm border-gray-300 rounded-md">
                     </div>
                     <button type="submit" class="text-white bg-blue-600 rounded text-sm px-5 py-2.5">Update</button>

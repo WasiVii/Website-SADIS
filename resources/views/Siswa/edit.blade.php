@@ -17,7 +17,7 @@
                         <input type="text" name="Nama_Siswa" id="Nama_Siswa" value="{{ $siswa->Nama_Siswa }}" class=" my-5 input-bordered input w-full focus:ring-blue-500 focus:border-blue-500 block shadow-sm sm:text-sm border-gray-300 rounded-md">
                     </div>
                     <div class="mb-4">
-                        <label for="Tanggal_Lahir" class="block text-sm font-medium text-gray-700">Tanggal_Lahir</label>
+                        <label for="Tanggal_Lahir" class="block text-sm font-medium text-gray-700">Tanggal Lahir</label>
                         <input type="text" name="Tanggal_Lahir" id="Tanggal_Lahir" value="{{ $siswa->Tanggal_Lahir }}" class="focus:ring-blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                     </div>
                      <div class="mb-4">
