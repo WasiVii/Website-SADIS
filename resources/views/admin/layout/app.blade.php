@@ -37,6 +37,7 @@
         x-cloak
     >
         <div class="min-h-screen text-gray-900 bg-gray-100 dark:bg-dark-eval-0 dark:text-gray-200">
+              @include('sweetalert::alert')
             <!-- Sidebar -->
             <x-sidebar.sidebar />
 
@@ -72,4 +73,5 @@
     </div>
 </body>
 <script src="{{ asset('assets/js/plugins/chartjs.min.js') }}"></script>
+@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 </html>

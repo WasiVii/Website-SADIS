@@ -13,6 +13,9 @@ class KelasController extends Controller
     public function index()
     {
         $kelas = Kelas::all();
+        $title = 'Delete Kelas!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
         return view('Kelas.index',compact('kelas'));
     }
 
@@ -44,7 +47,7 @@ class KelasController extends Controller
     $kelas->Array_Siswa = $request->Array_Siswa;
     $kelas->save();
 
-    return redirect()->route('kelas.index');
+    return redirect()->route('kelas.index')->with('toast_success','Kelas Creted Successfully');
     }
 
     /**
@@ -83,7 +86,7 @@ class KelasController extends Controller
     $kelas->Array_Siswa = $request->Array_Siswa;
     $kelas->save();
 
-    return redirect()->route('kelas.index');
+    return redirect()->route('kelas.index')->with('toast_success','Kelas Updated Successfully');
     }
     /**
      * Remove the specified resource from storage.
@@ -93,6 +96,6 @@ class KelasController extends Controller
         $kelas = Kelas::where('id',$slug)->first();
         $kelas->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with('success','Kelas Deleted Successfully');
     }
 }

@@ -17,6 +17,9 @@ class StaffController extends Controller
         $staff = Staff::join('users','staff.users_id', '=','users.id')
         ->select('staff.*','users.name as user')
         ->get();
+        $title = 'Delete Staff!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
         return view('Staaf.index',compact('staff','user'));
     }
 
@@ -49,7 +52,7 @@ class StaffController extends Controller
     $staff->Users_id = $request->Users_id;
     $staff->save();
 
-    return redirect()->route('staff.index');
+    return redirect()->route('staff.index')->with('toast_success','Staff Creted Successfully');
     }
 
     /**
@@ -86,7 +89,7 @@ class StaffController extends Controller
     $staff->Users_id = $request->Users_id;
     $staff->save();
 
-    return redirect()->route('staff.index');
+    return redirect()->route('staff.index')->with('toast_success','Staff Updated Successfully');
     }
 
     /**
@@ -95,6 +98,6 @@ class StaffController extends Controller
     public function destroy(Staff $staff)
     {
         $staff->delete();
-        return redirect()->route('staff.index');
+        return redirect()->route('staff.index')->with('success','Staff Deleted Successfully');
     }
 }

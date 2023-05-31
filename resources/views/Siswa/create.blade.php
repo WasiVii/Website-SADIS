@@ -13,7 +13,7 @@
                         @csrf
                         <div class="mb-6">
                             <label class="block">
-                                <span class="text-gray-700 @error('Nama_Siswa') text-red-500 @enderror">Nama_Siswa</span>
+                                <span class="text-gray-700 @error('Nama_Siswa') text-red-500 @enderror">Nama Siswa</span>
                                 <input type="text" name="Nama_Siswa"
                                     class="block @error('Nama_Siswa') border-red-500 bg-red-100 text-red-900 @enderror my-5 input-bordered input w-full rounded-md"
                                     placeholder="" value="{{old('Nama_Siswa')}}" />
@@ -105,6 +105,7 @@
                             <label class="block">
                             <span class="text-gray-700 @error('Users_id') text-red-500 @enderror">Users ID</span>
                             <select id="select" name="Users_id" class="block my-5 input-bordered input w-full border-gray-300 rounded-md">
+                                <option value="">Silahkan Pilih User</option>
                             @foreach($user as $u)
                             <option value="{{$u->id}}">{{$u->name}}</option>
                             @endforeach
@@ -120,8 +121,8 @@
                             <label class="block">
                             <span class="text-gray-700 @error('Kelas_id') text-red-500 @enderror">Kelas ID</span>
                             <select id="select" name="Kelas_id" class="block my-5 input-bordered input w-full border-gray-300 rounded-md">
+                                <option value="#">Silahkan Pilih Kelas </option>
                             @foreach($kelas as $kls)
-                            <option value="#">Silahkan Pilih Kelas </option>
                             <option value="{{$kls->id}}">{{$kls->Nama_Kelas}}</option>
                             @endforeach
                             </select>
@@ -136,6 +137,7 @@
                             <label class="block">
                             <span class="text-gray-700 @error('Ekstrakulikuler_id') text-red-500 @enderror">Ekstrakulikuler ID</span>
                             <select id="select" name="Ekstrakulikuler_id" class="block my-5 input-bordered input w-full border-gray-300 rounded-md">
+                                <option value="#">Silahkan Pilih Ekstrakulikuler</option>
                             @foreach($ekstrakulikuler as $e)
                             <option value="{{$e->id}}">{{$e->Nama_Ekstrakulikuler}}</option>
                             @endforeach

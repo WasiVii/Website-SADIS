@@ -17,6 +17,9 @@ class BeritaController extends Controller
         $berita = Berita::join('staff', 'berita.staff_id', '=', 'staff.id')
         ->select('berita.*','staff.staffcol as staff')
         ->get();
+        $title = 'Delete Berita!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
         return view('berita.index', compact('berita','staff'));
     }
 
@@ -61,7 +64,7 @@ class BeritaController extends Controller
 
     $berita->save();
 
-    return redirect()->route('berita.index');
+    return redirect()->route('berita.index')->with('toast_success','Berita Creted Successfully');
     }
 
     /**
@@ -124,7 +127,7 @@ class BeritaController extends Controller
 
     $berita->save();
 
-    return redirect()->route('berita.index');
+    return redirect()->route('berita.index')->with('toast_success','Berita Updated Successfully');
     }
     /**
      * Remove the specified resource from storage.
@@ -134,6 +137,6 @@ class BeritaController extends Controller
         $berita = Berita::where('id',$slug)->first();
         $berita->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with('success','Berita Deleted Successfully');
     }
 }

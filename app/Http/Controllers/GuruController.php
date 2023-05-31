@@ -21,6 +21,9 @@ class GuruController extends Controller
         ->join('mata_pelajaran','guru.mata_pelajaran_id','=','mata_pelajaran.id')
         ->select('guru.*','users.name as user','kelas.Nama_Kelas as kelas','mata_pelajaran.Nama_Mata_Pelajaran as mapel')
         ->get();
+        $title = 'Delete Guru!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
         return view('guru.index', compact('guru','kelas','user','mapel'));
     }
 
@@ -77,7 +80,7 @@ class GuruController extends Controller
 
     $guru->save();
 
-    return redirect()->route('guru.index');
+    return redirect()->route('guru.index')->with('toast_success','Guru Creted Successfully');
     }
 
     /**
@@ -142,7 +145,7 @@ class GuruController extends Controller
 
     $guru->save();
 
-    return redirect()->route('guru.index');
+    return redirect()->route('guru.index')->with('toast_success','Guru Updated Successfully');
     }
 
     /**

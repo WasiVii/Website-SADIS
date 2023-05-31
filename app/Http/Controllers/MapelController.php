@@ -13,6 +13,9 @@ class MapelController extends Controller
     public function index()
     {
         $mapel = Mapel::all();
+        $title = 'Delete Mata Pelajaran!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
         return view('mapel.index', compact('mapel'));
     }
 
@@ -38,7 +41,7 @@ class MapelController extends Controller
     $mapel = new Mapel();
     $mapel->Nama_Mata_Pelajaran = $request->Nama_Mata_Pelajaran;
     $mapel->save();
-    return redirect()->route('mapel.index');
+    return redirect()->route('mapel.index')->with('toast_success','Mata Pelajaran  Creted Successfully');
     }
 
     /**
@@ -71,7 +74,7 @@ class MapelController extends Controller
      $mapel = Mapel::findOrFail($id);
     $mapel->Nama_Mata_Pelajaran = $request->Nama_Mata_Pelajaran;
     $mapel->save();
-    return redirect()->route('mapel.index');
+    return redirect()->route('mapel.index')->with('toast_success','Mata Pelajaran Updated Successfully');
     }
 
     /**
@@ -80,6 +83,6 @@ class MapelController extends Controller
     public function destroy(Mapel $mapel)
     {
          $mapel->delete();
-        return redirect()->route('mapel.index');
+        return redirect()->route('mapel.index')->with('success','Mata Pelajaran Deleted Successfully');
     }
 }

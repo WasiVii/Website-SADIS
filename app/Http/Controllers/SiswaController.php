@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SiswaController extends Controller
 {
@@ -21,6 +22,9 @@ class SiswaController extends Controller
         ->join('ekstrakulikuler','siswa.ekstrakulikuler_id','=','ekstrakulikuler.id')
         ->select('siswa.*','users.name as user','kelas.Nama_Kelas as kelas','ekstrakulikuler.Nama_Ekstrakulikuler as ekstrakulikuler')
         ->get();
+        $title = 'Delete Siswa!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
         return view('siswa.index',compact('siswa','kelas','user','ekstrakulikuler'));
     }
 
@@ -71,7 +75,7 @@ class SiswaController extends Controller
     $siswa->Ekstrakulikuler_id = $request->Ekstrakulikuler_id;
     $siswa->save();
 
-    return redirect()->route('siswa.index');
+    return redirect()->route('siswa.index')->with('toast_success', 'Created Siswa Succesfully');;
     }
 
     /**
@@ -124,7 +128,7 @@ class SiswaController extends Controller
     $siswa->Ekstrakulikuler_id = $request->Ekstrakulikuler_id;
     $siswa->save();
 
-    return redirect()->route('siswa.index');
+    return redirect()->route('siswa.index')->with('toast_success','Siswa Updated Successfully');
     }
 
     /**
@@ -133,6 +137,6 @@ class SiswaController extends Controller
     public function destroy(Siswa $siswa)
     {
          $siswa->delete();
-    return redirect()->route('siswa.index')->with('success', 'Guru deleted successfully.');
+        return redirect()->route('siswa.index')->with('success', 'Siswa deleted successfully.');
     }
 }

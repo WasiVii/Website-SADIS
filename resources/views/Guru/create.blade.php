@@ -13,7 +13,7 @@
                         @csrf
                         <div class="mb-6">
                             <label class="block">
-                                <span class="text-gray-700 @error('Nama_Guru') text-red-500 @enderror">Nama_Guru</span>
+                                <span class="text-gray-700 @error('Nama_Guru') text-red-500 @enderror">Nama Guru</span>
                                 <input type="text" name="Nama_Guru"
                                     class="block @error('Nama_Guru') border-red-500 bg-red-100 text-red-900 @enderror my-5 input-bordered input w-full rounded-md"
                                     placeholder="" value="{{old('Nama_Guru')}}" />
@@ -78,26 +78,25 @@
                         </div>
                         <div class="mb-6">
                             <label class="block">
-                            <span class="text-gray-700 @error('Kelas_id') text-red-500 @enderror">Kelas ID</span>
-                            <select id="select" name="Kelas_id" class="block my-5 input-bordered input w-full border-gray-300 rounded-md">
-                            @foreach($kelas as $kls)
-                            <option value="#">Silahkan Pilih Kelas </option>
-                            <option value="{{$kls->id}}">{{$kls->Nama_Kelas}}</option>
-                            @endforeach
-                            </select>
+                                <span class="text-gray-700 @error('Kelas_id') text-red-500 @enderror">Kelas ID</span>
+                                <select id="select" name="Kelas_id" class="block my-5 input-bordered input w-full border-gray-300 rounded-md">
+                                    <option value="#">Silahkan Pilih Kelas </option>
+                                    @foreach($kelas as $kls)
+                                    <option value="{{$kls->id}}">{{$kls->Nama_Kelas}}</option>
+                                    @endforeach
+                                </select>
                             </label>
                             @error('Kelas_id')
                             <div class="flex items-center text-sm text-red-600">
-                            {{ $message }}
+                                {{ $message }}
                             </div>
                             @enderror
-                            </div>
-
-                            <h6>Pilih User Yang Mendaftarkan</h6>
+                        </div>
                             <div class="mb-6">
                             <label class="block">
                             <span class="text-gray-700 @error('Users_id') text-red-500 @enderror">Users ID</span>
                             <select id="select" name="Users_id" class="block my-5 input-bordered input w-full border-gray-300 rounded-md">
+                                <option value="#">Pilih User</option>
                             @foreach($user as $u)
                             <option value="{{$u->id}}">{{$u->name}}</option>
                             @endforeach
@@ -113,6 +112,7 @@
                             <label class="block">
                             <span class="text-gray-700 @error('Mata_Pelajaran_id') text-red-500 @enderror">Mata Pelajaran ID</span>
                             <select id="select" name="Mata_Pelajaran_id" class="block my-5 input-bordered input w-full border-gray-300 rounded-md">
+                                <option value="">Pilih Mata Pelajaran</option>
                             @foreach($mapel as $mp)
                             <option value="{{$mp->id}}">{{$mp->Nama_Mata_Pelajaran}}</option>
                             @endforeach

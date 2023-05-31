@@ -14,6 +14,9 @@ class EkstrakulikulerController extends Controller
     public function index()
     {
         $ekstrakulikuler = Ekstrakulikuler::all();
+        $title = 'Delete Ekstrakulikuler!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
         return view('Ekstrakulikuler.index', compact('ekstrakulikuler'));
     }
 
@@ -49,7 +52,7 @@ class EkstrakulikulerController extends Controller
     }
     $ekstrakulikuler->save();
 
-    return redirect()->route('ekstrakulikuler.index');
+    return redirect()->route('ekstrakulikuler.index')->with('toast_success','Ekstrakulikuler Creted Successfully');
     }
 
     /**
@@ -92,7 +95,7 @@ class EkstrakulikulerController extends Controller
     }
     $ekstrakulikuler->save();
 
-    return redirect()->route('ekstrakulikuler.index');
+    return redirect()->route('ekstrakulikuler.index')->with('toast_success','Ekstrakulikuler Updated Successfully');
     }
 
     /**
@@ -101,6 +104,6 @@ class EkstrakulikulerController extends Controller
     public function destroy(Ekstrakulikuler $ekstrakulikuler)
     {
          $ekstrakulikuler->delete();
-        return redirect()->route('ekstrakulikuler.index')->with('success', 'Mentor deleted successfully.');
+        return redirect()->route('ekstrakulikuler.index')->with('success', 'Ekstrakulikuler deleted successfully.');
     }
 }

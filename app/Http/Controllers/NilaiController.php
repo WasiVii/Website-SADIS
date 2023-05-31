@@ -19,6 +19,9 @@ class NilaiController extends Controller
         ->join('mata_pelajaran','nilai.mata_pelajaran_id','=','mata_pelajaran.id')
         ->select('Nilai.*','siswa.Nama_Siswa as siswa','mata_pelajaran.Nama_Mata_Pelajaran as mapel')
         ->get();
+        $title = 'Delete Nilai!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
         return view('Nilai.index',compact('nilai','mapel','siswa'));
     }
 
@@ -53,7 +56,7 @@ class NilaiController extends Controller
     $nilai->Mata_Pelajaran_id = $request->Mata_Pelajaran_id;
     $nilai->save();
 
-    return redirect()->route('nilai.index');
+    return redirect()->route('nilai.index')->with('toast_success','Nilai Creted Successfully');
     }
 
     /**
@@ -90,7 +93,7 @@ class NilaiController extends Controller
     $nilai->Mata_Pelajaran_id = $request->Mata_Pelajaran_id;
     $nilai->save();
 
-    return redirect()->route('nilai.index');
+    return redirect()->route('nilai.index')->with('toast_success','Nilai Updated Successfully');
     }
 
     /**
@@ -99,6 +102,6 @@ class NilaiController extends Controller
     public function destroy(Nilai $nilai)
     {
        $nilai->delete();
-        return redirect()->route('nilai.index');
+        return redirect()->route('nilai.index')->with('success','Nilai Deleted Successfully');
     }
 }

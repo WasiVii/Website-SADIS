@@ -72,14 +72,7 @@
                                         </a>
                                     </td>
                                     <td class="px-6 py-4">
-                                        <form action="{{ route('mapel.destroy',$mpl->id) }}" method="POST"
-                                            onsubmit="return confirm('{{ trans('are You Sure ? ') }}');"
-                                            style="display: inline-block;">
-                                            <input type="hidden" name="_method" value="DELETE">
-                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                            <input type="submit" class="px-4 py-2 text-white bg-red-700 rounded"
-                                                value="Delete">
-                                        </form>
+                                        <a href="{{ route('mapel.destroy', $mpl->id) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a>
                                     </td>
                                 </tr>
                                 @php

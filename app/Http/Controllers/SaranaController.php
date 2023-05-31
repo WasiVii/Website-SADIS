@@ -14,6 +14,9 @@ class SaranaController extends Controller
     public function index()
     {
         $sarana = Sarana::all();
+        $title = 'Delete Sarana!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
         return view('Sarana.index',compact('sarana'));
     }
 
@@ -43,7 +46,7 @@ class SaranaController extends Controller
     $sarana->Lokasi = $request->Lokasi;
     $sarana->save();
 
-    return redirect()->route('sarana.index');
+    return redirect()->route('sarana.index')->with('toast_success','Sarana Creted Successfully');
     }
 
     /**
@@ -80,7 +83,7 @@ class SaranaController extends Controller
     $sarana->Lokasi = $request->Lokasi;
     $sarana->save();
 
-    return redirect()->route('sarana.index');
+    return redirect()->route('sarana.index')->with('toast_success','Sarana Updated Successfully');
     }
 
     /**
@@ -89,6 +92,6 @@ class SaranaController extends Controller
     public function destroy(Sarana $sarana)
     {
          $sarana->delete();
-        return redirect()->route('nilai.index');
+        return redirect()->route('nilai.index')->with('success','Sarana Deleted Successfully');
     }
 }
