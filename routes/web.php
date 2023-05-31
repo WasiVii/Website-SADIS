@@ -12,6 +12,7 @@ use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\SaranaController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\StaffController;
+use Illuminate\Console\View\Components\Alert;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,7 @@ use App\Http\Controllers\StaffController;
 */
 
 Route::get('/', function () {
+
     return view('layouts.home');
 });
 

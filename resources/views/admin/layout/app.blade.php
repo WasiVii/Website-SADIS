@@ -11,6 +11,12 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet" />
+         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('assets/css/paper-dashboard.css?v=2.0.0') }}" rel="stylesheet" />
+     <link href="{{ asset('assets/demo/demo.css') }}" rel="stylesheet" />
 
     <!-- Styles -->
     <style>
@@ -65,4 +71,5 @@
         </div>
     </div>
 </body>
+<script src="{{ asset('assets/js/plugins/chartjs.min.js') }}"></script>
 </html>
