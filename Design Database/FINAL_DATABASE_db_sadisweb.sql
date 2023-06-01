@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2023 at 10:25 AM
+-- Generation Time: Jun 01, 2023 at 06:24 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -127,7 +127,7 @@ INSERT INTO `guru` (`id`, `Nama_Guru`, `Mata_Pelajaran`, `Jenis_Kelamin`, `Alama
 (3, 'M. Rizki', 'a', 'L', 'Jl. lorem ipsum in lorem ipsum', '083111222333', NULL, 2, 6, 1, '1685085263.png', '2023-05-26 00:14:23', '2023-05-26 00:14:23'),
 (4, 'Ikhsan Mulyadi', 'm', 'L', 'Jl. lorem ipsum in lorem ipsum', '083111222333', NULL, 1, 10, 7, '1685085425.png', '2023-05-26 00:17:05', '2023-05-26 00:17:05'),
 (5, 'Fitri Putri', 'f', 'P', 'Jl. lorem ipsum in lorem ipsum', '083111222333', NULL, 1, 6, 6, '1685085522.png', '2023-05-26 00:18:42', '2023-05-26 00:18:42'),
-(6, 'Adelia Dinda', 'D', 'P', 'Jl. lorem ipsum in lorem ipsum', '083111222333', NULL, 2, 10, 5, '1685085591.png', '2023-05-26 00:19:51', '2023-05-26 00:19:51'),
+(6, 'Adelia Dinda', 'D', '#', 'Jl. lorem ipsum in lorem ipsum', '083111222333', NULL, 2, 2, 7, '1685085591.png', '2023-05-26 00:19:51', '2023-06-01 01:05:36'),
 (7, 'Dodi Setiawan', 'd', 'L', 'Jl. lorem ipsum in lorem ipsum', '083111222333', NULL, 1, 5, 4, '1685086055.png', '2023-05-26 00:27:35', '2023-05-26 00:27:35');
 
 -- --------------------------------------------------------
@@ -350,7 +350,9 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
 (1, 'admin', 'web', '2023-05-24 02:59:17', '2023-05-24 02:59:17'),
-(2, 'staff', 'web', '2023-05-24 02:59:30', '2023-05-24 02:59:30');
+(2, 'staff', 'web', '2023-05-24 02:59:30', '2023-05-24 02:59:30'),
+(3, 'guru', 'web', '2023-06-01 10:41:53', '2023-06-01 10:41:53'),
+(4, 'siswa', 'web', '2023-06-01 10:42:26', '2023-06-01 10:42:26');
 
 -- --------------------------------------------------------
 
@@ -469,6 +471,7 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) NOT NULL,
+  `role_id` int(1) DEFAULT 4,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -478,9 +481,13 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Helfi Apriliyandi Firdaos', 'admin@gmail.com', NULL, '$2y$10$lqXOS.J3ttfJgqFtqRu18O7sVkFk/3a42A3Vm7Ze1MJgYQ7TzaZwm', NULL, '2023-05-23 03:14:35', '2023-05-23 03:14:35'),
-(2, 'Abdul Wasi\' Al-Afif ', 'wasi@admin.com', NULL, '$2y$10$Tw54Ev6lR8ZiPylLOZDcNeV2XozT/KiabnTYn9er/8nlb1f032rv.', NULL, '2023-05-24 13:23:12', '2023-05-24 13:23:12');
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role_id`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Helfi Apriliyandi Firdaos', 'admin@gmail.com', NULL, '$2y$10$lqXOS.J3ttfJgqFtqRu18O7sVkFk/3a42A3Vm7Ze1MJgYQ7TzaZwm', 1, NULL, '2023-05-23 03:14:35', '2023-05-23 03:14:35'),
+(2, 'Abdul Wasi\' Al-Afif', 'wasi@admin.com', NULL, '$2y$10$l/9gSFx/pMfxxNg9B36goe20LdOTmgLPjctrrRBnoirk5HSLI59sa', 1, NULL, '2023-05-24 13:23:12', '2023-06-01 08:54:34'),
+(3, 'admin', 'admin@sadisweb.com', NULL, '$2y$10$xXkxmgU1J3dYxae69h6xRe0bvwFSKnEYn1VrMb4cFVKVq3QKpBACS', 1, NULL, '2023-06-01 07:28:07', '2023-06-01 07:28:07'),
+(4, 'staff', 'staff@sadisweb.com', NULL, '$2y$10$EupZhm3/JLaeyWpPQzNQRuKKHW.J.vsZNM72MK9KTEFgTfIc.tDeu', 2, NULL, '2023-06-01 07:28:58', '2023-06-01 07:28:58'),
+(5, 'guru', 'guru@sadisweb.com', NULL, '$2y$10$UDdavC7tBgnTdlWe.MuQcexQ099rtR4YLE4tt.u5rW6Bh5s60VnEq', 3, NULL, '2023-06-01 07:29:27', '2023-06-01 07:29:27'),
+(6, 'siswa', 'siswa@sadisweb.com', NULL, '$2y$10$c1KsbZD4Qqz5rtdfXWI0weqOgDyu684YpxCdC/OvxxD2kHps5/8aq', 4, NULL, '2023-06-01 07:30:18', '2023-06-01 07:30:18');
 
 --
 -- Indexes for dumped tables
@@ -687,7 +694,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `sarana`
@@ -711,7 +718,7 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
