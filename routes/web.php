@@ -13,6 +13,7 @@ use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\SaranaController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\UserManagementController;
 use RealRashid\SweetAlert\Facades\Alert;
 
 /*
@@ -65,6 +66,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function(){
     Route::resource('sarana', SaranaController::class);
     Route::resource('siswa', SiswaController::class);
     Route::resource('staff', StaffController::class);
+    Route::resource('users', UserManagementController::class);
 });
 require __DIR__ . '/auth.php';
 
