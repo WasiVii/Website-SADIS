@@ -67,7 +67,7 @@
                 :active="request()->routeIs('nilai.index')"
             />
         @endif
-        @if (Auth::user()->role_id == 4 || Auth::user()->role_id == 1)
+        @if (Auth::user()->role_id == 4)
             <x-sidebar.sublink
                 title="Data Siswa"
                 href="{{ route('siswa.index') }}"
