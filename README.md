@@ -13,6 +13,7 @@
     -   [Scenario Project](#scenario-project)
     -   [Feature Project](#feature-project)
     -   [Group Members](#group-members)
+-   [Running](#running=project)
 -   [Thanks](#thanks)
 
 </details>
@@ -48,4 +49,33 @@ Berikut adalah anggota kelompok kami dalam pengerjaan Project Akhir Capstone Kel
 > -   Gabriel
 > -   Helfi Apriliyandi Firdaos
 
+## Running Project
+
+> - Clone the repository
+> ```bash
+> git clone https://github.com/WasiVii/Website-SADIS.git
+> ```
+> - Install dependencies or package
+> ```bash
+> npm install
+> ```
+> ```bash
+> composer install
+> ```
+> - Download Database for `Website-SADIS` in [Download DB SADISWeb](https://github.com/WasiVii/Website-SADIS/raw/main/Design%20Database/FINAL_DATABASE_db_sadisweb.sql)
+> - Rename and Import Database to Your phpMyAdmin with name `sadisweb`
+> ```bash
+> sadisweb
+> ```
+> - Setting .env DB_DATABASE with name `sadisweb`
+> ```bash
+> sadisweb
+> ```
+> - Run project 
+> ```bash
+> npm run start
+> ```
+> ```bash
+> php artisan serve
+> ```
 ## Thanks
