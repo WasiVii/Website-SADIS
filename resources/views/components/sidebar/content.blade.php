@@ -45,11 +45,6 @@
         @endif
         @if (Auth::user()->role_id == 2 )
             <x-sidebar.sublink
-                title="Data Siswa"
-                href="{{ route('siswa.index') }}"
-                :active="request()->routeIs('siswa.index')"
-            />
-            <x-sidebar.sublink
                 title="Data Kelas"
                 href="{{ route('kelas.index') }}"
                 :active="request()->routeIs('kelas.index')"
@@ -60,19 +55,14 @@
                 :active="request()->routeIs('mapel.index')"
             />
         @endif
-        @if (Auth::user()->role_id == 3)
-            <x-sidebar.sublink
-                title="Data Nilai"
-                href="{{ route('nilai.index') }}"
-                :active="request()->routeIs('nilai.index')"
-            />
-        @endif
-        @if (Auth::user()->role_id == 4)
+        @if (Auth::user()->role_id != null)
             <x-sidebar.sublink
                 title="Data Siswa"
                 href="{{ route('siswa.index') }}"
                 :active="request()->routeIs('siswa.index')"
             />
+        @endif
+        @if (Auth::user()->role_id == 3 || Auth::user()->role_id == 4)
             <x-sidebar.sublink
                 title="Data Nilai"
                 href="{{ route('nilai.index') }}"
