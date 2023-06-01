@@ -14,6 +14,7 @@
     -   [Feature Project](#feature-project)
     -   [Group Members](#group-members)
 -   [Running](#running=project)
+    -   [user-accounts](#user-accounts)
 -   [Thanks](#thanks)
 
 </details>
@@ -77,5 +78,35 @@ Berikut adalah anggota kelompok kami dalam pengerjaan Project Akhir Capstone Kel
 > ```
 > ```bash
 > php artisan serve
+> ```
+
+### User Accounts
+> - Admin
+> ```bash
+> admin@sadisweb.com
+> ```
+> ```bash
+> admin123
+> ```
+> - Staff
+> ```bash
+> staff@sadisweb.com
+> ```
+> ```bash
+> staff123
+> ```
+> - Guru
+> ```bash
+> guru@sadisweb.com
+> ```
+> ```bash
+> guru123
+> ```
+> - Siswa
+> ```bash
+> siswa@sadisweb.com
+> ```
+> ```bash
+> siswa123
 > ```
 ## Thanks
