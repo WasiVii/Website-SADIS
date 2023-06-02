@@ -13,7 +13,8 @@
     -   [Scenario Project](#scenario-project)
     -   [Feature Project](#feature-project)
     -   [Group Members](#group-members)
--   [Running](#running=project)
+-   [Project](#project)
+    -   [usage](#usage)
     -   [user-accounts](#user-accounts)
 -   [Thanks](#thanks)
 
@@ -50,8 +51,9 @@ Berikut adalah anggota kelompok kami dalam pengerjaan Project Akhir Capstone Kel
 > -   Gabriel
 > -   Helfi Apriliyandi Firdaos
 
-## Running Project
+## Project
 
+### Usage
 > - Clone the repository
 > ```bash
 > git clone https://github.com/WasiVii/Website-SADIS.git
@@ -74,7 +76,7 @@ Berikut adalah anggota kelompok kami dalam pengerjaan Project Akhir Capstone Kel
 > ```
 > - Run project 
 > ```bash
-> npm run start
+> npm run dev
 > ```
 > ```bash
 > php artisan serve
