@@ -13,6 +13,7 @@ use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\SaranaController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\UserManagementController;
 use RealRashid\SweetAlert\Facades\Alert;
 
 /*
@@ -55,16 +56,30 @@ Route::middleware('auth')->prefix('dashboard')->group(function(){
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    // WEBSITE DATA
-    Route::resource('berita', BeritaController::class);
-    Route::resource('ekstrakulikuler', EkstrakulikulerController::class);
-    Route::resource('guru', GuruController::class);
-    Route::resource('kelas', KelasController::class);
-    Route::resource('mapel', MapelController::class);
-    Route::resource('nilai', NilaiController::class);
-    Route::resource('sarana', SaranaController::class);
-    Route::resource('siswa', SiswaController::class);
-    Route::resource('staff', StaffController::class);
+    // WEBSITE DATA MIDDLEWARE
+    Route::middleware('admin')->group(function(){
+        Route::resource('guru', GuruController::class);
+        Route::resource('staff', StaffController::class);
+        Route::resource('users', UserManagementController::class);
+    });
+    Route::middleware('admin-staff')->group(function(){
+        Route::resource('berita', BeritaController::class);
+        Route::resource('ekstrakulikuler', EkstrakulikulerController::class);
+        Route::resource('sarana', SaranaController::class);
+    });
+
+    Route::middleware('staff')->group(function(){
+        Route::resource('kelas', KelasController::class);
+        Route::resource('mapel', MapelController::class);
+        Route::resource('siswa', SiswaController::class);
+    });
+
+    Route::middleware('guru-siswa')->group(function(){
+        Route::resource('nilai', NilaiController::class);
+    });
+    Route::middleware('all-roles')->group(function(){
+        Route::resource('siswa', SiswaController::class);
+    });
 });
 require __DIR__ . '/auth.php';
 

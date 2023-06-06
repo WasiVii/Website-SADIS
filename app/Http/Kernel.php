@@ -65,6 +65,14 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        // register custom middleware
+        'admin' => \App\Http\Middleware\Admin::class,
+        'admin-staff' => \App\Http\Middleware\AdminStaff::class,
+        'all-roles' => \App\Http\Middleware\AllRoles::class,
+        'staff' => \App\Http\Middleware\Staff::class,
+        'guru-siswa' => \App\Http\Middleware\GuruSiswa::class,
+        'guru' => \App\Http\Middleware\Guru::class,
+        'siswa' => \App\Http\Middleware\Siswa::class,
 
     ];
 }
