@@ -132,6 +132,16 @@
                 href="{{ route('users.index') }}"
                 :active="request()->routeIs('users.index')"
             />
+            <x-sidebar.sublink
+                title="Roles"
+                href="{{ route('roles.index') }}"
+                :active="request()->routeIs('roles.index')"
+            />
+            <x-sidebar.sublink
+                title="Permissions"
+                href="{{ route('permissions.index') }}"
+                :active="request()->routeIs('permissions.index')"
+            />
         </x-sidebar.dropdown>
     @endif
 </x-perfect-scrollbar>

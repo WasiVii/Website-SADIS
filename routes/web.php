@@ -10,6 +10,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\MapelController;
 use App\Http\Controllers\NilaiController;
+use App\Http\Controllers\PermissionsController;
+use App\Http\Controllers\RolesController;
 use App\Http\Controllers\SaranaController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\StaffController;
@@ -57,38 +59,33 @@ Route::middleware('auth')->prefix('dashboard')->group(function(){
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // WEBSITE DATA
-    Route::resource('berita', BeritaController::class);
-    Route::resource('ekstrakulikuler', EkstrakulikulerController::class);
-    Route::resource('guru', GuruController::class);
-    Route::resource('kelas', KelasController::class);
-    Route::resource('mapel', MapelController::class);
-    Route::resource('nilai', NilaiController::class);
-    Route::resource('sarana', SaranaController::class);
-    Route::resource('siswa', SiswaController::class);
-    Route::resource('staff', StaffController::class);
-    Route::resource('users', UserManagementController::class);
-     Route::get('/nilai/generatePDF/{id}', [NilaiController::class, 'generatePDF'])->name('nilai.generatePDF');
-    //
-    // Route::middleware('admin')->group(function(){
-    //     Route::resource('guru', GuruController::class);
-    //     Route::resource('staff', StaffController::class);
-    //     Route::resource('users', UserManagementController::class);
-    // });
-    // Route::middleware('admin-staff')->group(function(){
-    //     Route::resource('berita', BeritaController::class);
-    //     Route::resource('ekstrakulikuler', EkstrakulikulerController::class);
-    //     Route::resource('sarana', SaranaController::class);
-    //     Route::resource('kelas', KelasController::class);
-    //     Route::resource('mapel', MapelController::class);
-    //     Route::resource('siswa', SiswaController::class);
-    // });
-    // Route::middleware('admin-guru-siswa')->group(function(){
-    //     Route::resource('nilai', NilaiController::class);
-    //     Route::get('/nilai/generatePDF/{id}', [NilaiController::class, 'generatePDF'])->name('nilai.generatePDF');
-    // });
-    // Route::middleware('all-roles')->group(function(){
-    //     Route::resource('siswa', SiswaController::class);
-    // });
+    Route::middleware('admin')->group(function(){
+        Route::resource('guru', GuruController::class);
+        Route::resource('staff', StaffController::class);
+        Route::resource('users', UserManagementController::class);
+        Route::resource('roles', RolesController::class);
+        Route::resource('permissions', PermissionsController::class);
+    });
+
+    Route::middleware('admin-staff')->group(function(){
+        Route::resource('kelas', KelasController::class);
+        Route::resource('mapel', MapelController::class);
+        Route::resource('siswa', SiswaController::class);
+        Route::resource('berita', BeritaController::class);
+        Route::resource('ekstrakulikuler', EkstrakulikulerController::class);
+        Route::resource('sarana', SaranaController::class);
+    });
+
+    Route::middleware('staff')->group(function(){
+    });
+
+    Route::middleware('admin-guru-siswa')->group(function(){
+        Route::resource('nilai', NilaiController::class);
+        Route::get('/nilai/generatePDF/{id}', [NilaiController::class, 'generatePDF'])->name('nilai.generatePDF');
+    });
+    Route::middleware('all-roles')->group(function(){
+        Route::resource('siswa', SiswaController::class);
+    });
 
 });
 require __DIR__ . '/auth.php';

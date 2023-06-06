@@ -73,6 +73,10 @@ class Kernel extends HttpKernel
         'admin-guru-siswa' => \App\Http\Middleware\AdminGuruSiswa::class,
         'guru' => \App\Http\Middleware\Guru::class,
         'siswa' => \App\Http\Middleware\Siswa::class,
+        // custom middleware untuk role permission
+        'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+        'permission' => \App\Http\Middleware\PermissionMiddleware::class,
+        'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
 
     ];
 }

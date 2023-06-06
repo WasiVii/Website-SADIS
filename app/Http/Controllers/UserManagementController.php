@@ -75,7 +75,7 @@ class UserManagementController extends Controller
     public function edit($id)
     {
         //
-        $role = DB::table('roles')->get();
+        $role = DB::table('roles')->latest()->get();
         $user = User::join('roles', 'users.role_id', '=', 'roles.id')
         ->select('users.*','roles.name as roles')->findOrFail($id);
         return view('users.edit', compact('user', 'role'));
