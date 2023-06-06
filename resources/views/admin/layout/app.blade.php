@@ -17,6 +17,8 @@
 
     <link href="{{ asset('assets/css/paper-dashboard.css?v=2.0.0') }}" rel="stylesheet" />
      <link href="{{ asset('assets/demo/demo.css') }}" rel="stylesheet" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 
     <!-- Styles -->
     <style>
