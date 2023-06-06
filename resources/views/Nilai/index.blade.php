@@ -50,6 +50,9 @@
                                         Delete
                                     </th>
                                     @endif
+                                    <th scope="col" class="px-6 py-3">
+                                        Export
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -101,12 +104,12 @@
                                                 </svg>
                                             </a>
                                         </td>
+                                    @endif
                                         <td>
                                           <a class="px-2 py-2 text-sm text-white bg-blue-600 rounded"
    href="{{ route('nilai.generatePDF', $nilais->id) }}">{{ __('Cetak PDF') }}</a>
 
                                         </td>
-                                    @endif
                                 </tr>
                                 @php
                                     $no++
