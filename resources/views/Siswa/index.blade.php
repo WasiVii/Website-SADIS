@@ -103,15 +103,15 @@
 
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{$sws->Users_id}}
+                                        {{$sws->user}}
 
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{$sws->Kelas_id}}
+                                        {{$sws->kelas}}
 
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{$sws->Ekstrakulikuler_id}}
+                                        {{$sws->ekstrakulikuler}}
 
                                     </td>
                                     <td class="px-6 py-4">
