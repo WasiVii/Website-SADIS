@@ -51,8 +51,13 @@
                                     </th>
                                     @endif
                                     <th scope="col" class="px-6 py-3">
+<<<<<<< HEAD
                                        Action
                                    </th>
+=======
+                                        Export
+                                    </th>
+>>>>>>> ad890804b8d85583ce648c4b6892403b1f6257df
                                 </tr>
                             </thead>
                             <tbody>
@@ -99,6 +104,7 @@
                                         <a href="{{ route('nilai.destroy', $nilais->id) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a>
                                     </td>
                                         @endif
+                                    @endif
                                         <td>
                                           <a class="px-2 py-2 text-sm text-white bg-blue-600 rounded"
                                              href="{{ route('nilai.generatePDF', $nilais->id) }}">{{ __('Cetak PDF') }}</a>
