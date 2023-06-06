@@ -91,7 +91,13 @@
                                         </a>
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a href="{{ route('ekstrakulikuler.destroy', $ekstrakulikulers->id) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a>
+                                        <a href="{{ route('ekstrakulikuler.destroy', $ekstrakulikulers->id) }}" >
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                    class="w-6 h-6 text-blue-600">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M3 6l2-2h14a2 2 0 012 2v2h2v2H3V6zm15 11a2 2 0 01-2 2H8a2 2 0 01-2-2V9h12v8zm-1-3V9H6v5h11z" />
+                                                </svg>
+                                            </a>
                                     </td>
                                 </tr>
                                 @php

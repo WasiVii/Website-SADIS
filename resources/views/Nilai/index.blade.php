@@ -11,7 +11,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <h1 class="text-2xl text-center">Daftar Nilai
                     </h1>
-                    
+
                     @if (Auth::user()->role_id != 4)
                     <div class="mt-1 mb-4">
                         <a class="px-2 py-2 text-sm text-white bg-blue-600 rounded"
@@ -92,7 +92,13 @@
                                             </a>
                                         </td>
                                         <td class="px-6 py-4">
-                                            <a href="{{ route('nilai.destroy', $nilais->id) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a>
+                                            <a href="{{ route('nilai.destroy', $nilais->id) }}">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                    class="w-6 h-6 text-blue-600">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M3 6l2-2h14a2 2 0 012 2v2h2v2H3V6zm15 11a2 2 0 01-2 2H8a2 2 0 01-2-2V9h12v8zm-1-3V9H6v5h11z" />
+                                                </svg>
+                                            </a>
                                         </td>
                                     @endif
                                 </tr>
