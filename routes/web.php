@@ -63,10 +63,12 @@ Route::middleware('auth')->prefix('dashboard')->group(function(){
     Route::resource('kelas', KelasController::class);
     Route::resource('mapel', MapelController::class);
     Route::resource('nilai', NilaiController::class);
+    Route::get('dashboard/nilai/generatePDF/{id}', [NilaiController::class, 'generatePDF'])->name('nilai.generatePDF');
     Route::resource('sarana', SaranaController::class);
     Route::resource('siswa', SiswaController::class);
     Route::resource('staff', StaffController::class);
     Route::resource('users', UserManagementController::class);
+
 });
 require __DIR__ . '/auth.php';
 

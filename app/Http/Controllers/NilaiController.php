@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Nilai;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class NilaiController extends Controller
 {
@@ -103,5 +104,25 @@ class NilaiController extends Controller
     {
        $nilai->delete();
         return redirect()->route('nilai.index')->with('success','Nilai Deleted Successfully');
+    }
+
+    public function generatePDF($id)
+    {
+        $siswa = DB::table('Siswa')->get();
+        $mapel = DB::table('Mata_Pelajaran')->get();
+        $nilai = Nilai::join('siswa','nilai.siswa_id','=','siswa.id')
+        ->join('mata_pelajaran','nilai.mata_pelajaran_id','=','mata_pelajaran.id')
+        ->select('Nilai.*','siswa.Nama_Siswa as siswa','mata_pelajaran.Nama_Mata_Pelajaran as mapel')
+        ->get();
+
+        $data = [
+            'title' => 'Laporan Nilai Siswa: ',// asumsikan kolom nama siswa ada dalam tabel Siswa
+            'date' => date('m/d/y'),
+            'nilai' => $nilai
+        ];
+
+        $pdf = PDF::loadView('Nilai.generatePDF', $data)->setoptions(['defaultFont'=>'sans-serif']);
+        return $pdf->download('laporan-nilai.pdf',compact('siswa', 'mapel', 'nilai'));
+        // dd('Nilai');
     }
 }

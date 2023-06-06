@@ -16,6 +16,7 @@
                     <div class="mt-1 mb-4">
                         <a class="px-2 py-2 text-sm text-white bg-blue-600 rounded"
                             href="{{ route('nilai.create') }}">{{ __('Add Nilai') }}</a>
+
                     </div>
                     @endif
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -99,6 +100,11 @@
                                                         d="M3 6l2-2h14a2 2 0 012 2v2h2v2H3V6zm15 11a2 2 0 01-2 2H8a2 2 0 01-2-2V9h12v8zm-1-3V9H6v5h11z" />
                                                 </svg>
                                             </a>
+                                        </td>
+                                        <td>
+                                          <a class="px-2 py-2 text-sm text-white bg-blue-600 rounded"
+   href="{{ route('nilai.generatePDF', $nilais->id) }}">{{ __('Cetak PDF') }}</a>
+
                                         </td>
                                     @endif
                                 </tr>
