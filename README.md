@@ -53,8 +53,8 @@ Berikut adalah anggota kelompok kami dalam pengerjaan Project Akhir Capstone Kel
 
 ## Project
 
-## UI/UX
-Berikut Link UI/UX : https://www.figma.com/file/g1HgqsuGcKsxYZLQm5Nicq/SADIS-WEB-DESIGN?type=design&node-id=0-1&t=mNIsk9xg9FYgOFyo-0
+### UI/UX
+Berikut tampilan link UI/UX : https://www.figma.com/file/g1HgqsuGcKsxYZLQm5Nicq/SADIS-WEB-DESIGN?type=design&node-id=0-1&t=mNIsk9xg9FYgOFyo-0
 
 ### Usage
 > - Clone the repository
