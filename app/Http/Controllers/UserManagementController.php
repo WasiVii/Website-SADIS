@@ -55,7 +55,7 @@ class UserManagementController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->role_id = $request->role_id;
-        
+
         $user->save();
 
         return redirect()->route('users.index')->with('toast_success','Account Created Successfully');
@@ -99,7 +99,7 @@ class UserManagementController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->role_id = $request->role_id;
-        
+
         $user->save();
 
         return redirect()->route('users.index')->with('toast_success','Account Update Successfully');

@@ -70,7 +70,7 @@
             />
         @endif
     </x-sidebar.dropdown>
-    
+
     @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
         <x-sidebar.dropdown
             title="Website Data"
@@ -111,7 +111,7 @@
             />
         </x-sidebar.dropdown>
     @endif
-    
+
     @if (Auth::user()->role_id == 1)
         <x-sidebar.dropdown
             title="User Management"
