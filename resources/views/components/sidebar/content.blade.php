@@ -43,7 +43,7 @@
                 :active="request()->routeIs('staff.index')"
             />
         @endif
-        @if (Auth::user()->role_id == 2 )
+        @if (Auth::user()->role_id == 2 || Auth::user()->role_id == 1)
             <x-sidebar.sublink
                 title="Data Kelas"
                 href="{{ route('kelas.index') }}"
@@ -62,7 +62,7 @@
                 :active="request()->routeIs('siswa.index')"
             />
         @endif
-        @if (Auth::user()->role_id == 3 || Auth::user()->role_id == 4)
+        @if (Auth::user()->role_id == 3 || Auth::user()->role_id == 4 || Auth::user()->role_id == 1)
             <x-sidebar.sublink
                 title="Data Nilai"
                 href="{{ route('nilai.index') }}"
@@ -71,7 +71,7 @@
         @endif
     </x-sidebar.dropdown>
 
-    @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
+    @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2 || Auth::user()->role_id == 1)
         <x-sidebar.dropdown
             title="Website Data"
             :active="Str::startsWith(request()->route()->uri(), 'buttons')"
