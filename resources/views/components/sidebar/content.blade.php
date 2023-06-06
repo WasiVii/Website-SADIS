@@ -71,7 +71,7 @@
         @endif
     </x-sidebar.dropdown>
 
-    @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2 || Auth::user()->role_id == 1)
+    @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
         <x-sidebar.dropdown
             title="Website Data"
             :active="Str::startsWith(request()->route()->uri(), 'buttons')"

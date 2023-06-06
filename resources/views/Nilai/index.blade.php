@@ -51,8 +51,13 @@
                                     </th>
                                     @endif
                                     <th scope="col" class="px-6 py-3">
+<<<<<<< HEAD
                                         Export
                                     </th>
+=======
+                                       Action
+                                   </th>
+>>>>>>> 70012fc426fd20d5e9d3eb2e93ed6c7074cea501
                                 </tr>
                             </thead>
                             <tbody>
@@ -100,7 +105,11 @@
                                             <i class="fa fa-trash"></i>
                                         </a>
                                     </td>
+<<<<<<< HEAD
                                         @endif
+=======
+                                    @endif
+>>>>>>> 70012fc426fd20d5e9d3eb2e93ed6c7074cea501
                                         <td>
                                           <a class="px-2 py-2 text-sm text-white bg-blue-600 rounded"
                                              href="{{ route('nilai.generatePDF', $nilais->id) }}">{{ __('Cetak PDF') }}</a>

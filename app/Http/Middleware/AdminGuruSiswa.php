@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class GuruSiswa
+class AdminGuruSiswa
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class GuruSiswa
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user()->role_id != 3 && Auth::user()->role_id != 4) {
+        if (Auth::user()->role_id != 1 && Auth::user()->role_id != 3 && Auth::user()->role_id != 4) {
             return redirect('/dashboard');
         }
         return $next($request);

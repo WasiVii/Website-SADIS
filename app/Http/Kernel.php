@@ -70,7 +70,7 @@ class Kernel extends HttpKernel
         'admin-staff' => \App\Http\Middleware\AdminStaff::class,
         'all-roles' => \App\Http\Middleware\AllRoles::class,
         'staff' => \App\Http\Middleware\Staff::class,
-        'guru-siswa' => \App\Http\Middleware\GuruSiswa::class,
+        'admin-guru-siswa' => \App\Http\Middleware\AdminGuruSiswa::class,
         'guru' => \App\Http\Middleware\Guru::class,
         'siswa' => \App\Http\Middleware\Siswa::class,
 
