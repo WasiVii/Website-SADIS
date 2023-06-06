@@ -54,61 +54,90 @@ Berikut adalah anggota kelompok kami dalam pengerjaan Project Akhir Capstone Kel
 ## Project
 
 ### Usage
-> - Clone the repository
+
+> -   Clone the repository
+>
 > ```bash
 > git clone https://github.com/WasiVii/Website-SADIS.git
 > ```
-> - Install dependencies or package
+>
+> -   Install dependencies or package
+>
 > ```bash
 > npm install
 > ```
+>
 > ```bash
 > composer install
 > ```
-> - Download Database for `Website-SADIS` in [Download DB SADISWeb](https://github.com/WasiVii/Website-SADIS/raw/main/Design%20Database/FINAL_DATABASE_db_sadisweb.sql)
-> - Rename and Import Database to Your phpMyAdmin with name `sadisweb`
+>
+> -   Download Database for `Website-SADIS` in [Download DB SADISWeb](https://github.com/WasiVii/Website-SADIS/raw/main/Design%20Database/FINAL_DATABASE_db_sadisweb.sql)
+> -   Rename and Import Database to Your phpMyAdmin with name `sadisweb`
+>
 > ```bash
 > sadisweb
 > ```
-> - Setting .env DB_DATABASE with name `sadisweb`
+>
+> -   Setting .env DB_DATABASE with name `sadisweb`
+>
 > ```bash
 > sadisweb
 > ```
-> - Run project 
+>
+> -   Run project
+>
 > ```bash
 > npm run dev
 > ```
+>
 > ```bash
 > php artisan serve
 > ```
+>
+> ```bash
+> php artisan permission:create-permission-routes
+> ```
 
 ### User Accounts
-> - Admin
+
+> -   Admin
+>
 > ```bash
 > admin@sadisweb.com
 > ```
+>
 > ```bash
 > admin123
 > ```
-> - Staff
+>
+> -   Staff
+>
 > ```bash
 > staff@sadisweb.com
 > ```
+>
 > ```bash
 > staff123
 > ```
-> - Guru
+>
+> -   Guru
+>
 > ```bash
 > guru@sadisweb.com
 > ```
+>
 > ```bash
 > guru123
 > ```
-> - Siswa
+>
+> -   Siswa
+>
 > ```bash
 > siswa@sadisweb.com
 > ```
+>
 > ```bash
 > siswa123
 > ```
+
 ## Thanks
