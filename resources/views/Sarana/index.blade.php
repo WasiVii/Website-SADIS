@@ -86,11 +86,10 @@
                                         </a>
                                     </td>
                                      <td class="px-6 py-4">
-                                        <a href="{{ route('sarana.destroy', $srn->id) }}" class="btn btn-outline-primary btn-sm" data-confirm-delete="true">
-                                            <i class="fa fa-trash"></i>
-                                        </a>
+                                        <a href="{{ route('sarana.destroy', $srn->id) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
                                     </td>
-
                                 </tr>
                                 @php
                                     $no++
