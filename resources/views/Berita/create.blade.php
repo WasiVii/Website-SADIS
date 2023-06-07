@@ -52,15 +52,17 @@
                         </div>
                         <div class="mb-6">
                             <label class="block">
-                                <span class="text-gray-700 @error('Staff_id') text-red-500 @enderror">Staff ID</span>
-                               <select id="select" name="Staff_id" class="custom-select my-5 input-bordered input w-full">
-                                    @foreach($staff as $stf)
-                                    <option value="{{$stf->id}}">{{$stf->Staffcol}}</option>
-                                    @endforeach
+                                <span class="text-gray-700 @error('Staff_id') text-red-500 @enderror">STAFF ID</span>
+                                <select id="select" name="Staff_id" class="block my-5 input-bordered input w-full border-gray-300 rounded-md">
+                                    <option value="">Silahkan Pilih Staff</option>
+                                        @foreach($staff as $stf)
+                                        <option value="{{$stf->id}}">{{$stf->Staffcol}}</option>
+                                        @endforeach
+                                </select>
                             </label>
                             @error('Staff_id')
                             <div class="flex items-center text-sm text-red-600">
-                                {{ $message }}
+                            {{ $message }}
                             </div>
                             @enderror
                         </div>
