@@ -67,7 +67,11 @@ Route::middleware('auth')->prefix('dashboard')->group(function(){
     Route::resource('siswa', SiswaController::class);
     Route::resource('staff', StaffController::class);
     Route::resource('users', UserManagementController::class);
-     Route::get('/nilai/generatePDF/{id}', [NilaiController::class, 'generatePDF'])->name('nilai.generatePDF');
+     Route::get('dashboard/nilai/generatePDF/', [NilaiController::class, 'generatePDF'])->name('nilai.generatePDF');
+     Route::get('nilai/generatePDFid/{id}', [NilaiController::class, 'generatePDFid'])->name('nilai.generatePDFid');
+     Route::get('dashboard/nilai/exportExcel/', [NilaiController::class, 'exportExcel']);
+     Route::POST('dashboard/nilai/importExcel', [NilaiController::class, 'importExcel']);
+    //  Route::get('dashboard/nilai/importExcel', [NilaiController::class, 'importExcel']);
     //
     // Route::middleware('admin')->group(function(){
     //     Route::resource('guru', GuruController::class);

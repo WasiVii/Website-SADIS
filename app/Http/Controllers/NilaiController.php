@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\NilaiExport;
+use App\Imports\NilaiImport;
 use App\Models\Nilai;
+use App\Models\Siswa;
+use Dompdf\Dompdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 use PDF;
 
 class NilaiController extends Controller
@@ -106,25 +111,63 @@ class NilaiController extends Controller
         return redirect()->route('nilai.index')->with('success','Nilai Deleted Successfully');
     }
 
-    public function generatePDF($id)
+    public function generatePDF(Nilai $id)
         {
             $siswa = DB::table('Siswa')->get();
             $mapel = DB::table('Mata_Pelajaran')->get();
-            $nilai = Nilai::join('siswa','nilai.siswa_id','=','siswa.id')
+            $nilais = Nilai::join('siswa','nilai.siswa_id','=','siswa.id')
                 ->join('mata_pelajaran','nilai.mata_pelajaran_id','=','mata_pelajaran.id')
                 ->select('Nilai.*','siswa.Nama_Siswa as siswa','mata_pelajaran.Nama_Mata_Pelajaran as mapel')
                 ->get();
 
-            $data = [
-                'title' => 'Laporan Nilai Siswa: ',// asumsikan kolom nama siswa ada dalam tabel Siswa
-                'date' => date('m/d/y'),
-                'nilai' => $nilai
-            ];
+                $data = [
+                    'title' => 'Laporan Nilai Siswa',
+                    'date' => date('Y/m/d'),
+                    'nilai' => $nilais
+                ];
 
             $pdf = PDF::loadView('Nilai.generatePDF', $data)->setOptions(['defaultFont' => 'sans-serif', 'margin' => 'landscape'])->setPaper('a4','landscape');
             // return $pdf->download('laporan-nilai.pdf', compact('siswa', 'mapel', 'nilai'));
             return $pdf->stream();
             // dd('Nilai');
+        }
+        public function generatePDFid(Nilai $id)
+        {
+            $nilai = Nilai::find($id);
+            // $siswa = DB::table('Siswa')->get();
+            // $mapel = DB::table('Mata_Pelajaran')->get();
+            // $nilais = Nilai::join('siswa','nilai.siswa_id','=','siswa.id')
+            //     ->join('mata_pelajaran','nilai.mata_pelajaran_id','=','mata_pelajaran.id')
+            //     ->select('Nilai.*','siswa.Nama_Siswa as siswa','mata_pelajaran.Nama_Mata_Pelajaran as mapel')
+            //     ->where('nilai.id',$nilai)
+            //     ->get();
+                if (!$nilai) {
+                    abort(404);
+                }
+
+                $data = [
+                    'title' => 'Laporan Nilai Siswa :',
+                    'date' => date('Y/M/D'),
+                    'nilai' => $nilai
+                ];
+                // dd($nilai);
+
+                $pdf = new Dompdf();
+            $pdf = PDF::loadView('Nilai.generatePDFid', $data)->setOptions(['defaultFont' => 'sans-serif', 'margin' => 'landscape'])->setPaper('a4','landscape');
+            // return $pdf->download('laporan-nilai.pdf', compact('siswa', 'mapel', 'nilai'));
+            return $pdf->stream();
+        }
+        public function exportExcel()
+        {
+             return Excel::download(new NilaiExport, 'Nilai.xlsx');
+        }
+        public function importExcel(Request $request)
+        {
+            $file = $request->file('file');
+            $nama_file = rand().$file->getClientOriginalName();
+            $file->move('file_excel',$nama_file);
+            Excel::import(new NilaiImport, public_path('/file_excel/'.$nama_file));
+            return redirect('dashboard/nilai')->with('toast_success','Import Nilai Successfully');
         }
 
 }
