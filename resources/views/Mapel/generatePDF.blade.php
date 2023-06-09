@@ -7,31 +7,26 @@
     <title>Laporan Nilai Siswa</title>
 </head>
 <body>
-
-     <h1 class="text-2xl font-bold mb-4" style="text-align: center">{{ $title }}</h1>
+    < <h1 class="text-2xl font-bold mb-4" style="text-align: center">{{ $title }}</h1>
     <p class="mb-4">{{ $date }}</p>
     <table border="1px" width='100%'>
         <thead>
-            Laporan Nilai Siswa
+            Laporan Mata Pelajaran
         </thead>
         <tbody>
             <tr>
                 <td>#</td>
-                <td>Nama Siswa</td>
                 <td>Mata Pelajaran</td>
-                <td>Nilai Siswa</td>
             </tr>
         </tbody>
         <tbody>
             @php
                 $no = 1;
             @endphp
-            @foreach ($nilai as $ns)
+            @foreach ($mapel as $mpl)
                 <tr>
                     <td>{{ $no++ }}</td>
-                    <td>{{ $ns->siswa }}</td>
-                    <td>{{ $ns->mapel }}</td>
-                    <td>{{ $ns->Nilai }}</td>
+                    <td>{{ $mpl->Nama_Mata_Pelajaran }}</td>
                 </tr>
             @endforeach
         </tbody>

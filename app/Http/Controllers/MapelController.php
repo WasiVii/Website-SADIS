@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\MapelExport;
+use App\Imports\MapelImport;
 use App\Models\Mapel;
+use App\Models\Nilai;
+use PDF;
+use Dompdf\Dompdf;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MapelController extends Controller
 {
@@ -85,4 +91,57 @@ class MapelController extends Controller
          $mapel->delete();
         return redirect()->route('mapel.index')->with('success','Mata Pelajaran Deleted Successfully');
     }
+
+    public function generatePDF()
+        {
+           $mapel = Mapel::all();
+
+            $data = [
+                'title' => 'Laporan Mata Pelajaran Siswa',
+                'date' => date('Y/m/d'),
+                'mapel' => $mapel
+            ];
+
+            $pdf = PDF::loadView('Mapel.generatePDF', $data)->setOptions(['defaultFont' => 'sans-serif', 'margin' => 'landscape'])->setPaper('a4','landscape');
+            return $pdf->stream();
+
+        }
+
+        // Export PDF for ID
+        public function generatePDFid(Mapel $id)
+        {
+            $mapel = Mapel::find($id);
+
+
+            if (!$mapel) {
+                abort(404);
+            }
+
+            $data = [
+                'title' => 'Laporan Mata Pelajaran :',
+                'date' => date('Y/M/D'),
+                'mapel' => $mapel
+            ];
+
+            $pdf = new Dompdf();
+            $pdf = PDF::loadView('Mapel.generatePDFid', $data)->setOptions(['defaultFont' => 'sans-serif', 'margin' => 'landscape'])->setPaper('a4','landscape');
+            return $pdf->stream();
+
+        }
+
+        //EXPORT EXCEL
+        public function exportExcel()
+        {
+             return Excel::download(new MapelExport, 'Mapel.xlsx');
+        }
+
+        //IMPORT EXCEL
+        public function importExcel(Request $request)
+        {
+            $file = $request->file('file');
+            $nama_file = rand().$file->getClientOriginalName();
+            $file->move('file_excel',$nama_file);
+            Excel::import(new MapelImport, public_path('/file_excel/'.$nama_file));
+            return redirect('dashboard/mapel')->with('toast_success','Import Mapel Successfully');
+        }
 }
