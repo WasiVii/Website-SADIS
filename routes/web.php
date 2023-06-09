@@ -78,6 +78,12 @@ Route::middleware('auth')->prefix('dashboard')->group(function(){
      Route::get('mapel/generatePDFid/{id}', [MapelController::class, 'generatePDFid'])->name('mapel.generatePDFid');
      Route::get('dashboard/mapel/exportExcel/', [MapelController::class, 'exportExcel']);
      Route::POST('dashboard/mapel/importExcel', [MapelController::class, 'importExcel']);
+
+     //Staff
+      Route::get('dashboard/staff/generatePDF/', [StaffController::class, 'generatePDF'])->name('staff.generatePDF');
+     Route::get('staff/generatePDFid/{id}', [StaffController::class, 'generatePDFid'])->name('staff.generatePDFid');
+     Route::get('dashboard/staff/exportExcel/', [StaffController::class, 'exportExcel']);
+     Route::POST('dashboard/staff/importExcel', [StaffController::class, 'importExcel']);
     //  Route::get('dashboard/nilai/importExcel', [NilaiController::class, 'importExcel']);
     //
     // Route::middleware('admin')->group(function(){

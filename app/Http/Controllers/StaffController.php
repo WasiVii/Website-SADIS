@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\StaffExport;
+use App\Imports\StaffImport;
 use App\Models\Staff;
+use PDF;
+use Dompdf\Dompdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class StaffController extends Controller
 {
@@ -100,4 +105,60 @@ class StaffController extends Controller
         $staff->delete();
         return redirect()->route('staff.index')->with('success','Staff Deleted Successfully');
     }
+
+    public function generatePDF()
+        {
+            $user = DB::table('users');
+            $staff = Staff::join('users','staff.users_id', '=','users.id')
+            ->select('staff.*','users.name as user')
+            ->get();
+
+            $data = [
+                'title' => 'Laporan Staff',
+                'date' => date('Y/m/d'),
+                'staff' => $staff
+            ];
+
+            $pdf = PDF::loadView('Staaf.generatePDF', $data)->setOptions(['defaultFont' => 'sans-serif', 'margin' => 'landscape'])->setPaper('a4','landscape');
+            return $pdf->stream();
+
+        }
+
+        // Export PDF for ID
+        public function generatePDFid(Staff $id)
+        {
+            $staff = Staff::find($id);
+
+
+            if (!$staff) {
+                abort(404);
+            }
+
+            $data = [
+                'title' => 'Laporan Staff :',
+                'date' => date('Y/M/D'),
+                'staff' => $staff
+            ];
+
+            $pdf = new Dompdf();
+            $pdf = PDF::loadView('Staaf.generatePDFid', $data)->setOptions(['defaultFont' => 'sans-serif', 'margin' => 'landscape'])->setPaper('a4','landscape');
+            return $pdf->stream();
+
+        }
+
+        //EXPORT EXCEL
+        public function exportExcel()
+        {
+             return Excel::download(new StaffExport, 'Staff.xlsx');
+        }
+
+        //IMPORT EXCEL
+        public function importExcel(Request $request)
+        {
+            $file = $request->file('file');
+            $nama_file = rand().$file->getClientOriginalName();
+            $file->move('file_excel',$nama_file);
+            Excel::import(new StaffImport, public_path('/file_excel/'.$nama_file));
+            return redirect('dashboard/staff')->with('toast_success','Import staff Successfully');
+        }
 }

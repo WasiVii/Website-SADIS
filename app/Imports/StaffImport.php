@@ -2,10 +2,10 @@
 
 namespace App\Imports;
 
-use App\Models\Mapel;
+use App\Models\Staff;
 use Maatwebsite\Excel\Concerns\ToModel;
 
-class MapelImport implements ToModel
+class StaffImport implements ToModel
 {
     /**
     * @param array $row
@@ -14,8 +14,10 @@ class MapelImport implements ToModel
     */
     public function model(array $row)
     {
-        return new Mapel([
-            'Nama_Mata_Pelajaran'=> $row[1]
+        return new Staff([
+            'Staffcol'=> $row[1],
+            'Divisi'=> $row[2],
+            'Users_id'=> $row[3]
         ]);
     }
 }
