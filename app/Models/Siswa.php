@@ -19,7 +19,7 @@ class Siswa extends Model
         'Nomor_Telepon',
         'Email',
         'Tahun_Lulus',
-        'User_id',
+        'Users_id',
         'Kelas_id',
         'Ekstrakulikuler_id'
     ];

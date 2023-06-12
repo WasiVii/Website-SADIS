@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\exportKelas;
+use App\Imports\importKelas;
 use App\Models\Kelas;
+use PDF;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class KelasController extends Controller
 {
@@ -98,4 +102,34 @@ class KelasController extends Controller
 
         return redirect()->back()->with('success','Kelas Deleted Successfully');
     }
+
+        //EXPORT EXCEL
+        public function exportExcel()
+        {
+             return Excel::download(new exportKelas, 'Kelas.xlsx');
+        }
+
+        //IMPORT EXCEL
+        public function importExcel(Request $request)
+        {
+            $file = $request->file('file');
+            $nama_file = rand().$file->getClientOriginalName();
+            $file->move('file_excel',$nama_file);
+            Excel::import(new importKelas, public_path('/file_excel/'.$nama_file));
+            return redirect('dashboard/kelas')->with('toast_success','Import Kelas Successfully');
+        }
+        public function generatePDF()
+        {
+           $kelas = Kelas::all();
+
+            $data = [
+                'title' => 'Laporan Kelas',
+                'date' => date('Y/m/d'),
+                'kelas' => $kelas
+            ];
+
+            $pdf = PDF::loadView('Kelas.generatePDF', $data)->setOptions(['defaultFont' => 'sans-serif', 'margin' => 'landscape'])->setPaper('a4','landscape');
+            return $pdf->stream();
+
+        }
 }

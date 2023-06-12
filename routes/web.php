@@ -85,6 +85,15 @@ Route::middleware('auth')->prefix('dashboard')->group(function(){
      Route::get('dashboard/staff/exportExcel/', [StaffController::class, 'exportExcel']);
      Route::POST('dashboard/staff/importExcel', [StaffController::class, 'importExcel']);
 
+     //Kelas
+      Route::get('dashboard/kelas/exportExcel/', [kelasController::class, 'exportExcel']);
+     Route::POST('dashboard/kelas/importExcel', [kelasController::class, 'importExcel']);
+     Route::get('dashboard/kelas/generatePDF/', [KelasController::class, 'generatePDF'])->name('kelas.generatePDF');
+
+     //siswa
+     Route::get('dashboard/siswa/exportExcel/', [SiswaController::class, 'exportExcel']);
+     Route::POST('dashboard/siswa/importExcel', [SiswaController::class, 'importExcel']);
+
     //
     // Route::middleware('admin')->group(function(){
     //     Route::resource('guru', GuruController::class);

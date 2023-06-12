@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\exportSiswa;
+use App\Imports\importSiswa;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class SiswaController extends Controller
@@ -134,9 +137,25 @@ class SiswaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Siswa $siswa)
+    public function destroy($id)
     {
+        $siswa = Siswa::findOrFail($id);
          $siswa->delete();
         return redirect()->route('siswa.index')->with('success', 'Siswa deleted successfully.');
     }
+
+     public function exportExcel()
+        {
+             return Excel::download(new exportSiswa, 'Siswa.xlsx');
+        }
+
+        //IMPORT EXCEL
+        public function importExcel(Request $request)
+        {
+            $file = $request->file('file');
+            $nama_file = rand().$file->getClientOriginalName();
+            $file->move('file_excel',$nama_file);
+            Excel::import(new importSiswa, public_path('/file_excel/'.$nama_file));
+            return redirect('dashboard/siswa')->with('toast_success','Import Siswa Successfully');
+        }
 }
