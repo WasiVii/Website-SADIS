@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="mb-6 p-6 overflow-hidden bg-white rounded-md shadow-md dark:bg-dark-eval-1">
-        <p class="text-lg">Hi, <span class="font-bold">{{Auth::user()->name}}</span>. You're logged in as <span class="font-bold">{{Auth::user()->role->name}}</span></p>
+        <p class="text-lg">Hi, <span class="font-bold">{{Auth::user()->name ?? ''}}</span>. You're logged in as <span class="font-bold">{{Auth::user()->role->name ?? ''}}</span></p>
     </div>
 
     <x-slot name="header">

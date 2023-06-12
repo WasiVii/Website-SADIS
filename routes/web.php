@@ -84,7 +84,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function(){
      Route::get('staff/generatePDFid/{id}', [StaffController::class, 'generatePDFid'])->name('staff.generatePDFid');
      Route::get('dashboard/staff/exportExcel/', [StaffController::class, 'exportExcel']);
      Route::POST('dashboard/staff/importExcel', [StaffController::class, 'importExcel']);
-    //  Route::get('dashboard/nilai/importExcel', [NilaiController::class, 'importExcel']);
+
     //
     // Route::middleware('admin')->group(function(){
     //     Route::resource('guru', GuruController::class);

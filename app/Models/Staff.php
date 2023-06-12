@@ -14,6 +14,6 @@ class Staff extends Model
         'id',
         'Staffcol',
         'Divisi',
-        'User_id'
+        'Users_id'
     ];
 }
