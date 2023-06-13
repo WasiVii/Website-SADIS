@@ -42,7 +42,7 @@
                     </div>
                      <div class="mb-4">
                         <label for="Tahun_Lulus" class="block text-sm font-medium text-gray-700">Tahun Lulus</label>
-                       <input type="date" name="Tahun_Lulus" id="Tahun_Lulus" value="{{ $siswa->Tahun_Lulus }}" class="focus:ring-blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        <input type="date" name="Tahun_Lulus" id="Tahun_Lulus" value="{{ $siswa->Tahun_Lulus }}" class="focus:ring-blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                     </div>
                     <div class="mb-4">
                         <label for="Kelas_id" class="block text-sm font-medium text-gray-700">Kelas ID</label>

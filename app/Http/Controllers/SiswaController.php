@@ -126,6 +126,7 @@ class SiswaController extends Controller
     $siswa->Jenis_Kelamin = $request->Jenis_Kelamin;
     $siswa->Nomor_Telepon = $request->Nomor_Telepon;
     $siswa->Email = $request->Email;
+    $siswa->Tahun_Lulus = $request->Tahun_Lulus;
     $siswa->Users_id = $request->Users_id;
     $siswa->Kelas_id = $request->Kelas_id;
     $siswa->Ekstrakulikuler_id = $request->Ekstrakulikuler_id;
