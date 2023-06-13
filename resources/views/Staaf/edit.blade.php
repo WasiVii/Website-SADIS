@@ -23,10 +23,14 @@
                             <input type="text" class="form-control my-5 input-bordered input w-full" id="Divisi" name="Divisi" value="{{ $staff->Divisi }}">
                         </div>
 
-                        <div class="form-group">
-                            <label for="Users_id">Users ID</label>
-                            <input class="form-control my-5 input-bordered input w-full" type="text" id="Users_id" name="Users_id" rows="3" value="{{ $staff->Users_id }}">
-                        </div>
+                       <div class="mb-4">
+                        <label for="Users_id" class="block text-sm font-medium text-gray-700">User ID</label>
+                        <select name="Users_id" id="Users_id" class="focus:ring-blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            @foreach($user as $u)
+                            <option value="{{$u->id}}" @if($u->id == $staff->Users_id) selected @endif>{{$u->name}}</option>
+                            @endforeach
+                    </select>
+                    </div>
                         <button type="Update"
                             class="text-white bg-blue-600  rounded text-sm px-5 py-2.5">Update</button>
 

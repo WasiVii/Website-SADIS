@@ -59,7 +59,7 @@
                                 <option value="#">Silahkan Masukan User</option>
                             @else
                             @foreach($user as $u)
-                            <option value="{{$u->id}}" >{{$u->name}}</option>
+                            <option value="{{$u->id}}" @if($u->id == $siswa->Users_id) selected @endif>{{$u->name}}</option>
                             @endforeach
                             @endif
                         </select>
@@ -68,7 +68,7 @@
                         <label for="Ekstrakulikuler_id" class="block text-sm font-medium text-gray-700">Ekstrakulikuler ID</label>
                         <select name="Ekstrakulikuler_id" id="Ekstrakulikuler_id" class="focus:ring-blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                             @foreach($ekstrakulikuler as $e)
-                            <option value="{{$e->id}}">{{$e->Nama_Ekstrakulikuler}}</option>
+                            <option value="{{$e->id}}" @if($e->id == $siswa->Ekstrakulikuler_id) selected @endif>{{$e->Nama_Ekstrakulikuler}}</option>
                             @endforeach
                     </select>
                     </div>

@@ -24,11 +24,10 @@
                         <label for="Jenis_Kelamin" class="block text-sm font-medium text-gray-700">Jenis Kelamin</label>
                         <select id="select" name="Jenis_Kelamin" class="block my-5 input-bordered input w-full border-gray-300 rounded-md">
                             <option value="#">Pilih Jenis Kelamin</option>
-                            <option value="L">Laki - Laki</option>
-                            <option value="P">Perempuan</option>
+                            <option value="L" @if($guru->Jenis_Kelamin == 'L') selected @endif>Laki - Laki</option>
+                            <option value="P" @if($guru->Jenis_Kelamin == 'P') selected @endif>Perempuan</option>
                         </select>
                     </div>
-
                     <div class="mb-4">
                         <label for="Alamat" class="block text-sm font-medium text-gray-700">Alamat</label>
                         <textarea name="Alamat" id="Alamat" rows="3" class="focus:ring-blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">{{ $guru->Alamat }}</textarea>
@@ -41,7 +40,7 @@
                         <label for="Kelas_id" class="block text-sm font-medium text-gray-700">Kelas ID</label>
                         <select name="Kelas_id" id="Kelas_id" class="focus:ring-blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                             @foreach($kelas as $kls)
-                            <option  value="{{$kls->id}}">{{$kls->Nama_Kelas}}</option>
+                            <option value="{{$kls->id}}" @if($kls->id == $guru->Kelas_id) selected @endif>{{$kls->Nama_Kelas}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -49,15 +48,15 @@
                         <label for="Users_id" class="block text-sm font-medium text-gray-700">Users ID</label>
                         <select name="Users_id" id="Users_id" class="focus:ring -blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                             @foreach($user as $u)
-                            <option value="{{$u->id}}" >{{$u->name}}</option>
+                            <option value="{{$u->id}}" @if($u->id == $guru->Users_id) selected @endif>{{$u->name}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="mb-4">
-                        <label for="Mata_Pelajaran_id" class="block text-sm font-medium text-gray-700">Mata Pelajaran ID</label>
+                        <label for="Mata_Pelajaran_id" class="block text-sm font-medium text-gray-700">Mata Pelajaran</label>
                         <select name="Mata_Pelajaran_id" id="Mata_Pelajaran_id" class="focus:ring-blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                             @foreach($mapel as $mp)
-                            <option value="{{$mp->id}}">{{$mp->Nama_Mata_Pelajaran}}</option>
+                            <option value="{{$mp->id}}" @if($mp->id == $guru->Mata_Pelajaran_id) selected @endif>{{$mp->Nama_Mata_Pelajaran}}</option>
                             @endforeach
                     </select>
                     </div>

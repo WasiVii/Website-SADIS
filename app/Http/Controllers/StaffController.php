@@ -73,8 +73,12 @@ class StaffController extends Controller
      */
     public function edit($id)
     {
+        $user = DB::table('users')->get();
+        $staff = Staff::join('users','staff.users_id', '=','users.id')
+        ->select('staff.*','users.name as user')
+        ->get();
         $staff = Staff::findOrFail($id);
-        return view('staaf.edit', compact('staff'));
+        return view('staaf.edit', compact('staff','user'));
     }
 
     /**
