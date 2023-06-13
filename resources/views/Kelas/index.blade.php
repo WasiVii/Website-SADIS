@@ -58,6 +58,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                 {{-- @dd($kelas); --}}
                                 @foreach ($kelas as $kls)
                                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                     <th scope="row"

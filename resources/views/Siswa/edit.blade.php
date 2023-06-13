@@ -28,8 +28,8 @@
                         <label for="Jenis_Kelamin" class="block text-sm font-medium text-gray-700">Jenis Kelamin</label>
                         <select id="select" name="Jenis_Kelamin" class="block my-5 input-bordered input w-full border-gray-300 rounded-md">
                             <option value="#">Pilih Jenis Kelamin</option>
-                            <option value="L">Laki - Laki</option>
-                            <option value="P">Perempuan</option>
+                            <option value="L" @if($siswa->Jenis_Kelamin == 'L') selected @endif>Laki - Laki</option>
+                            <option value="P" @if($siswa->Jenis_Kelamin == 'P') selected @endif>Perempuan</option>
                         </select>
                     </div>
                     <div class="mb-4">
@@ -48,7 +48,7 @@
                         <label for="Kelas_id" class="block text-sm font-medium text-gray-700">Kelas ID</label>
                         <select name="Kelas_id" id="Kelas_id" class="focus:ring-blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                             @foreach($kelas as $kls)
-                            <option  value="{{$kls->id}}">{{$kls->Nama_Kelas}}</option>
+                            <option value="{{$kls->id}}" @if($kls->id == $siswa->Kelas_id) selected @endif>{{$kls->Nama_Kelas}}</option>
                             @endforeach
                         </select>
                     </div>

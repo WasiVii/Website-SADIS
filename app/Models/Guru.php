@@ -21,4 +21,9 @@ class Guru extends Model
         'Kelas_id',
         'Mata_Pelajaran_id'
     ];
+
+    public function guru()
+    {
+        return $this->belongsTo(Guru::class, 'Wali_Kelas', 'Nama_Guru');
+    }
 }

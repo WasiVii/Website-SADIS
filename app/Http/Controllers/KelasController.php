@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Exports\exportKelas;
 use App\Imports\importKelas;
 use App\Models\Kelas;
+use App\Models\Siswa;
 use PDF;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 
 class KelasController extends Controller
@@ -17,6 +19,11 @@ class KelasController extends Controller
     public function index()
     {
         $kelas = Kelas::all();
+        foreach ($kelas as $kls) {
+        $jumlahSiswa = Siswa::where('Kelas_id', $kls->id)->count();
+        $kls->Array_Siswa = $jumlahSiswa;
+        $kls->save();
+        }
         $title = 'Delete Kelas!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
@@ -28,7 +35,11 @@ class KelasController extends Controller
      */
     public function create()
     {
-        return view('Kelas.create');
+        $guru = DB::table('guru')->get();
+        $kelas = Kelas::join('guru','guru.Nama_Guru','=','Kelas.Wali_kelas')
+        ->select('kelas.*','guru.Nama_Guru as guru')
+        ->get();
+        return view('Kelas.create', compact('guru','kelas'));
     }
 
     /**
@@ -39,8 +50,7 @@ class KelasController extends Controller
         $request->validate([
         'Nama_Kelas' => 'required',
         'Tahun_Pelajaran' => 'required',
-        'Wali_Kelas' => 'required',
-        'Array_Siswa' => 'required'
+        'Wali_Kelas' => 'required'
 
         ]);
 
@@ -48,7 +58,6 @@ class KelasController extends Controller
     $kelas->Nama_Kelas = $request->Nama_Kelas;
     $kelas->Tahun_Pelajaran = $request->Tahun_Pelajaran;
     $kelas->Wali_Kelas = $request->Wali_Kelas;
-    $kelas->Array_Siswa = $request->Array_Siswa;
     $kelas->save();
 
     return redirect()->route('kelas.index')->with('toast_success','Kelas Creted Successfully');
@@ -67,8 +76,9 @@ class KelasController extends Controller
      */
     public function edit($id)
     {
+        $guru = DB::table('Guru')->get();
         $kelas = Kelas::findOrFail($id);
-        return view('Kelas.edit' , compact('kelas'));
+        return view('Kelas.edit' , compact('kelas','guru'));
     }
 
     /**
@@ -79,15 +89,13 @@ class KelasController extends Controller
          $request->validate([
         'Nama_Kelas' => 'required',
         'Tahun_Pelajaran' => 'required',
-        'Wali_Kelas' => 'required',
-        'Array_Siswa' => 'required'
+        'Wali_Kelas' => 'required'
 
         ]);
         $kelas = Kelas::findOrFail($id);
     $kelas->Nama_Kelas = $request->Nama_Kelas;
     $kelas->Tahun_Pelajaran = $request->Tahun_Pelajaran;
     $kelas->Wali_Kelas = $request->Wali_Kelas;
-    $kelas->Array_Siswa = $request->Array_Siswa;
     $kelas->save();
 
     return redirect()->route('kelas.index')->with('toast_success','Kelas Updated Successfully');

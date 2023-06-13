@@ -39,27 +39,21 @@
                         </div>
                         <div class="mb-6">
                             <label class="block">
-                                <span class="text-gray-700 @error('Wali_Kelas') text-red-500 @enderror">Wali Kelas</span>
-                                <input type="text" name="Wali_Kelas"
-                                    class="block my-5 input-bordered input w-full text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+                            <span class="text-gray-700 @error('Wali_Kelas') text-red-500 @enderror">Wali Kelas</span>
+                            <select id="select" name="Wali_Kelas" class="block my-5 input-bordered input w-full border-gray-300 rounded-md">
+                                <option value="#">Silahkan Pilih Wali Kelas </option>
+                            @foreach($guru as $g)
+                            <option value="{{$g->id}}">{{$g->Nama_Guru}}</option>
+                            @endforeach
+                            </select>
                             </label>
-                        @error('Wali_Kelas')
-                        <div class="flex items-center text-sm text-red-600">
-                        {{ $message }}
+                            @error('Wali_Kelas')
                         </div>
-                        @enderror
+                         <div class="flex items-center text-sm text-red-600">
+                                {{ $message }}
+                            </div>
+                            @enderror
                         </div>
-                        <div class="mb-6">
-                            <label class="block">
-                            <span class="text-gray-700 @error('Array_Siswa') text-red-500 @enderror">Jumlah Siswa</span>
-                            <input type="number" name="Array_Siswa"
-                                                            class="block my-5 input-bordered input w-full text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
-                            </label>
-                        @error('Array_Siswa')
-                        <div class="flex items-center text-sm text-red-600">
-                        {{ $message }}
-                        </div>
-                        @enderror
                             <button type="submit"
                                                     class="text-white bg-blue-600 rounded text-sm px-5 py-2.5">Submit</button>
                                                                     </form>
