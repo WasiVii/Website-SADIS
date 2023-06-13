@@ -15,10 +15,12 @@
                         <a class="px-2 py-2 text-sm text-white bg-blue-600 rounded"
                             href="{{ route('ekstrakulikuler.create') }}">{{ __('Add ekstrakulikuler') }}</a>
                     </div>
-                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400  display nowrap" id="example">
-                            <thead
-                                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                     <div class="flex flex-col">
+                    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                        <div class="overflow-hidden">
+                            <table class="min-w-full text-center text-sm font-light" id="example">
+                            <thead class="border-b bg-purple-500 font-medium text-white dark:border-neutral-500 dark:bg-neutral-900">
                                 @php
                                     $no = 1;
                                 @endphp
