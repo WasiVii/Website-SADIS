@@ -24,7 +24,7 @@
                             </div>
                             @enderror
                         </div>
-                        <div class="mb-6">
+                        {{-- <div class="mb-6">
                             <label class="block">
                                 <span class="text-gray-700 @error('Mata_Pelajaran') text-red-500 @enderror">Mata Pelajaran</span>
                                 <input
@@ -36,7 +36,7 @@
                                 {{ $message }}
                             </div>
                             @enderror
-                        </div>
+                        </div> --}}
                        <div class="mb-6">
                             <label class="block">
                                 <span class="text-gray-700 @error('Jenis_Kelamin') text-red-500 @enderror">Jenis Kelamin</span>

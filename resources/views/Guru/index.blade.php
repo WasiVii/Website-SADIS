@@ -9,11 +9,11 @@
     </div>
     <div class="container mx-auto">
         <div class="flex flex-wrap -mx-4">
-            @if (session('success'))
+            {{-- @if (session('success'))
                 <div class="bg-green-500 text-white p-4 rounded-lg mb-4">
                     {{ session('success') }}
                 </div>
-            @endif
+            @endif --}}
             @foreach ($guru as $g)
                 <div class="w-full md:w-1/3 px-4 mb-8">
                     <div class="bg-white rounded-lg overflow-hidden shadow-lg">
@@ -23,21 +23,23 @@
                             <img src="{{ url('images') }}/{{ $g->photo }}" alt="" class="w-full h-48 object-cover object-center">
                         @endempty
                         <div class="px-6 py-4">
-                            <h2 class="text-lg font-medium text-gray-800 mb-2">{{ $g->Nama_Guru }}</h2>
-                            Mata Pelajaran : <p class="text-sm text-gray-600 mb-4">{{ $g->Mata_Pelajaran }}</p>
-                            Jenis Kelamin : <p class="text-gray-700 text-base">{{ $g->Jenis_Kelamin }}</p>
-                            Alamat : <p class="text-gray-700 text-base">{{ $g->Alamat }}</p>
-                            Nomor Telepon : <p class="text-gray-700 text-base">{{ $g->Nomor_Telepon }}</p>
-                            Admin Pembuat :
+                            <h2 style="text-align: center" class="text-lg font-medium text-gray-800 mb-2">Nama : {{ $g->Nama_Guru }}</h2>
+                            <p class="text-gray-700 text-base">Jenis Kelamin : {{ $g->Jenis_Kelamin }}</p>
+                            <p class="text-gray-700 text-base">Alamat : {{ $g->Alamat }}</p>
+                            <p class="text-gray-700 text-base">Nomor Telepon : {{ $g->Nomor_Telepon }}</p>
                             <p class="text-gray-700 text-base">
+                                Admin Pembuat :
+
                                 {{ $g->user }}
                             </p>
-                            Kelas Yang di Ajar :
                             <p class="text-gray-700 text-base">
+                            Kelas Yang di Ajar :
+
                                 {{ $g->kelas }}
                             </p>
-                            Mapel Yang di Ajar :
                             <p class="text-gray-700 text-base">
+                            Mata Pelajaran Yang di Ajar :
+
                                 {{ $g->mapel }}
                             </p>
 

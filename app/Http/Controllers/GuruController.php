@@ -50,7 +50,6 @@ class GuruController extends Controller
     {
          $request->validate([
         'Nama_Guru' => 'required',
-        'Mata_Pelajaran' => 'required',
         'Jenis_Kelamin' => 'required',
         'Alamat' => 'required',
         'Nomor_Telepon' => 'required',
@@ -62,7 +61,6 @@ class GuruController extends Controller
 
     $guru = new Guru();
     $guru->Nama_Guru = $request->Nama_Guru;
-    $guru->Mata_Pelajaran = $request->Mata_Pelajaran;
     $guru->Jenis_Kelamin = $request->Jenis_Kelamin;
     $guru->Alamat = $request->Alamat;
     $guru->Nomor_Telepon = $request->Nomor_Telepon;
@@ -115,7 +113,6 @@ class GuruController extends Controller
 
          $request->validate([
         'Nama_Guru' => 'required',
-        'Mata_Pelajaran' => 'required',
         'Jenis_Kelamin' => 'required',
         'Alamat' => 'required',
         'Nomor_Telepon' => 'required',
@@ -127,7 +124,6 @@ class GuruController extends Controller
 
     $guru = Guru::findOrFail($id);
     $guru->Nama_Guru = $request->Nama_Guru;
-    $guru->Mata_Pelajaran = $request->Mata_Pelajaran;
     $guru->Jenis_Kelamin = $request->Jenis_Kelamin;
     $guru->Alamat = $request->Alamat;
     $guru->Nomor_Telepon = $request->Nomor_Telepon;

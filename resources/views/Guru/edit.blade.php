@@ -16,10 +16,10 @@
                         <label for="Nama_Guru" class="block text-sm font-medium text-gray-700">Nama Guru</label>
                         <input type="text" name="Nama_Guru" id="Nama_Guru" value="{{ $guru->Nama_Guru }}" class="focus:ring-blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                     </div>
-                    <div class="mb-4">
+                    {{-- <div class="mb-4">
                         <label for="Mata_Pelajaran" class="block text-sm font-medium text-gray-700">Mata Pelajaran</label>
                         <input type="text" name="Mata_Pelajaran" id="Mata_Pelajaran" value="{{ $guru->Mata_Pelajaran }}" class="focus:ring-blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                    </div>
+                    </div> --}}
                     <div class="mb-4">
                         <label for="Jenis_Kelamin" class="block text-sm font-medium text-gray-700">Jenis Kelamin</label>
                         <select id="select" name="Jenis_Kelamin" class="block my-5 input-bordered input w-full border-gray-300 rounded-md">

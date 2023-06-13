@@ -112,8 +112,9 @@ class UserManagementController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(User $id)
     {
-        //
+        $id->delete();
+        return redirect()->route('users.index')->with('success', 'Users deleted successfully.');
     }
 }

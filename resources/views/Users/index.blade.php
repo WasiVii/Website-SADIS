@@ -42,7 +42,7 @@
                                         Edit
                                     </th>
                                     {{-- <th scope="col" class="px-6 py-3">
-                                        Show
+                                        Delete
                                     </th> --}}
                                 </tr>
                             </thead>
@@ -90,7 +90,9 @@
                                         </a>
                                     </td> --}}
                                     {{-- <td class="px-6 py-4">
-                                        <a href="{{ route('siswa.destroy', $sws->id) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a>
+                                        <a href="{{ route('users.destroy', $user->id) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
                                     </td> --}}
                                 </tr>
                                 @php
