@@ -42,23 +42,26 @@ class UserManagementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
         $validatedData = $request->validate([
-        'name' => 'required|string|max:255',
-        'email' => 'required|email|unique:users',
-        'password' => 'required|string|min:8',
-        'role_id' => 'required|integer',
-    ]);
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|string|min:8',
+            'role_id' => 'required|integer',
+        ]);
 
-    // Simpan data pengguna ke tabel users
-    $user = User::create($validatedData);
+        // Enkripsi password menggunakan Hash::make()
+        $validatedData['password'] = Hash::make($validatedData['password']);
 
-    // Simpan data siswa ke tabel siswa
-    DB::table('siswa')->insert([
-        'nama_siswa' => $validatedData['name'],
-        'email' => $validatedData['email'],
+        // Simpan data pengguna ke tabel users
+        $user = User::create($validatedData);
 
-    ]);
+        // Simpan data siswa ke tabel siswa
+        DB::table('siswa')->insert([
+            'nama_siswa' => $validatedData['name'],
+            'email' => $validatedData['email'],
+        ]);
+
 
     // Tambahkan logika atau tindakan lain yang diperlukan setelah menyimpan data
 
@@ -112,9 +115,8 @@ class UserManagementController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $id)
+    public function destroy(string $id)
     {
-        $id->delete();
-        return redirect()->route('users.index')->with('success', 'Users deleted successfully.');
+
     }
 }
