@@ -43,22 +43,26 @@ class UserManagementController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-            'role_id' => 'required'
-        ]);
+        $validatedData = $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|unique:users',
+        'password' => 'required|string|min:8',
+        'role_id' => 'required|integer',
+    ]);
 
-        $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $user->role_id = $request->role_id;
+    // Simpan data pengguna ke tabel users
+    $user = User::create($validatedData);
 
-        $user->save();
+    // Simpan data siswa ke tabel siswa
+    DB::table('siswa')->insert([
+        'nama_siswa' => $validatedData['name'],
+        'email' => $validatedData['email'],
 
-        return redirect()->route('users.index')->with('toast_success','Account Created Successfully');
+    ]);
+
+    // Tambahkan logika atau tindakan lain yang diperlukan setelah menyimpan data
+
+    return redirect()->route('users.index')->with('success', 'Data pengguna berhasil disimpan.');
     }
 
     /**

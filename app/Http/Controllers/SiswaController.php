@@ -20,9 +20,9 @@ class SiswaController extends Controller
         $user = DB::table('users')->get();
         $kelas = DB::table('kelas')->get();
         $ekstrakulikuler = DB::table('Ekstrakulikuler')->get();
-        $siswa = Siswa::join('users','siswa.Users_id','=','users.id')
-        ->join('kelas','siswa.Kelas_id','=','kelas.id')
-        ->join('ekstrakulikuler','siswa.ekstrakulikuler_id','=','ekstrakulikuler.id')
+        $siswa = Siswa::leftjoin('users','siswa.Users_id','=','users.id')
+        ->leftjoin('kelas','siswa.Kelas_id','=','kelas.id')
+        ->leftjoin('ekstrakulikuler','siswa.ekstrakulikuler_id','=','ekstrakulikuler.id')
         ->select('siswa.*','users.name as user','kelas.Nama_Kelas as kelas','ekstrakulikuler.Nama_Ekstrakulikuler as ekstrakulikuler')
         ->get();
         $title = 'Delete Siswa!';

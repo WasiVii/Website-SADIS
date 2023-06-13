@@ -18,7 +18,7 @@
                     </div>
                     <div class="mb-4">
                         <label for="Tanggal_Lahir" class="block text-sm font-medium text-gray-700">Tanggal Lahir</label>
-                        <input type="text" name="Tanggal_Lahir" id="Tanggal_Lahir" value="{{ $siswa->Tanggal_Lahir }}" class="focus:ring-blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        <input type="date" name="Tanggal_Lahir" id="Tanggal_Lahir" value="{{ $siswa->Tanggal_Lahir }}" class="focus:ring-blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                     </div>
                      <div class="mb-4">
                         <label for="Alamat" class="block text-sm font-medium text-gray-700">Alamat</label>
@@ -42,7 +42,7 @@
                     </div>
                      <div class="mb-4">
                         <label for="Tahun_Lulus" class="block text-sm font-medium text-gray-700">Tahun Lulus</label>
-                        <textarea name="Tahun_Lulus" id="Tahun_Lulus" rows="3"  class="focus:ring-blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">{{ $siswa->Tahun_Lulus }}</textarea>
+                       <input type="date" name="Tahun_Lulus" id="Tahun_Lulus" value="{{ $siswa->Tahun_Lulus }}" class="focus:ring-blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                     </div>
                     <div class="mb-4">
                         <label for="Kelas_id" class="block text-sm font-medium text-gray-700">Kelas ID</label>
@@ -55,9 +55,13 @@
                     <div class="mb-4">
                         <label for="Users_id" class="block text-sm font-medium text-gray-700">Users ID</label>
                         <select name="Users_id" id="Users_id" class="focus:ring -blue-500 focus:border-blue-500 block my-5 input-bordered input w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            @if ($user->isEmpty())
+                                <option value="#">Silahkan Masukan User</option>
+                            @else
                             @foreach($user as $u)
                             <option value="{{$u->id}}" >{{$u->name}}</option>
                             @endforeach
+                            @endif
                         </select>
                     </div>
                     <div class="mb-4">
