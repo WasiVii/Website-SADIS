@@ -57,12 +57,19 @@ class UserManagementController extends Controller
         $user = User::create($validatedData);
 
         // Simpan data siswa ke tabel siswa
-        DB::table('siswa')->insert([
-            'nama_siswa' => $validatedData['name'],
-            'email' => $validatedData['email'],
-        ]);
 
-
+        if ($validatedData['role_id'] == 5) {
+    // Jika role_id = 1 (siswa), simpan data siswa ke tabel siswa
+            DB::table('siswa')->insert([
+                'nama_siswa' => $validatedData['name'],
+                'email' => $validatedData['email'],
+            ]);
+        } elseif ($validatedData['role_id'] == 2) {
+            // Jika role_id = 2 (staff), simpan data staff ke tabel staff
+            DB::table('staff')->insert([
+                'Staffcol' => $validatedData['name'],
+            ]);
+        }
     // Tambahkan logika atau tindakan lain yang diperlukan setelah menyimpan data
 
     return redirect()->route('users.index')->with('success', 'Data pengguna berhasil disimpan.');

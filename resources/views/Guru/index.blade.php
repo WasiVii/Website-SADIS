@@ -23,32 +23,21 @@
                             <img src="{{ url('images') }}/{{ $g->photo }}" alt="" class="w-full h-48 object-cover object-center">
                         @endempty
                         <div class="px-6 py-4">
-                            <h2 style="text-align: center" class="text-lg font-medium text-gray-800 mb-2">Nama : {{ $g->Nama_Guru }}</h2>
-                            <p class="text-gray-700 text-base">Jenis Kelamin : {{ $g->Jenis_Kelamin }}</p>
-                            <p class="text-gray-700 text-base">Alamat : {{ $g->Alamat }}</p>
-                            <p class="text-gray-700 text-base">Nomor Telepon : {{ $g->Nomor_Telepon }}</p>
-                            <p class="text-gray-700 text-base">
-                                Admin Pembuat :
+    <h2 style="text-align: center" class="text-lg font-medium text-gray-800 mb-2">Nama : {{ $g->Nama_Guru }}</h2>
+    <p class="text-gray-700 text-base">Jenis Kelamin&nbsp;: {{ $g->Jenis_Kelamin }}</p>
+    <p class="text-gray-700 text-base">Alamat&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ $g->Alamat }}</p>
+    <p class="text-gray-700 text-base">Nomor Telepon&nbsp;&nbsp;: {{ $g->Nomor_Telepon }}</p>
+    <p class="text-gray-700 text-base">Admin Pembuat&nbsp;&nbsp;: {{ $g->user }}</p>
+    <p class="text-gray-700 text-base">Kelas Yang di Ajar&nbsp;&nbsp;: {{ $g->kelas }}</p>
+    <p class="text-gray-700 text-base">Mata Pelajaran Yang di Ajar&nbsp;&nbsp;: {{ $g->mapel }}</p>
 
-                                {{ $g->user }}
-                            </p>
-                            <p class="text-gray-700 text-base">
-                            Kelas Yang di Ajar :
+    <div class="flex justify-between items-center">
+        <a href="/profile/data-guru" class="bg-purple-500 text-white px-4 py-2 rounded-lg">Show</a>
+        <a href="{{ route('guru.edit', $g->id) }}" class="bg-cyan-500 text-white px-4 py-2 rounded-lg">Edit</a>
+        <a href="{{ route('guru.destroy', $g->id) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a>
+    </div>
+</div>
 
-                                {{ $g->kelas }}
-                            </p>
-                            <p class="text-gray-700 text-base">
-                            Mata Pelajaran Yang di Ajar :
-
-                                {{ $g->mapel }}
-                            </p>
-
-                            <div class="flex justify-between items-center">
-                                <a href="/profile/data-guru" class="bg-purple-500 text-white px-4 py-2 rounded-lg">Show</a>
-                                <a href="{{ route('guru.edit', $g->id) }}" class="bg-cyan-500 text-white px-4 py-2 rounded-lg">Edit</a>
-                                <a href="{{ route('guru.destroy', $g->id) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">Delete</a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             @endforeach

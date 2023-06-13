@@ -73,8 +73,8 @@
                                         {{$kls->Tahun_Pelajaran}}
 
                                     </td>
-                                     <td class="px-6 py-4">
-                                        {{$kls->Wali_Kelas}}
+                                    <td class="px-6 py-4">
+                                        {{$kls->guru}}
 
                                     </td>
                                      <td class="px-6 py-4">
