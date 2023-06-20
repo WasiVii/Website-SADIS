@@ -1,5 +1,5 @@
 @extends('layouts/app')
- 
+
 @section('title', 'Teams')
 
 
@@ -8,7 +8,7 @@ $profile1 = array(
     'name' => 'Abdul Wasi\' Al-Afif',
     'github' => 'abdwasidev',
     'photo' => 'https://s3.getstickerpack.com/storage/uploads/sticker-pack/genshin-kaedehara-kazuha/sticker_3.png',
-    'roles' => 'Frontend',
+    'roles' => 'Frontend Developer',
     'college' => 'UPN "Veteran" Jawa Timur',
     'email' => 'abdulwasialafif@gmail.com'
 );
@@ -26,7 +26,7 @@ $profile3 = array(
     'name' => 'Fawwaz Mubarak',
     'github' => 'fawwazzzz',
     'photo' => 'https://s3.getstickerpack.com/storage/uploads/sticker-pack/kamisato-ayato-1/sticker_3.png',
-    'roles' => 'Database',
+    'roles' => 'Desain Database',
     'college' => '-',
     'email' => '-'
 );
@@ -35,7 +35,7 @@ $profile4 = array(
     'name' => 'Gabriel',
     'github' => 'Gabriel010302',
     'photo' => 'https://s3.getstickerpack.com/storage/uploads/sticker-pack/arataki-itto/sticker_7.png',
-    'roles' => 'UI/UX',
+    'roles' => 'UI/UX Desain',
     'college' => '-',
     'email' => '-'
 );
@@ -44,9 +44,9 @@ $profile5 = array(
     'name' => 'Helfi Apriliyandi Firdaos',
     'github' => 'Helfi23',
     'photo' => 'https://s3.getstickerpack.com/storage/uploads/sticker-pack/prueba-17/sticker_7.png',
-    'roles' => 'Backend',
-    'college' => '-',
-    'email' => '-'
+    'roles' => 'Backend Developer',
+    'college' => 'Universitas Nusa Putra',
+    'email' => 'fie230401@gmail.com'
 );
 
 $data_teams = [$profile1, $profile2, $profile3, $profile4, $profile5];
@@ -61,7 +61,7 @@ $data_teams = [$profile1, $profile2, $profile3, $profile4, $profile5];
                     <p class="mt-5 text-4xl font-bold leading-tight text-gray-900 sm:leading-tight sm:text-5xl lg:text-6xl lg:leading-tight font-pj">
                         The Executive Team
                     </p>
-                        
+
                     </div>
                 </div>
             </section>

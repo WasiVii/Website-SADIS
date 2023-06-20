@@ -11,6 +11,8 @@ use Dompdf\Dompdf;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
+use function Pest\Laravel\json;
+
 class MapelController extends Controller
 {
     /**
@@ -22,7 +24,8 @@ class MapelController extends Controller
         $title = 'Delete Mata Pelajaran!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
-        return view('mapel.index', compact('mapel'));
+        // return response()->json(['data' => $mapel]);
+        return view('Mapel.index',compact('mapel'));
     }
 
     /**

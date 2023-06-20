@@ -16,4 +16,14 @@ class Nilai extends Model
         'Siswa_id',
         'Mata_Pelajaran_id'
     ];
+
+    public function siswa()
+    {
+        return $this->BelongsTo(Siswa::class, 'Mata_Pelajaran_id');
+    }
+
+      public function Mata_Pelajaran()
+    {
+        return $this->belongsTo(Mapel::class,'Siswa_id');
+    }
 }

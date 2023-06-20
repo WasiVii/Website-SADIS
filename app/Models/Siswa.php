@@ -23,4 +23,10 @@ class Siswa extends Model
         'Kelas_id',
         'Ekstrakulikuler_id'
     ];
+
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class);
+    }
+
 }

@@ -43,33 +43,35 @@ class UserManagementController extends Controller
     public function store(Request $request)
     {
 
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|string|min:8',
-            'role_id' => 'required|integer',
+       $validatedData = $request->validate([
+    'name' => 'required|string|max:255',
+    'email' => 'required|email|unique:users',
+    'password' => 'required|string|min:8',
+    'role_id' => 'required|integer',
+]);
+
+    // Enkripsi password menggunakan Hash::make()
+    $validatedData['password'] = Hash::make($validatedData['password']);
+
+    // Simpan data pengguna ke tabel users
+    $user = User::create($validatedData);
+
+    // Simpan data siswa atau staff berdasarkan role_id
+    if ($validatedData['role_id'] == 4) {
+        // Jika role_id = 5 (siswa), simpan data siswa ke tabel siswa
+        DB::table('siswa')->insert([
+            'nama_siswa' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'Users_id' => $user->id,
         ]);
+    } elseif ($validatedData['role_id'] == 2) {
+        // Jika role_id = 2 (staff), simpan data staff ke tabel staff
+        DB::table('staff')->insert([
+            'Staffcol' => $validatedData['name'],
+            'Users_id' => $user->id,
+        ]);
+    }
 
-        // Enkripsi password menggunakan Hash::make()
-        $validatedData['password'] = Hash::make($validatedData['password']);
-
-        // Simpan data pengguna ke tabel users
-        $user = User::create($validatedData);
-
-        // Simpan data siswa ke tabel siswa
-
-        if ($validatedData['role_id'] == 5) {
-    // Jika role_id = 1 (siswa), simpan data siswa ke tabel siswa
-            DB::table('siswa')->insert([
-                'nama_siswa' => $validatedData['name'],
-                'email' => $validatedData['email'],
-            ]);
-        } elseif ($validatedData['role_id'] == 2) {
-            // Jika role_id = 2 (staff), simpan data staff ke tabel staff
-            DB::table('staff')->insert([
-                'Staffcol' => $validatedData['name'],
-            ]);
-        }
     // Tambahkan logika atau tindakan lain yang diperlukan setelah menyimpan data
 
     return redirect()->route('users.index')->with('success', 'Data pengguna berhasil disimpan.');

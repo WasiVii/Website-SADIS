@@ -4,14 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Exports\exportSiswa;
 use App\Imports\importSiswa;
+use App\Models\Nilai;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class SiswaController extends Controller
 {
+     public function showDataSiswa()
+    {
+        $loginData = Auth::user(); // Mengambil data login dari pengguna
+        $siswa = Siswa::with('kelas')->where('Nama_Siswa', $loginData->name)->first(); // Query data siswa berdasarkan siswa_id
+        $nilaiSiswa = Nilai::with('mata_pelajaran')->where('Siswa_id', $siswa->id)->get(); // Query nilai siswa berdasarkan siswa_id
+
+        return view('Siswa.data-siswa', compact('siswa', 'nilaiSiswa'));
+    }
     /**
      * Display a listing of the resource.
      */

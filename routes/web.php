@@ -14,6 +14,10 @@ use App\Http\Controllers\SaranaController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\UserManagementController;
+use App\Models\Kelas;
+use App\Models\Mapel;
+use App\Models\Nilai;
+use App\Models\Siswa;
 use RealRashid\SweetAlert\Facades\Alert;
 
 /*
@@ -94,6 +98,8 @@ Route::middleware('auth')->prefix('dashboard')->group(function(){
      Route::get('dashboard/siswa/exportExcel/', [SiswaController::class, 'exportExcel']);
      Route::POST('dashboard/siswa/importExcel', [SiswaController::class, 'importExcel']);
 
+
+
     //
     // Route::middleware('admin')->group(function(){
     //     Route::resource('guru', GuruController::class);
@@ -117,6 +123,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function(){
     // });
 
 });
+     Route::get('dashboard/data', [SiswaController::class, 'showDataSiswa'])->middleware('auth');
 require __DIR__ . '/auth.php';
 
 

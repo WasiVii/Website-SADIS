@@ -18,10 +18,11 @@ class KelasController extends Controller
      */
     public function index()
     {
-       $guru = DB::table('guru')->get();
+        $guru = DB::table('guru')->get();
         $kelas = Kelas::join('guru', 'guru.id', '=', 'kelas.Wali_Kelas')
             ->select('kelas.*', 'guru.Nama_Guru as guru')
             ->get();
+
 
         foreach ($kelas as $kls) {
             $jumlahSiswa = Siswa::where('Kelas_id', $kls->id)->count();
@@ -32,8 +33,8 @@ class KelasController extends Controller
         $title = 'Delete Kelas!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
-        return view('Kelas.index', compact('kelas', 'guru'));
 
+        return view('Kelas.index', compact('kelas', 'guru'));
     }
 
     /**

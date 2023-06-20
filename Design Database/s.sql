@@ -34,13 +34,13 @@ CREATE TABLE IF NOT EXISTS `berita` (
   CONSTRAINT `fk_Berita_Staff1` FOREIGN KEY (`Staff_id`) REFERENCES `staff` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_esperanto_ci;
 
--- Dumping data for table db_sadis.berita: ~ rows (approximately)
+-- Dumping data for table db_sadis.berita: ~5 rows (approximately)
 INSERT INTO `berita` (`id`, `Judul`, `Isi_Berita`, `Tanggal_Publikasi`, `Staff_id`, `photo`, `created_at`, `updated_at`) VALUES
-	(1, 'PPDB Tahun Ajaran 2023/2024', 'Lorem PPDB Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum', '2023-05-25', 2, '1684979969.jpg', '2023-05-24 18:59:29', '2023-05-25 20:28:07'),
-	(2, 'Wisuda Kelulusan Siswa Angkatan 2020', 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum', '2023-05-25', 2, '1684980665.jpg', '2023-05-24 19:11:05', '2023-05-25 20:31:44'),
-	(3, 'Lomba Siswa Berprestasi Antar Kelas', 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum', '2023-05-25', 1, '1684980732.png', '2023-05-24 19:12:12', '2023-05-24 19:12:12'),
-	(4, 'Ujian Nasional Tahun 2023', 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum', '2023-05-25', 1, '1684980788.jpg', '2023-05-24 19:13:08', '2023-05-24 19:13:08'),
-	(5, 'Anniversary SADIS School ke-34', 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum', '2023-05-25', 1, '1684997123.png', '2023-05-24 23:45:23', '2023-05-24 23:45:23');
+	(5, 'PPDB Tahun Ajaran 2023/2024', 'Lorem PPDB Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum', '2023-05-25', 2, '1684979969.jpg', '2023-05-24 18:59:29', '2023-05-25 20:28:07'),
+	(6, 'Wisuda Kelulusan Siswa Angkatan 2020', 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum', '2023-05-25', 2, '1684980665.jpg', '2023-05-24 19:11:05', '2023-05-25 20:31:44'),
+	(8, 'Lomba Siswa Berprestasi Antar Kelas', 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum', '2023-05-25', 1, '1684980732.png', '2023-05-24 19:12:12', '2023-05-24 19:12:12'),
+	(9, 'Ujian Nasional Tahun 2023', 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum', '2023-05-25', 1, '1684980788.jpg', '2023-05-24 19:13:08', '2023-05-24 19:13:08'),
+	(10, 'Anniversary SADIS School ke-34', 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum', '2023-05-25', 1, '1684997123.png', '2023-05-24 23:45:23', '2023-05-24 23:45:23');
 
 -- Dumping structure for table db_sadis.ekstrakulikuler
 CREATE TABLE IF NOT EXISTS `ekstrakulikuler` (
@@ -126,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `kelas` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_esperanto_ci;
 
--- Dumping data for table db_sadis.kelas: ~9 rows (approximately)
+-- Dumping data for table db_sadis.kelas: ~10 rows (approximately)
 INSERT INTO `kelas` (`id`, `Nama_Kelas`, `Tahun_Pelajaran`, `Wali_Kelas`, `Array_Siswa`, `created_at`, `updated_at`) VALUES
 	(2, 'XII - A', '2023-05-25', '1\r\n', '2', '2023-05-25 00:02:25', '2023-06-19 19:42:09'),
 	(3, 'XII - B', '2023-05-25', '2', '1', '2023-05-25 00:24:11', '2023-06-19 19:42:09'),
@@ -197,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `model_has_roles` (
   CONSTRAINT `model_has_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table db_sadis.model_has_roles: ~2 rows (approximately)
+-- Dumping data for table db_sadis.model_has_roles: ~10 rows (approximately)
 INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 	(1, 'App\\Models\\User', 1),
 	(1, 'App\\Models\\User', 2),
@@ -314,7 +314,7 @@ CREATE TABLE IF NOT EXISTS `role_has_permissions` (
   CONSTRAINT `role_has_permissions_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table db_sadis.role_has_permissions: ~0 rows (approximately)
+-- Dumping data for table db_sadis.role_has_permissions: ~10 rows (approximately)
 INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 	(1, 1),
 	(3, 1),
@@ -369,7 +369,7 @@ CREATE TABLE IF NOT EXISTS `siswa` (
   CONSTRAINT `fk_Siswa_Users` FOREIGN KEY (`Users_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_esperanto_ci;
 
--- Dumping data for table db_sadis.siswa: ~0 rows (approximately)
+-- Dumping data for table db_sadis.siswa: ~5 rows (approximately)
 INSERT INTO `siswa` (`id`, `Nama_Siswa`, `Tanggal_Lahir`, `Alamat`, `Jenis_Kelamin`, `Nomor_Telepon`, `Email`, `Tahun_Lulus`, `Users_id`, `Kelas_id`, `Ekstrakulikuler_id`, `created_at`, `updated_at`) VALUES
 	(1, 'Rettousei', '2003-05-31', 'Jl. lorem ipsum in lorem ipsum', 'L', '0981231123', 'rettousei@gmail.com', '2023-05-26', 1, 2, 6, '2023-05-26 00:03:36', '2023-05-26 00:22:06'),
 	(2, 'Mimi wo Sumaseba', '2002-06-18', 'Jl. lorem ipsum in lorem ipsum', 'P', '09128311231123', 'mimi@gmail.com', '2023-05-26', 2, 10, 14, '2023-05-26 00:23:37', '2023-05-26 00:23:37'),
@@ -390,7 +390,7 @@ CREATE TABLE IF NOT EXISTS `staff` (
   CONSTRAINT `fk_Staff_Users1` FOREIGN KEY (`Users_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_esperanto_ci;
 
--- Dumping data for table db_sadis.staff: ~0 rows (approximately)
+-- Dumping data for table db_sadis.staff: ~2 rows (approximately)
 INSERT INTO `staff` (`id`, `Staffcol`, `Divisi`, `Users_id`, `updated_at`, `created_at`) VALUES
 	(1, 'Admin', 'Admin', 1, NULL, NULL),
 	(2, 'Momo', 'Event', 2, '2023-05-25 09:07:19', '2023-05-25 08:49:31');
@@ -410,7 +410,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_email_unique` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table db_sadis.users: ~6 rows (approximately)
+-- Dumping data for table db_sadis.users: ~7 rows (approximately)
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role_id`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(1, 'Helfi Apriliyandi Firdaos', 'admin@gmail.com', NULL, '$2y$10$lqXOS.J3ttfJgqFtqRu18O7sVkFk/3a42A3Vm7Ze1MJgYQ7TzaZwm', 1, NULL, '2023-05-23 03:14:35', '2023-05-23 03:14:35'),
 	(2, 'Abdul Wasi\' Al-Afif', 'wasi@admin.com', NULL, '$2y$10$l/9gSFx/pMfxxNg9B36goe20LdOTmgLPjctrrRBnoirk5HSLI59sa', 1, NULL, '2023-05-24 13:23:12', '2023-06-01 08:54:34'),
