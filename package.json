@@ -21,6 +21,6 @@
     "dependencies": {
         "daisyui": "^2.51.6",
         "leaflet": "^1.9.4",
-        "sweetalert2": "^11.7.9"
+        "sweetalert2": "^11.4.8"
     }
 }
