@@ -15,14 +15,33 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class SiswaController extends Controller
 {
-     public function showDataSiswa()
+   public function showDataSiswa()
     {
         $loginData = Auth::user(); // Mengambil data login dari pengguna
-        $siswa = Siswa::with('kelas')->where('Nama_Siswa', $loginData->name)->first(); // Query data siswa berdasarkan siswa_id
-        $nilaiSiswa = Nilai::with('mata_pelajaran')->where('Siswa_id', $siswa->id)->get(); // Query nilai siswa berdasarkan siswa_id
+        $siswa = Siswa::join('kelas', 'siswa.kelas_id', '=', 'kelas.id')
+        ->where('siswa.Nama_Siswa', $loginData->name)
+        ->select('siswa.*', 'kelas.Nama_Kelas as kelas')
+        ->first();
 
-        return view('Siswa.data-siswa', compact('siswa', 'nilaiSiswa'));
+        if ($siswa) {
+            $nilaiSiswa = DB::table('siswa')
+            ->join('nilai', 'siswa.id', '=', 'nilai.Siswa_id')
+            ->join('mata_pelajaran', 'nilai.Mata_Pelajaran_id', '=', 'mata_pelajaran.id')
+            ->select('siswa.id', 'nilai.Nilai as nilai', 'mata_pelajaran.Nama_Mata_Pelajaran as mapel')
+            ->where('siswa.Nama_Siswa', $loginData->name)
+            ->orderBy('nilai.siswa_id')
+            ->get();
+
+            return view('Siswa.data-siswa', compact('siswa', 'nilaiSiswa'));
+        } else {
+            $notifikasi = "Data kamu tidak ada.";
+            Alert::warning($notifikasi, 'Silahkan Hubungi Pihak Administrasi Sekolah');
+            return redirect()->route('siswa.index');
+        }
     }
+
+
+
     /**
      * Display a listing of the resource.
      */
@@ -192,3 +211,4 @@ class SiswaController extends Controller
         }
 
 }
+

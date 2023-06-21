@@ -95,6 +95,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function(){
      Route::get('dashboard/siswa/exportExcel/', [SiswaController::class, 'exportExcel']);
      Route::POST('dashboard/siswa/importExcel', [SiswaController::class, 'importExcel']);
     Route::get('dashboard/siswa/generatePDF/', [SiswaController::class, 'generatePDF'])->name('siswa.generatePDF');
+    Route::get('/data-siswa', [SiswaController::class, 'showDataSiswa']);
 
 
 
@@ -121,7 +122,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function(){
     // });
 
 });
-     Route::get('dashboard/data', [SiswaController::class, 'showDataSiswa'])->middleware('auth');
+
 require __DIR__ . '/auth.php';
 
 
