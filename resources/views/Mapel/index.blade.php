@@ -48,9 +48,6 @@
                                     <th scope="col" class="px-6 py-3">
                                         Delete
                                     </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        Export
-                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -88,10 +85,6 @@
                                         <a href="{{ route('mapel.destroy', $mpl->id) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">
                                         <i class="fa fa-trash"></i>
                                         </a>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <a class="px-2 py-2 text-sm text-white bg-red-600 rounded"
-                                            href="{{ route('mapel.generatePDFid', $mpl->id) }}">{{ __('PDF') }}</a>
                                     </td>
                                 </tr>
                                 @php

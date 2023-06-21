@@ -13,6 +13,10 @@ class DashboardController extends Controller
        $count_guru = DB::table('guru')->count();
        $count_kelas= DB::table('kelas')->count();
        $count_staff = DB::table('staff')->count();
-        return view('dashboard',compact('count_siswa','count_guru','count_kelas','count_staff'));
+       $count_berita = DB::table('berita')->count();
+       $count_ekstrakulikuler = DB::table('ekstrakulikuler')->count();
+       $count_sarana = DB::table('sarana')->count();
+
+        return view('dashboard',compact('count_siswa','count_guru','count_kelas','count_staff','count_berita','count_ekstrakulikuler','count_sarana'));
     }
 }

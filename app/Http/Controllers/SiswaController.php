@@ -6,6 +6,7 @@ use App\Exports\exportSiswa;
 use App\Imports\importSiswa;
 use App\Models\Nilai;
 use App\Models\Siswa;
+use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -169,4 +170,25 @@ class SiswaController extends Controller
             Excel::import(new importSiswa, public_path('/file_excel/'.$nama_file));
             return redirect('dashboard/siswa')->with('toast_success','Import Siswa Successfully');
         }
+        public function generatePDF(Siswa $id)
+        {
+           $user = DB::table('users')->get();
+            $kelas = DB::table('kelas')->get();
+            $ekstrakulikuler = DB::table('Ekstrakulikuler')->get();
+            $siswa = Siswa::leftjoin('users','siswa.Users_id','=','users.id')
+            ->leftjoin('kelas','siswa.Kelas_id','=','kelas.id')
+            ->leftjoin('ekstrakulikuler','siswa.ekstrakulikuler_id','=','ekstrakulikuler.id')
+            ->select('siswa.*','users.name as user','kelas.Nama_Kelas as kelas','ekstrakulikuler.Nama_Ekstrakulikuler as ekstrakulikuler')
+            ->get();
+
+                $data = [
+                    'title' => 'Laporan Data Siswa',
+                    'date' => date('Y/m/d'),
+                    'siswa' => $siswa
+                ];
+
+            $pdf = PDF::loadView('Siswa.generatePDF', $data)->setOptions(['defaultFont' => 'sans-serif', 'margin' => 'landscape'])->setPaper('a4','landscape');
+            return $pdf->stream();
+        }
+
 }

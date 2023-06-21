@@ -29,7 +29,7 @@
                             </div>
                             <div class="col-7 col-md-8">
                                 <div class="numbers">
-                                    <p class="card-category">Jumlah Data Siswa</p>
+                                    <a href="{{ route('siswa.index') }}" class="card-category">Jumlah Data Siswa</a>
                                     <p class="card-title"><?php echo $count_siswa; ?>
                                         <p>
                                 </div>
@@ -39,7 +39,7 @@
                     <div class="card-footer ">
                         <hr>
                         <div class="stats">
-                            <i class="fa fa-refresh"></i> Update Now
+                            <i class="fa fa-calendar-o"></i> Last day
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                             </div>
                             <div class="col-7 col-md-8">
                                 <div class="numbers">
-                                    <p class="card-category">Jumlah Data Guru</p>
+                                    <a href="{{ route('kelas.index') }}" class="card-category">Jumlah Data Guru</a>
                                     <p class="card-title"><?php echo $count_guru; ?>
                                         <p>
                                 </div>
@@ -81,7 +81,7 @@
                             </div>
                             <div class="col-7 col-md-8">
                                 <div class="numbers">
-                                    <p class="card-category">Jumlah Data Kelas</p>
+                                    <a href="{{ route('kelas.index') }}" class="card-category">Jumlah Data Kelas</a >
                                     <p class="card-title"><?php echo $count_kelas; ?>
                                         <p>
                                 </div>
@@ -107,8 +107,34 @@
                             </div>
                             <div class="col-7 col-md-8">
                                 <div class="numbers">
-                                    <p class="card-category">Jumlah Data Staff</p>
+                                    <a href="{{ route('staff.index') }}" class="card-category">Jumlah Data Staff</a>
                                     <p class="card-title"><?php echo $count_staff; ?>
+                                        <p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer ">
+                        <hr>
+                         <div class="stats">
+                            <i class="fa fa-calendar-o"></i> Last day
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-body ">
+                        <div class="row">
+                            <div class="col-5 col-md-4">
+                                <div class="icon-big text-center icon-warning">
+                                   <i class="far fa-newspaper text-danger"></i>
+                                </div>
+                            </div>
+                            <div class="col-7 col-md-8">
+                                <div class="numbers">
+                                    <a href="{{ route('berita.index') }}" class="card-category">Jumlah Data Berita</a>
+                                    <p class="card-title"><?php echo $count_berita; ?>
                                         <p>
                                 </div>
                             </div>
@@ -118,6 +144,56 @@
                         <hr>
                         <div class="stats">
                             <i class="fa fa-refresh"></i> Update now
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-body ">
+                        <div class="row">
+                            <div class="col-6 col-md-5">
+                                <div class="icon-big text-center icon-warning">
+                                    <i class="fa fa-users text-warning"></i>
+                                </div>
+                            </div>
+                            <div class="col-5 col-md-7">
+                                <div class="numbers">
+                                    <a href="{{ route('ekstrakulikuler.index') }}" class="card-category">Jumlah Ekstrakulikuler</a>
+                                    <p class="card-title"><?php echo $count_ekstrakulikuler; ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer ">
+                        <hr>
+                        <div class="stats">
+                            <i class="fa fa-refresh"></i> Update now
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-body ">
+                        <div class="row">
+                            <div class="col-5 col-md-4">
+                                <div class="icon-big text-center icon-warning">
+                                    <i class="fas fa-building text-warning"></i>
+                                </div>
+                            </div>
+                            <div class="col-7 col-md-8">
+                                <div class="numbers">
+                                    <a href="{{ route('sarana.index') }}" class="card-category">Jumlah Data Sarana</a>
+                                    <p class="card-title"><?php echo $count_sarana; ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer ">
+                        <hr>
+                         <div class="stats">
+                            <i class="fa fa-clock-o"></i> In the last hour
                         </div>
                     </div>
                 </div>

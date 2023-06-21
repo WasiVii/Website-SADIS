@@ -73,19 +73,16 @@ Route::middleware('auth')->prefix('dashboard')->group(function(){
     Route::resource('users', UserManagementController::class);
     // Nilai
      Route::get('dashboard/nilai/generatePDF/', [NilaiController::class, 'generatePDF'])->name('nilai.generatePDF');
-     Route::get('nilai/generatePDFid/{id}', [NilaiController::class, 'generatePDFid'])->name('nilai.generatePDFid');
      Route::get('dashboard/nilai/exportExcel/', [NilaiController::class, 'exportExcel']);
      Route::POST('dashboard/nilai/importExcel', [NilaiController::class, 'importExcel']);
 
      //Mapel
      Route::get('dashboard/mapel/generatePDF/', [MapelController::class, 'generatePDF'])->name('mapel.generatePDF');
-     Route::get('mapel/generatePDFid/{id}', [MapelController::class, 'generatePDFid'])->name('mapel.generatePDFid');
      Route::get('dashboard/mapel/exportExcel/', [MapelController::class, 'exportExcel']);
      Route::POST('dashboard/mapel/importExcel', [MapelController::class, 'importExcel']);
 
      //Staff
       Route::get('dashboard/staff/generatePDF/', [StaffController::class, 'generatePDF'])->name('staff.generatePDF');
-     Route::get('staff/generatePDFid/{id}', [StaffController::class, 'generatePDFid'])->name('staff.generatePDFid');
      Route::get('dashboard/staff/exportExcel/', [StaffController::class, 'exportExcel']);
      Route::POST('dashboard/staff/importExcel', [StaffController::class, 'importExcel']);
 
@@ -97,6 +94,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function(){
      //siswa
      Route::get('dashboard/siswa/exportExcel/', [SiswaController::class, 'exportExcel']);
      Route::POST('dashboard/siswa/importExcel', [SiswaController::class, 'importExcel']);
+    Route::get('dashboard/siswa/generatePDF/', [SiswaController::class, 'generatePDF'])->name('siswa.generatePDF');
 
 
 

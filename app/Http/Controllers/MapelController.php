@@ -109,29 +109,6 @@ class MapelController extends Controller
             return $pdf->stream();
 
         }
-
-        // Export PDF for ID
-        public function generatePDFid(Mapel $id)
-        {
-            $mapel = Mapel::find($id);
-
-
-            if (!$mapel) {
-                abort(404);
-            }
-
-            $data = [
-                'title' => 'Laporan Mata Pelajaran :',
-                'date' => date('Y/M/D'),
-                'mapel' => $mapel
-            ];
-
-            $pdf = new Dompdf();
-            $pdf = PDF::loadView('Mapel.generatePDFid', $data)->setOptions(['defaultFont' => 'sans-serif', 'margin' => 'landscape'])->setPaper('a4','landscape');
-            return $pdf->stream();
-
-        }
-
         //EXPORT EXCEL
         public function exportExcel()
         {
