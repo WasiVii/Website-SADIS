@@ -59,9 +59,6 @@
                                         Delete
                                     </th>
                                     @endif
-                                    <th scope="col" class="px-6 py-3">
-                                        Export
-                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -111,10 +108,6 @@
                                         </a>
                                     </td>
                                     @endif
-                                    <td class="px-6 py-4">
-                                        <a class="px-2 py-2 text-sm text-white bg-red-600 rounded"
-                                            href="{{ route('nilai.generatePDFid', $nilais->id) }}">{{ __('PDF') }}</a>
-                                    </td>
                                 </tr>
                                 @php
                                     $no++;

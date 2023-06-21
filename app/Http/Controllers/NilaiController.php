@@ -132,35 +132,6 @@ class NilaiController extends Controller
             return $pdf->stream();
         }
 
-        // Export PDF for ID
-        public function generatePDFid(Nilai $id)
-        {
-            $nilai = Nilai::find($id);
-            $siswa = DB::table('Siswa')->get();
-            $mapel = DB::table('Mata_Pelajaran')->get();
-            $nilais = Nilai::join('siswa','nilai.siswa_id','=','siswa.id')
-                ->join('mata_pelajaran','nilai.mata_pelajaran_id','=','mata_pelajaran.id')
-                ->select('Nilai.*','siswa.Nama_Siswa as siswa','mata_pelajaran.Nama_Mata_Pelajaran as mapel')
-                ->where('Nilai.id', $nilai)
-                ->get();
-
-
-            if (!$nilais) {
-                abort(404);
-            }
-
-            $data = [
-                'title' => 'Laporan Nilai Siswa :',
-                'date' => date('Y/M/D'),
-                'nilai' => $nilais
-            ];
-
-            $pdf = new Dompdf();
-            $pdf = PDF::loadView('Nilai.generatePDFid', $data)->setOptions(['defaultFont' => 'sans-serif', 'margin' => 'landscape'])->setPaper('a4','landscape');
-            return $pdf->stream();
-
-        }
-
         //EXPORT EXCEL
         public function exportExcel()
         {
