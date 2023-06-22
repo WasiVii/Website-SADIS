@@ -53,15 +53,20 @@ class UserManagementController extends Controller
     // Enkripsi password menggunakan Hash::make()
     $validatedData['password'] = Hash::make($validatedData['password']);
 
-    // Simpan data pengguna ke tabel users
-    $user = User::create($validatedData);
+   $user = User::create($validatedData);
 
-    // Simpan data siswa atau staff berdasarkan role_id
+    // Simpan data siswa, staff, atau guru berdasarkan role_id
     if ($validatedData['role_id'] == 4) {
-        // Jika role_id = 5 (siswa), simpan data siswa ke tabel siswa
+        // Jika role_id = 4 (siswa), simpan data siswa ke tabel siswa
         DB::table('siswa')->insert([
             'nama_siswa' => $validatedData['name'],
             'email' => $validatedData['email'],
+            'Users_id' => $user->id,
+        ]);
+    } elseif ($validatedData['role_id'] == 3) {
+        // Jika role_id = 3 (guru), simpan data guru ke tabel guru
+        DB::table('guru')->insert([
+            'Nama_Guru' => $validatedData['name'],
             'Users_id' => $user->id,
         ]);
     } elseif ($validatedData['role_id'] == 2) {

@@ -36,7 +36,7 @@ class SiswaController extends Controller
         } else {
             $notifikasi = "Data kamu tidak ada.";
             Alert::warning($notifikasi, 'Silahkan Hubungi Pihak Administrasi Sekolah');
-            return redirect()->route('siswa.index');
+            return redirect()->route('dashboard');
         }
     }
 

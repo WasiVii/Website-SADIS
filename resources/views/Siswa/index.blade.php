@@ -16,8 +16,6 @@
                         <a class="px-2 py-2 text-sm text-white bg-blue-600 rounded"
                             href="{{ route('siswa.create') }}">{{ __('Add Siswa') }}</a>
                     </div>
-
-
                     <div class="mt-1 mb-4">
                         <a class="px-2 py-2 text-sm text-white bg-red-600 rounded"
                         href="{{ url('dashboard/dashboard/siswa/generatePDF') }}">{{ __('Export PDF') }}</a>

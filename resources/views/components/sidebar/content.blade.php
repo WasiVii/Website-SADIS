@@ -22,7 +22,7 @@
             <x-icons.dashboard class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         </x-slot>
     </x-sidebar.link>
- @can('admin')
+
     <x-sidebar.dropdown
         title="Administrasi Data"
         :active="Str::startsWith(request()->route()->uri(), 'buttons')"
@@ -31,6 +31,7 @@
             <x-heroicon-o-view-grid class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         </x-slot>
 
+        @if (Auth::user()->role_id == 1)
             <x-sidebar.sublink
                 title="Data Guru"
                 href="{{ route('guru.index') }}"
@@ -41,6 +42,8 @@
                 href="{{ route('staff.index') }}"
                 :active="request()->routeIs('staff.index')"
             />
+        @endif
+        @if (Auth::user()->role_id == 2 || Auth::user()->role_id == 1)
             <x-sidebar.sublink
                 title="Data Kelas"
                 href="{{ route('kelas.index') }}"
@@ -51,20 +54,24 @@
                 href="{{ route('mapel.index') }}"
                 :active="request()->routeIs('mapel.index')"
             />
+        @endif
+        @if (Auth::user()->role_id != null)
             <x-sidebar.sublink
                 title="Data Siswa"
                 href="{{ route('siswa.index') }}"
                 :active="request()->routeIs('siswa.index')"
             />
+        @endif
+        @if (Auth::user()->role_id == 3 || Auth::user()->role_id == 1)
             <x-sidebar.sublink
                 title="Data Nilai"
                 href="{{ route('nilai.index') }}"
                 :active="request()->routeIs('nilai.index')"
             />
-            @endcan
+        @endif
     </x-sidebar.dropdown>
 
-   @can('admin')
+    @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
         <x-sidebar.dropdown
             title="Website Data"
             :active="Str::startsWith(request()->route()->uri(), 'buttons')"
@@ -103,11 +110,9 @@
                 :active="request()->routeIs('berita.index')"
             />
         </x-sidebar.dropdown>
-    @endcan
+    @endif
 
-    @can('admin')
-
-
+    @if (Auth::user()->role_id == 1)
         <x-sidebar.dropdown
             title="User Management"
             :active="Str::startsWith(request()->route()->uri(), 'buttons')"
@@ -127,11 +132,19 @@
                 href="{{ route('users.index') }}"
                 :active="request()->routeIs('users.index')"
             />
+
+             <x-sidebar.sublink
+                title="Role Permissions"
+                href="{{ url('permissions/roles') }}"
+                :active="request()->routeIs('users.index')"
+            />
         </x-sidebar.dropdown>
-   @endcan
-   <x-sidebar.sublink
+    @endif
+     @if (Auth::user()->role_id == 4)
+    <x-sidebar.sublink
                 title="Transkip Nilai"
                 href="{{ url('/dashboard/data-siswa') }}"
-                :active="request()->routeIs( url('/dashboard/data-siswa'))"
+                :active="request()->routeIs('users.index')"
             />
+    @endif
 </x-perfect-scrollbar>

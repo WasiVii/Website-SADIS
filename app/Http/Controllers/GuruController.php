@@ -16,9 +16,9 @@ class GuruController extends Controller
         $user = DB::table('users')->get();
         $kelas = DB::table('kelas')->get();
         $mapel = DB::table('mata_pelajaran')->get();
-        $guru = Guru::join('users', 'guru.users_id','=','users.id')
-        ->join('kelas','guru.kelas_id','=','kelas.id')
-        ->join('mata_pelajaran','guru.mata_pelajaran_id','=','mata_pelajaran.id')
+        $guru = Guru::leftjoin('users', 'guru.users_id','=','users.id')
+        ->leftjoin('kelas','guru.kelas_id','=','kelas.id')
+        ->leftjoin('mata_pelajaran','guru.mata_pelajaran_id','=','mata_pelajaran.id')
         ->select('guru.*','users.name as user','kelas.Nama_Kelas as kelas','mata_pelajaran.Nama_Mata_Pelajaran as mapel')
         ->get();
         $title = 'Delete Guru!';

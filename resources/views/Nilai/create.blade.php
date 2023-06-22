@@ -13,20 +13,7 @@
                         @csrf
                         <div class="mb-6">
                             <label class="block">
-                                <span class="text-gray-700 @error('Nilai') text-red-500 @enderror">Nilai</span>
-                                <input type="text" name="Nilai"
-                                    class="block @error('Nilai') border-red-500 bg-red-100 text-red-900 @enderror my-5 input-bordered input w-full rounded-md"
-                                    placeholder="" value="{{old('Nilai')}}" />
-                            </label>
-                            @error('Nilai')
-                            <div class="flex items-center text-sm text-red-600">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
-                        <div class="mb-6">
-                            <label class="block">
-                                <span class="text-gray-700 @error('Siswa_id') text-red-500 @enderror">Siswa ID</span>
+                                <span class="text-gray-700 @error('Siswa_id') text-red-500 @enderror">Nama Siswa</span>
                                 <select id="select" name="Siswa_id"
                                     class="block appearance-none my-5 input-bordered input w-full bg-white border border-gray-300 py-2 px-3 rounded-md leading-tight focus:outline-none focus:shadow-outline">
                                     <option value="#">Nama Siswa</option>
@@ -53,6 +40,19 @@
                                 </select>
                             </label>
                             @error('Mata_Pelajaran_id')
+                            <div class="flex items-center text-sm text-red-600">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                        <div class="mb-6">
+                            <label class="block">
+                                <span class="text-gray-700 @error('Nilai') text-red-500 @enderror">Nilai</span>
+                                <input type="text" name="Nilai"
+                                    class="block @error('Nilai') border-red-500 bg-red-100 text-red-900 @enderror my-5 input-bordered input w-full rounded-md"
+                                    placeholder="" value="{{old('Nilai')}}" />
+                            </label>
+                            @error('Nilai')
                             <div class="flex items-center text-sm text-red-600">
                                 {{ $message }}
                             </div>
