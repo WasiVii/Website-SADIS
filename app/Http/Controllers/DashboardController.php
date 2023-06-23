@@ -12,7 +12,7 @@ class DashboardController extends Controller
 {
     public function index(){
          if (!Session::has('dashboard_alert')) {
-            alert()->success("Selamat Datang " . (Auth::user()->name ?? '') . "!", "Anda telah berhasil masuk sebagai " . (Auth::user()->role->name ?? '') . " 👋🎉");
+            alert()->success("Selamat Datang Bapak/Ibu " . (Auth::user()->name ?? '') . "!", "Anda telah berhasil masuk sebagai " . (Auth::user()->role->name ?? '') . " 👋🎉");
             Session::put('dashboard_alert', true);
         }
        $count_siswa = DB::table('siswa')->count();

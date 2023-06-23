@@ -140,8 +140,18 @@
             />
 
              <x-sidebar.sublink
-                title="Role Permissions"
-                href="{{ url('permissions/roles') }}"
+                title="Role"
+                href="{{ url('admin/roles') }}"
+                :active="request()->routeIs('users.index')"
+            />
+            <x-sidebar.sublink
+                title="Permission"
+                href="{{ url('admin/permissions') }}"
+                :active="request()->routeIs('users.index')"
+            />
+            <x-sidebar.sublink
+                title="Users Roles"
+                href="{{ url('admin/users') }}"
                 :active="request()->routeIs('users.index')"
             />
         </x-sidebar.dropdown>

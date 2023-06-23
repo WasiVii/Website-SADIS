@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EkstrakulikulerController;
@@ -10,11 +11,12 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\MapelController;
 use App\Http\Controllers\NilaiController;
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SaranaController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\UserManagementController;
-use RealRashid\SweetAlert\Facades\Alert;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,8 +95,6 @@ Route::middleware('auth')->prefix('dashboard')->group(function(){
     Route::get('dashboard/siswa/generatePDF/', [SiswaController::class, 'generatePDF'])->name('siswa.generatePDF');
     Route::get('/data-siswa', [SiswaController::class, 'showDataSiswa']);
 
-
-
     //
     // Route::middleware('admin')->group(function(){
     //     Route::resource('guru', GuruController::class);
@@ -117,6 +117,22 @@ Route::middleware('auth')->prefix('dashboard')->group(function(){
     //     Route::resource('siswa', SiswaController::class);
     // });
 
+});
+Route::middleware(['auth'])->name('admin.')->prefix('admin')->group(function () {
+    //permission
+    Route::resource('/permissions', PermissionController::class);
+     Route::post('/permissions/{permission}/roles', [PermissionController::class, 'assignRole'])->name('permissions.roles');
+    Route::delete('/permissions/{permission}/roles/{role}', [PermissionController::class, 'removeRole'])->name('permissions.roles.remove');
+    Route::resource('/roles', RoleController::class);
+    Route::post('/roles/{role}/permissions', [RoleController::class, 'givePermission'])->name('roles.permissions');
+    Route::delete('/roles/{role}/permissions/{permission}', [RoleController::class, 'revokePermission'])->name('roles.permissions.revoke');
+     Route::get('/users', [UserController::class, 'index'])->name('users.index');
+    Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
+    Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+    Route::post('/users/{user}/roles', [UserController::class, 'assignRole'])->name('users.roles');
+    Route::delete('/users/{user}/roles/{role}', [UserController::class, 'removeRole'])->name('users.roles.remove');
+    Route::post('/users/{user}/permissions', [UserController::class, 'givePermission'])->name('users.permissions');
+    Route::delete('/users/{user}/permissions/{permission}', [UserController::class, 'revokePermission'])->name('users.permissions.revoke');
 });
 
 require __DIR__ . '/auth.php';
