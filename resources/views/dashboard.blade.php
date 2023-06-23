@@ -18,7 +18,9 @@
 
      <div class="content">
         <div class="row">
-            @can('create')
+            @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
+
+
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="card card-stats">
                     <div class="card-body ">
@@ -124,7 +126,7 @@
                     </div>
                 </div>
             </div>
-             @endcan
+            @endif
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="card card-stats">
                     <div class="card-body ">
@@ -151,7 +153,9 @@
                     </div>
                 </div>
             </div>
-            @can('create')
+            @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
+
+
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="card card-stats">
                     <div class="card-body ">
@@ -202,7 +206,7 @@
                     </div>
                 </div>
             </div>
-             @endcan
+             @endif
         </div>
         </div>
     </div>

@@ -11,7 +11,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <h1 class="text-2xl text-center">Daftar Siswa
                     </h1>
-                    @can('create')
+                   @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
                     <div class="mt-1 mb-4">
                         <a class="px-2 py-2 text-sm text-white bg-blue-600 rounded"
                             href="{{ route('siswa.create') }}">{{ __('Add Siswa') }}</a>
@@ -25,7 +25,7 @@
                         href="#">{{ __('Import Excel') }}</a>
                         <!-- Modal toggle -->
                     </div>
-                    @endcan
+                    @endif
                      <div class="flex flex-col">
                     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
@@ -77,10 +77,13 @@
                                     <th scope="col" class="px-6 py-3">
                                         Show
                                     </th>
+                                    @endcan
+                                    @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
+
                                     <th scope="col" class="px-6 py-3">
                                         Delete
                                     </th>
-                                    @endcan
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
@@ -153,14 +156,14 @@
                                 </a>
                             </td>
                             @endcan
-                            @can('delete')
+                           @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
                                 <td class="px-6 py-4">
                                      <a href="{{ route('siswa.destroy', $sws->id) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">
                                     <i class="fa fa-trash"></i>
                                     </a>
                                  </td>
                              </tr>
-                                @endcan
+                              @endif
                                 @php
                                     $no++
                                 @endphp

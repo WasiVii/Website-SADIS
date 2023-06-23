@@ -14,10 +14,6 @@ use App\Http\Controllers\SaranaController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\UserManagementController;
-use App\Models\Kelas;
-use App\Models\Mapel;
-use App\Models\Nilai;
-use App\Models\Siswa;
 use RealRashid\SweetAlert\Facades\Alert;
 
 /*
@@ -32,13 +28,13 @@ use RealRashid\SweetAlert\Facades\Alert;
 */
 
 Route::get('/', function () {
-
     return view('layouts.home');
 });
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+->middleware(['auth', 'verified'])
+->name('dashboard');
+
 
 // useless routes
 // Just to demo sidebar dropdown links active states.

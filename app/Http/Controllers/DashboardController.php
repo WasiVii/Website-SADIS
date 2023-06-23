@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Siswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
     public function index(){
+    alert()->success("Selamat Datang Bapak/Ibu " . (Auth::user()->name ?? '') . "!", "Anda telah berhasil masuk sebagai " . (Auth::user()->role->name ?? '') . " 👋🎉");
        $count_siswa = DB::table('siswa')->count();
        $count_guru = DB::table('guru')->count();
        $count_kelas= DB::table('kelas')->count();

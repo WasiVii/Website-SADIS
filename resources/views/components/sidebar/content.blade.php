@@ -30,7 +30,6 @@
         <x-slot name="icon">
             <x-heroicon-o-view-grid class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         </x-slot>
-
         @if (Auth::user()->role_id == 1)
             <x-sidebar.sublink
                 title="Data Guru"
@@ -55,7 +54,7 @@
                 :active="request()->routeIs('mapel.index')"
             />
         @endif
-        @if (Auth::user()->role_id != null)
+        @if (Auth::user()->role_id != 4)
             <x-sidebar.sublink
                 title="Data Siswa"
                 href="{{ route('siswa.index') }}"
@@ -67,6 +66,13 @@
                 title="Data Nilai"
                 href="{{ route('nilai.index') }}"
                 :active="request()->routeIs('nilai.index')"
+            />
+        @endif
+        @if (Auth::user()->role_id == 4)
+        <x-sidebar.sublink
+                title="Transkip Nilai"
+                href="{{ url('/dashboard/data-siswa') }}"
+                :active="request()->routeIs('users.index')"
             />
         @endif
     </x-sidebar.dropdown>
@@ -139,12 +145,5 @@
                 :active="request()->routeIs('users.index')"
             />
         </x-sidebar.dropdown>
-    @endif
-     @if (Auth::user()->role_id == 4)
-    <x-sidebar.sublink
-                title="Transkip Nilai"
-                href="{{ url('/dashboard/data-siswa') }}"
-                :active="request()->routeIs('users.index')"
-            />
     @endif
 </x-perfect-scrollbar>
