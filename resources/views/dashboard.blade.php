@@ -1,8 +1,4 @@
 <x-app-layout>
-    <div class="mb-6 p-6 overflow-hidden bg-white rounded-md shadow-md dark:bg-dark-eval-1">
-        <p class="text-lg">Hi, <span class="font-bold">{{Auth::user()->name ?? ''}}</span>. You're logged in as <span class="font-bold">{{Auth::user()->role->name ?? ''}}</span></p>
-    </div>
-
     <x-slot name="header">
         <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <h2 class="text-xl font-semibold leading-tight">
@@ -47,6 +43,7 @@
                     </div>
                 </div>
             </div>
+            @if (Auth::user()->role_id == 1 )
 
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="card card-stats">
@@ -74,6 +71,7 @@
                     </div>
                 </div>
             </div>
+            @endif
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="card card-stats">
                     <div class="card-body ">
@@ -100,6 +98,7 @@
                     </div>
                 </div>
             </div>
+            @if (Auth::user()->role_id == 1)
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="card card-stats">
                     <div class="card-body ">
@@ -126,6 +125,7 @@
                     </div>
                 </div>
             </div>
+            @endif
             @endif
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="card card-stats">
@@ -154,8 +154,6 @@
                 </div>
             </div>
             @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
-
-
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="card card-stats">
                     <div class="card-body ">

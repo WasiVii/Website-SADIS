@@ -11,7 +11,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <h1 class="text-2xl text-center">Daftar Nilai</h1>
 
-                    @if (Auth::user()->role_id != 4)
+                    @if (Auth::user()->role_id == 3)
                     <div class="mt-1 mb-4">
                         <a class="px-2 py-2 text-sm text-white bg-blue-600 rounded"
                             href="{{ route('nilai.create') }}">{{ __('Add Nilai') }}</a>
@@ -48,7 +48,7 @@
                                     <th scope="col" class="px-6 py-3">
                                         Nilai
                                     </th>
-                                    @if (Auth::user()->role_id != 4)
+                                     @if (Auth::user()->role_id == 3)
                                     <th scope="col" class="px-6 py-3">
                                         Edit
                                     </th>
@@ -80,7 +80,7 @@
                                         {{$nilais->Nilai}}
 
                                     </td>
-                                    @if (Auth::user()->role_id != 4)
+                                     @if (Auth::user()->role_id == 3)
                                     <td class="px-6 py-4">
                                         <a href="{{ route('nilai.edit',$nilais->id) }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"

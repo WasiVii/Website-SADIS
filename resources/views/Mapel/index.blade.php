@@ -42,9 +42,9 @@
                                     <th scope="col" class="px-6 py-3">
                                         Edit
                                     </th>
-                                    <th scope="col" class="px-6 py-3">
+                                    {{-- <th scope="col" class="px-6 py-3">
                                         Show
-                                    </th>
+                                    </th> --}}
                                     <th scope="col" class="px-6 py-3">
                                         Delete
                                     </th>
@@ -70,7 +70,7 @@
                                             </svg>
                                         </a>
                                     </td>
-                                    <td class="px-6 py-4">
+                                    {{-- <td class="px-6 py-4">
                                         <a href="{{ route('mapel.show',$mpl->id) }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-600">
@@ -80,7 +80,7 @@
                                                     d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                             </svg>
                                         </a>
-                                    </td>
+                                    </td> --}}
                                     <td class="px-6 py-4">
                                         <a href="{{ route('mapel.destroy', $mpl->id) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">
                                         <i class="fa fa-trash"></i>

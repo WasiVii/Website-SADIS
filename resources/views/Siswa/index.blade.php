@@ -69,17 +69,13 @@
                                     <th scope="col" class="px-6 py-3">
                                         Ekstrakulikuler_id
                                     </th>
-                                    @can('create')
-
+                                     @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
                                     <th scope="col" class="px-6 py-3">
                                         Edit
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         Show
                                     </th>
-                                    @endcan
-                                    @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
-
                                     <th scope="col" class="px-6 py-3">
                                         Delete
                                     </th>
@@ -134,7 +130,7 @@
 
                                     </td>
 
-                                    @can('update')
+                                    @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
                                     <td class="px-6 py-4">
                                         <a href="{{ route('siswa.edit',$sws->id) }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -155,7 +151,7 @@
                                     </svg>
                                 </a>
                             </td>
-                            @endcan
+                            @endif
                            @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
                                 <td class="px-6 py-4">
                                      <a href="{{ route('siswa.destroy', $sws->id) }}" class="btn btn-danger btn-sm" data-confirm-delete="true">

@@ -45,7 +45,6 @@
                             </div>
                             @enderror
                         </div>
-                        {{-- @can('create  nila') --}}
                         <div class="mb-6">
                             <label class="block">
                                 <span class="text-gray-700 @error('Nilai') text-red-500 @enderror">Nilai</span>
@@ -59,7 +58,6 @@
                             </div>
                             @enderror
                         </div>
-                        {{-- @endcan --}}
                         <button type="submit"
                             class="text-white bg-blue-600 rounded text-sm px-5 py-2.5">Submit</button>
                     </form>
