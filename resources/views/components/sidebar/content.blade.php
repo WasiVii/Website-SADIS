@@ -12,12 +12,15 @@
 
         <span class="sr-only">Dashboard</span>
     </a>
+    @can('create nilai')
+
 
     <x-sidebar.link
         title="Dashboard"
         href="{{ route('dashboard') }}"
         :isActive="request()->routeIs('dashboard')"
     >
+     @endcan
         <x-slot name="icon">
             <x-icons.dashboard class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         </x-slot>

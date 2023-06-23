@@ -6,11 +6,15 @@ use App\Models\Siswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class DashboardController extends Controller
 {
     public function index(){
-    alert()->success("Selamat Datang Bapak/Ibu " . (Auth::user()->name ?? '') . "!", "Anda telah berhasil masuk sebagai " . (Auth::user()->role->name ?? '') . " 👋🎉");
+         if (!Session::has('dashboard_alert')) {
+            alert()->success("Selamat Datang " . (Auth::user()->name ?? '') . "!", "Anda telah berhasil masuk sebagai " . (Auth::user()->role->name ?? '') . " 👋🎉");
+            Session::put('dashboard_alert', true);
+        }
        $count_siswa = DB::table('siswa')->count();
        $count_guru = DB::table('guru')->count();
        $count_kelas= DB::table('kelas')->count();
