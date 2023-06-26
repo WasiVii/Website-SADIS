@@ -110,13 +110,15 @@
                 href="{{ route('ekstrakulikuler.index') }}"
                 :active="request()->routeIs('ekstrakulikuler.index')"
             />
+            @endif
+            @if (Auth::user()->role_id == 4)
             <x-sidebar.sublink
                 title="Data Berita"
                 href="{{ route('berita.index') }}"
                 :active="request()->routeIs('berita.index')"
             />
         </x-sidebar.dropdown>
-    @endif
+        @endif
 
     @if (Auth::user()->role_id == 1)
         <x-sidebar.dropdown
