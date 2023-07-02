@@ -47,9 +47,9 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        $user = DB::table('users')->get();
-        $kelas = DB::table('kelas')->get();
-        $ekstrakulikuler = DB::table('Ekstrakulikuler')->get();
+        // $user = DB::table('users')->get();
+        // $kelas = DB::table('kelas')->get();
+        // $ekstrakulikuler = DB::table('Ekstrakulikuler')->get();
         $siswa = Siswa::leftjoin('users','siswa.Users_id','=','users.id')
         ->leftjoin('kelas','siswa.Kelas_id','=','kelas.id')
         ->leftjoin('ekstrakulikuler','siswa.ekstrakulikuler_id','=','ekstrakulikuler.id')

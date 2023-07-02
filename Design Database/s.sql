@@ -15,11 +15,9 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- Dumping database structure for db_sadis
 CREATE DATABASE IF NOT EXISTS `db_sadis` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `db_sadis`;
 
--- Dumping structure for table db_sadis.berita
 CREATE TABLE IF NOT EXISTS `berita` (
   `id` int NOT NULL AUTO_INCREMENT,
   `Judul` varchar(45) COLLATE utf8mb3_esperanto_ci DEFAULT NULL,
@@ -34,15 +32,15 @@ CREATE TABLE IF NOT EXISTS `berita` (
   CONSTRAINT `fk_Berita_Staff1` FOREIGN KEY (`Staff_id`) REFERENCES `staff` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_esperanto_ci;
 
--- Dumping data for table db_sadis.berita: ~5 rows (approximately)
-REPLACE INTO `berita` (`id`, `Judul`, `Isi_Berita`, `Tanggal_Publikasi`, `Staff_id`, `photo`, `created_at`, `updated_at`) VALUES
+-- Dumping data for table db_sadis.berita: ~9 rows (approximately)
+INSERT INTO `berita` (`id`, `Judul`, `Isi_Berita`, `Tanggal_Publikasi`, `Staff_id`, `photo`, `created_at`, `updated_at`) VALUES
 	(5, 'PPDB Tahun Ajaran 2023/2024', 'Lorem PPDB Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum', '2023-05-25', 2, '1684979969.jpg', '2023-05-24 18:59:29', '2023-05-25 20:28:07'),
 	(6, 'Wisuda Kelulusan Siswa Angkatan 2020', 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum', '2023-05-25', 2, '1684980665.jpg', '2023-05-24 19:11:05', '2023-05-25 20:31:44'),
 	(8, 'Lomba Siswa Berprestasi Antar Kelas', 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum', '2023-05-25', 1, '1684980732.png', '2023-05-24 19:12:12', '2023-05-24 19:12:12'),
 	(9, 'Ujian Nasional Tahun 2023', 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum', '2023-05-25', 1, '1684980788.jpg', '2023-05-24 19:13:08', '2023-05-24 19:13:08'),
 	(10, 'Anniversary SADIS School ke-34', 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum', '2023-05-25', 1, '1684997123.png', '2023-05-24 23:45:23', '2023-05-24 23:45:23');
 
--- Dumping structure for table db_sadis.ekstrakulikuler
+
 CREATE TABLE IF NOT EXISTS `ekstrakulikuler` (
   `id` int NOT NULL AUTO_INCREMENT,
   `Nama_Ekstrakulikuler` varchar(45) COLLATE utf8mb3_esperanto_ci DEFAULT NULL,
@@ -53,8 +51,7 @@ CREATE TABLE IF NOT EXISTS `ekstrakulikuler` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_esperanto_ci;
 
--- Dumping data for table db_sadis.ekstrakulikuler: ~9 rows (approximately)
-REPLACE INTO `ekstrakulikuler` (`id`, `Nama_Ekstrakulikuler`, `Deskripsi`, `photo`, `created_at`, `updated_at`) VALUES
+INSERT INTO `ekstrakulikuler` (`id`, `Nama_Ekstrakulikuler`, `Deskripsi`, `photo`, `created_at`, `updated_at`) VALUES
 	(6, 'Sepak Bola', 'ini adalah extrakulikuler sepakbola', '1684984407.png', '2023-05-24 20:13:27', '2023-05-24 20:13:27'),
 	(7, 'Basket', 'ini adalah extrakulikuler basket', '1684984436.png', '2023-05-24 20:13:56', '2023-05-24 20:13:56'),
 	(8, 'Badminton', 'ini adalah extrakulikuler badminton', '1684984469.png', '2023-05-24 20:14:29', '2023-05-24 20:14:29'),
@@ -65,7 +62,6 @@ REPLACE INTO `ekstrakulikuler` (`id`, `Nama_Ekstrakulikuler`, `Deskripsi`, `phot
 	(13, 'Voli', 'ini adalah extrakulikuler voli', '1684984980.png', '2023-05-24 20:23:00', '2023-05-24 20:23:00'),
 	(14, 'Bisbol', 'ini adalah extrakulikuler bisbol', '1684985025.png', '2023-05-24 20:23:45', '2023-05-24 20:23:45');
 
--- Dumping structure for table db_sadis.failed_jobs
 CREATE TABLE IF NOT EXISTS `failed_jobs` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -103,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `guru` (
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_esperanto_ci;
 
 -- Dumping data for table db_sadis.guru: ~7 rows (approximately)
-REPLACE INTO `guru` (`id`, `Nama_Guru`, `Jenis_Kelamin`, `Alamat`, `Nomor_Telepon`, `Users_id`, `Kelas_id`, `Mata_Pelajaran_id`, `photo`, `created_at`, `updated_at`) VALUES
+INSERT INTO `guru` (`id`, `Nama_Guru`, `Jenis_Kelamin`, `Alamat`, `Nomor_Telepon`, `Users_id`, `Kelas_id`, `Mata_Pelajaran_id`, `photo`, `created_at`, `updated_at`) VALUES
 	(1, 'Layla Mei', 'P', 'Jl. lorem ipsum in lorem ipsum', '083111222333', 2, 2, 3, '1685085329.png', '2023-05-26 00:02:23', '2023-05-26 00:15:29'),
 	(2, 'Abdul Dika', 'L', 'Jl. lorem ipsum in lorem ipsum', '083111222333', 1, 2, 1, '1685085278.png', '2023-05-26 00:07:06', '2023-05-26 00:19:06'),
 	(3, 'M. Rizki', 'L', 'Jl. lorem ipsum in lorem ipsum', '083111222333', 2, 6, 1, '1685085263.png', '2023-05-26 00:14:23', '2023-05-26 00:14:23'),
@@ -124,8 +120,8 @@ CREATE TABLE IF NOT EXISTS `kelas` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_esperanto_ci;
 
--- Dumping data for table db_sadis.kelas: ~9 rows (approximately)
-REPLACE INTO `kelas` (`id`, `Nama_Kelas`, `Tahun_Pelajaran`, `Wali_Kelas`, `Array_Siswa`, `created_at`, `updated_at`) VALUES
+-- Dumping data for table db_sadis.kelas: ~10 rows (approximately)
+INSERT INTO `kelas` (`id`, `Nama_Kelas`, `Tahun_Pelajaran`, `Wali_Kelas`, `Array_Siswa`, `created_at`, `updated_at`) VALUES
 	(2, 'XII - A', '2023-05-25', '1\r\n', '2', '2023-05-25 00:02:25', '2023-06-19 19:42:09'),
 	(3, 'XII - B', '2023-05-25', '2', '1', '2023-05-25 00:24:11', '2023-06-19 19:42:09'),
 	(4, 'XII - C', '2023-05-25', '3', '0', '2023-05-25 07:53:32', '2023-06-19 19:42:09'),
@@ -146,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `mata_pelajaran` (
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_esperanto_ci;
 
 -- Dumping data for table db_sadis.mata_pelajaran: ~8 rows (approximately)
-REPLACE INTO `mata_pelajaran` (`id`, `Nama_Mata_Pelajaran`, `created_at`, `updated_at`) VALUES
+INSERT INTO `mata_pelajaran` (`id`, `Nama_Mata_Pelajaran`, `created_at`, `updated_at`) VALUES
 	(1, 'Bahasa Indonesia', '2023-05-25 07:49:47', '2023-05-25 07:49:47'),
 	(2, 'Bahasa Jerman', '2023-05-25 07:50:04', '2023-05-25 07:50:04'),
 	(3, 'Bahasa Inggris', '2023-05-25 07:50:17', '2023-05-25 07:50:17'),
@@ -165,7 +161,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table db_sadis.migrations: ~5 rows (approximately)
-REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '2014_10_12_000000_create_users_table', 1),
 	(2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
 	(3, '2019_08_19_000000_create_failed_jobs_table', 1),
@@ -194,8 +190,8 @@ CREATE TABLE IF NOT EXISTS `model_has_roles` (
   CONSTRAINT `model_has_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table db_sadis.model_has_roles: ~10 rows (approximately)
-REPLACE INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
+-- Dumping data for table db_sadis.model_has_roles: ~9 rows (approximately)
+INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 	(1, 'App\\Models\\User', 1),
 	(1, 'App\\Models\\User', 2),
 	(1, 'App\\Models\\User', 3),
@@ -223,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `nilai` (
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_esperanto_ci;
 
 -- Dumping data for table db_sadis.nilai: ~10 rows (approximately)
-REPLACE INTO `nilai` (`id`, `Nilai`, `Siswa_id`, `Mata_Pelajaran_id`, `created_at`, `updated_at`) VALUES
+INSERT INTO `nilai` (`id`, `Nilai`, `Siswa_id`, `Mata_Pelajaran_id`, `created_at`, `updated_at`) VALUES
 	(2, '90', 1, 1, '2023-05-26 00:31:40', '2023-05-26 00:31:40'),
 	(3, '78', 1, 2, '2023-05-26 00:31:48', '2023-05-26 00:31:48'),
 	(4, '98', 1, 3, '2023-05-26 00:32:07', '2023-05-26 00:32:07'),
@@ -257,7 +253,7 @@ CREATE TABLE IF NOT EXISTS `permissions` (
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table db_sadis.permissions: ~4 rows (approximately)
-REPLACE INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
+INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
 	(1, 'create', 'web', '2023-05-24 02:57:36', '2023-05-24 02:57:36'),
 	(3, 'read', 'web', '2023-05-24 02:57:57', '2023-05-24 02:57:57'),
 	(4, 'update', 'web', '2023-05-24 02:58:06', '2023-05-24 02:58:06'),
@@ -294,7 +290,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table db_sadis.roles: ~4 rows (approximately)
-REPLACE INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
+INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
 	(1, 'admin', 'web', '2023-05-24 02:59:17', '2023-05-24 02:59:17'),
 	(2, 'staff', 'web', '2023-05-24 02:59:30', '2023-05-24 02:59:30'),
 	(3, 'guru', 'web', '2023-06-01 10:41:53', '2023-06-01 10:41:53'),
@@ -310,8 +306,8 @@ CREATE TABLE IF NOT EXISTS `role_has_permissions` (
   CONSTRAINT `role_has_permissions_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table db_sadis.role_has_permissions: ~2 rows (approximately)
-REPLACE INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
+-- Dumping data for table db_sadis.role_has_permissions: ~3 rows (approximately)
+INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 	(1, 1),
 	(1, 2);
 
@@ -327,7 +323,7 @@ CREATE TABLE IF NOT EXISTS `sarana` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_esperanto_ci;
 
 -- Dumping data for table db_sadis.sarana: ~4 rows (approximately)
-REPLACE INTO `sarana` (`id`, `nama_Sarana`, `Ketersediaan`, `Lokasi`, `created_at`, `updated_at`) VALUES
+INSERT INTO `sarana` (`id`, `nama_Sarana`, `Ketersediaan`, `Lokasi`, `created_at`, `updated_at`) VALUES
 	(1, 'Kantin', '4 Ruang', 'Bangunan paling timur dan paling barat', '2023-05-25 08:02:24', '2023-05-25 08:02:24'),
 	(2, 'Gazebo', '10 Bangunan', 'Setiap sudut sekolah', '2023-05-25 08:06:16', '2023-05-25 08:06:16'),
 	(3, 'Masjid', '1 Bangunan', 'Dekat pintu masuk sekolah', '2023-05-25 08:06:45', '2023-05-25 08:06:45'),
@@ -355,15 +351,16 @@ CREATE TABLE IF NOT EXISTS `siswa` (
   CONSTRAINT `fk_Siswa_Ekstrakulikuler1` FOREIGN KEY (`Ekstrakulikuler_id`) REFERENCES `ekstrakulikuler` (`id`),
   CONSTRAINT `fk_Siswa_Kelas1` FOREIGN KEY (`Kelas_id`) REFERENCES `kelas` (`id`),
   CONSTRAINT `fk_Siswa_Users` FOREIGN KEY (`Users_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_esperanto_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_esperanto_ci;
 
 -- Dumping data for table db_sadis.siswa: ~5 rows (approximately)
-REPLACE INTO `siswa` (`id`, `Nama_Siswa`, `Tanggal_Lahir`, `Alamat`, `Jenis_Kelamin`, `Nomor_Telepon`, `Email`, `Tahun_Lulus`, `Users_id`, `Kelas_id`, `Ekstrakulikuler_id`, `created_at`, `updated_at`) VALUES
+INSERT INTO `siswa` (`id`, `Nama_Siswa`, `Tanggal_Lahir`, `Alamat`, `Jenis_Kelamin`, `Nomor_Telepon`, `Email`, `Tahun_Lulus`, `Users_id`, `Kelas_id`, `Ekstrakulikuler_id`, `created_at`, `updated_at`) VALUES
 	(1, 'Rettousei', '2003-05-31', 'Jl. lorem ipsum in lorem ipsum', 'L', '0981231123', 'rettousei@gmail.com', '2023-05-26', 1, 2, 6, '2023-05-26 00:03:36', '2023-05-26 00:22:06'),
 	(2, 'Mimi wo Sumaseba', '2002-06-18', 'Jl. lorem ipsum in lorem ipsum', 'P', '09128311231123', 'mimi@gmail.com', '2023-05-26', 2, 10, 14, '2023-05-26 00:23:37', '2023-05-26 00:23:37'),
 	(3, 'Hikari no Asa', '2000-05-26', 'Jl. lorem ipsum in lorem ipsum', 'L', '0801041722', 'hikari@gmail.com', '2024-06-26', 1, 3, 12, '2023-05-26 00:25:47', '2023-05-26 00:25:47'),
 	(4, 'Sorezore no Michi', '2003-07-26', 'Jl. lorem ipsum in lorem ipsum', 'L', '433453453453', 'michi@gmail.com', '2023-05-26', 2, 2, 13, '2023-05-26 00:30:22', '2023-05-26 00:30:22'),
-	(5, 'Yume wo Erande', '2005-07-26', 'Jl. lorem ipsum in lorem ipsum', 'P', '093740972342', 'yume@gmail.com', '2025-08-26', 3, 5, 8, '2023-05-26 00:31:16', '2023-05-26 00:31:16');
+	(5, 'Yume wo Erande', '2005-07-26', 'Jl. lorem ipsum in lorem ipsum', 'P', '093740972342', 'yume@gmail.com', '2025-08-26', 3, 5, 8, '2023-05-26 00:31:16', '2023-05-26 00:31:16'),
+	(8, 'adit', NULL, NULL, NULL, NULL, 'adit1@gmail.com', NULL, 27, NULL, NULL, NULL, NULL);
 
 -- Dumping structure for table db_sadis.staff
 CREATE TABLE IF NOT EXISTS `staff` (
@@ -378,8 +375,8 @@ CREATE TABLE IF NOT EXISTS `staff` (
   CONSTRAINT `fk_Staff_Users1` FOREIGN KEY (`Users_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_esperanto_ci;
 
--- Dumping data for table db_sadis.staff: ~3 rows (approximately)
-REPLACE INTO `staff` (`id`, `Staffcol`, `Divisi`, `Users_id`, `updated_at`, `created_at`) VALUES
+-- Dumping data for table db_sadis.staff: ~2 rows (approximately)
+INSERT INTO `staff` (`id`, `Staffcol`, `Divisi`, `Users_id`, `updated_at`, `created_at`) VALUES
 	(1, 'Admin', 'Admin', 1, NULL, NULL),
 	(2, 'Momo', 'Event', 2, '2023-05-25 09:07:19', '2023-05-25 08:49:31'),
 	(4, 'Helfi Apriliyandi Firdaos', NULL, 24, NULL, NULL);
@@ -397,10 +394,10 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table db_sadis.users: ~8 rows (approximately)
-REPLACE INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role_id`, `remember_token`, `created_at`, `updated_at`) VALUES
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role_id`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(1, 'Helfi Apriliyandi Firdaos', 'admin@gmail.com', NULL, '$2y$10$lqXOS.J3ttfJgqFtqRu18O7sVkFk/3a42A3Vm7Ze1MJgYQ7TzaZwm', 1, NULL, '2023-05-23 03:14:35', '2023-05-23 03:14:35'),
 	(2, 'Abdul Wasi\' Al-Afif', 'wasi@admin.com', NULL, '$2y$10$l/9gSFx/pMfxxNg9B36goe20LdOTmgLPjctrrRBnoirk5HSLI59sa', 1, NULL, '2023-05-24 13:23:12', '2023-06-01 08:54:34'),
 	(3, 'admin', 'admin@sadisweb.com', NULL, '$2y$10$xXkxmgU1J3dYxae69h6xRe0bvwFSKnEYn1VrMb4cFVKVq3QKpBACS', 1, NULL, '2023-06-01 07:28:07', '2023-06-01 07:28:07'),
@@ -408,7 +405,9 @@ REPLACE INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `r
 	(5, 'guru', 'guru@sadisweb.com', NULL, '$2y$10$UDdavC7tBgnTdlWe.MuQcexQ099rtR4YLE4tt.u5rW6Bh5s60VnEq', 3, NULL, '2023-06-01 07:29:27', '2023-06-01 07:29:27'),
 	(6, 'siswa', 'siswa@sadisweb.com', NULL, '$2y$10$c1KsbZD4Qqz5rtdfXWI0weqOgDyu684YpxCdC/OvxxD2kHps5/8aq', 4, NULL, '2023-06-01 07:30:18', '2023-06-01 07:30:18'),
 	(10, 'Rettousei', 'Rettousei@sadis.com', NULL, '$2y$10$Nsl0XU.3Y9vYSL8/Au9wr.492OtI6y/3sxXwoTFL9ZBVZ7SL0hKBy', 4, NULL, '2023-06-19 02:21:50', '2023-06-19 02:21:50'),
-	(24, 'Helfi Apriliyandi Firdaos', 'helfi.apriliyandi_ti20@nusaputra.ac.id', NULL, '$2y$10$b.Q9FPWZ9rnIP/oqBGQMHeSDKl5RRYl2r0YLeJQJETV8WC.W5nBHK', 2, NULL, '2023-06-23 05:11:28', '2023-06-23 05:11:28');
+	(24, 'Helfi Apriliyandi Firdaos', 'helfi.apriliyandi_ti20@nusaputra.ac.id', NULL, '$2y$10$b.Q9FPWZ9rnIP/oqBGQMHeSDKl5RRYl2r0YLeJQJETV8WC.W5nBHK', 2, NULL, '2023-06-23 05:11:28', '2023-06-23 05:11:28'),
+	(26, 'Adit', 'adit@gmail.com', NULL, '$2y$10$eWEiif.XOTCTkaZX8sMk8usr8nj/7B84tGXeBO9Yft5dIkxKJGDcO', 1, NULL, '2023-06-25 18:25:24', '2023-06-25 18:25:24'),
+	(27, 'adit', 'adit1@gmail.com', NULL, '$2y$10$lhME53XYVr6DFycrDDPGUu9M9tjaWj6ZAsNer44sOZBdhp9TwyToO', 4, NULL, '2023-06-25 18:25:45', '2023-06-25 18:25:45');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

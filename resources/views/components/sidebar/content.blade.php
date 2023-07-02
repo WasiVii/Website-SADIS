@@ -111,14 +111,14 @@
                 :active="request()->routeIs('ekstrakulikuler.index')"
             />
             @endif
-            @if (Auth::user()->role_id == 4)
+            @if (Auth::user()->role_id == 4 || Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
             <x-sidebar.sublink
                 title="Data Berita"
                 href="{{ route('berita.index') }}"
                 :active="request()->routeIs('berita.index')"
             />
+            @endif
         </x-sidebar.dropdown>
-        @endif
 
     @if (Auth::user()->role_id == 1)
         <x-sidebar.dropdown
